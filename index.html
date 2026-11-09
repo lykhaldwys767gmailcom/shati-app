@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>شاطئ الوصل - التطبيق النهائي</title>
+<style>
+*{box-sizing:border-box;font-family:system-ui} body{margin:0;background:#f4f4f4}
+header{background:#7A003C;color:#fff;padding:12px;display:flex;justify-content:space-between;align-items:center}
+header b{font-size:19px} .menuBtn{background:#fff;color:#7A003C;border:0;padding:8px 12px;border-radius:10px;font-weight:bold}
+.dropdown{background:#fff;margin:10px;border-radius:12px;padding:8px;box-shadow:0 4px 14px rgba(0,0,0,.1);display:none}
+.dropdown div{padding:11px;border-bottom:1px solid #eee;cursor:pointer}
+.top{background:#e9e9ff;padding:12px;margin:10px;border-radius:12px;display:flex;justify-content:space-between}
+.banner{background:#7A003C;color:#fff;margin:10px;border-radius:14px;padding:16px;display:flex;justify-content:space-between}
+.banner button{background:#fff;color:#7A003C;border:0;padding:8px 14px;border-radius:20px;font-weight:bold}
+h3{padding:0 12px;display:flex;justify-content:space-between}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:0 10px}
+.card{background:#fff;border-radius:12px;padding:12px;text-align:center;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.05)}
+.card b{font-size:19px;color:#7A003C;display:block} .card small{color:#777}
+.alerts{display:flex;gap:8px;padding:10px;flex-wrap:wrap} .alert{flex:1;min-width:140px;padding:10px;border-radius:10px;text-align:center;font-size:13px}
+.red{background:#ffe8e8} .orange{background:#fff0d6} .grey{background:#eee}
+.page{background:#fff;margin:10px;border-radius:12px;padding:14px;display:none}
+input,select{width:100%;padding:11px;border:1px solid #ddd;border-radius:10px;margin:6px 0}
+.main{width:100%;background:#7A003C;color:#fff;border:0;padding:12px;border-radius:12px;font-size:16px}
+.item{display:flex;justify-content:space-between;background:#fafafa;padding:10px;border-radius:10px;margin:6px 0;align-items:center}
+.tag{padding:3px 9px;border-radius:12px;color:#fff;font-size:12px} .ok{background:#22a355}.warn{background:#e8a100}.bad{background:#d92d20}
+.filters{display:flex;gap:6px;overflow:auto} .filters button{padding:8px 12px;border-radius:20px;border:1px solid #ddd;background:#fff;white-space:nowrap}
+.filters button.active{background:#7A003C;color:#fff}
+.hidden{display:none} .done{text-decoration:line-through;opacity:.6}
+table{width:100%;border-collapse:collapse;font-size:13px} td,th{padding:8px;border-bottom:1px solid #eee;text-align:right}
+@media(max-width:700px){.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><div><b>شاطئ الوصل NMA</b><div style="font-size:12px">فرع الفرسان - 20 فرع - مدن مختلفة</div></div><button class="menuBtn" onclick="toggleMenu()">☰ القائمة ▼</button></header>
+<div class="dropdown" id="menu">
+<div onclick="openPage('home')">🏠 الرئيسية</div>
+<div onclick="openPage('tasks')">✅ مهامي</div>
+<div onclick="openPage('products')">📦 المنتجات والتحويلات</div>
+<div onclick="openPage('newprod')">➕ أنت أحد المنتج؟</div>
+<div onclick="openPage('branchProd')">🏬 منتجات الفرع - مثل أودو</div>
+<div onclick="openPage('transfer')">🔄 التحويل المتوقع - 887</div>
+<div onclick="openPage('receive')">📥 استلام شحنة</div>
+<div onclick="openPage('reports')">📊 التحليل والتقارير</div>
+<div onclick="openPage('branchAnalysis')">📈 تحليل فرعي</div>
+<div onclick="openPage('reports2')">📋 التقارير</div>
+<div onclick="openPage('monthly')">🗓️ التقارير الشهرية</div>
+<div onclick="openPage('odoo')">🔗 ربط أودو</div>
+</div>
+
+<!-- الرئيسية -->
+<div id="page-home">
+<div class="top"><div><b>مساء الخير</b><div style="font-size:12px">الاثنين 9 نوفمبر 2026</div></div><div style="font-size:12px;text-align:left">عندك 0 منتج بالسالب و 221 منتج في الطريق إليك.</div></div>
+<div class="banner"><div><b style="font-size:18px">تطبيق شاطئ الوصل على جوالك الآن</b><p style="font-size:13px">نفس النظام اللي تعرفه على الويندوز الآن في جيبك.</p><button onclick="alert('قريباً في المتجر')">تعرف أكثر ←</button></div><div style="font-size:40px">📱</div></div>
+<h3>ملخص الفرع <span style="font-size:12px;color:#7A003C">كل التقارير ←</span></h3>
+<div class="grid">
+<div class="card" onclick="openPage('branchProd')"><span>المنتجات السالبة</span><b>0 منتج</b><small>0 وحدة بالسالب</small></div>
+<div class="card"><span>العروض المفعلة</span><b>0 منتج</b><small>0 وحدة في رصيد الفرع</small></div>
+<div class="card" onclick="openPage('branchProd')"><span>المتوقف عن البيع</span><b style="color:#d92d20">221 منتج</b><small>2,374 وحدة</small></div>
+<div class="card" onclick="openPage('transfer')"><span>التحويل الواردة</span><b>2 منتج</b><small>12 وحدة</small></div>
+<div class="card" onclick="openPage('transfer')"><span>التحويل الصادرة</span><b>55 منتج</b><small>229 وحدة</small></div>
+<div class="card"><span>مواعيد الشحنات</span><b>الاثنين + الخميس</b><small>الموعد القادم: اليوم</small></div>
+</div>
+<h3>المتابعة اليومية 📋</h3>
+<div class="grid">
+<div class="card" onclick="openPage('transfer')"><span>التحويل المتوقع</span><b>887</b><small>بشحنة ربط فشل قبل 11:00 م</small></div>
+<div class="card" onclick="openPage('tasks')"><span>مهام مطلوبة مني</span><b id="taskHome">0</b><small>مهمة من الإدارة</small></div>
+<div class="card"><span>بحاجة لردي</span><b>2</b><small>مراسلة تنتظرك</small></div>
+<div class="card"><span>رسائل غير مقروءة</span><b>20</b><small>مراسلة لم تُفتح بعد</small></div>
+<div class="card"><span>دفعات مفتوحة</span><b>0</b><small>قيد المعالجة</small></div>
+<div class="card" onclick="openPage('branchProd')"><span>منتجات الفرع</span><b style="font-size:14px">المكياج وبقية المنتجات</b><small>الفئات وحركة كل منتج</small></div>
+</div>
+<h3>أصناف سالبة</h3><div class="grid"><div class="card"><b>0</b><small>من إجمالي الفرع</small></div></div>
+<div class="alerts"><div class="alert red">⚠️ 1972 صف في حالة حرجة</div><div class="alert orange">⚠️ 2623 صف ناقص - 1829 بلا مصدر</div><div class="alert grey">⚠️ 1072 صف ناقص راف بلا مبيعات</div></div>
+</div>
+
+<!-- مهامي -->
+<div class="page" id="page-tasks"><h2>✅ مهامي</h2><input id="taskText" placeholder="مهمة جديدة - مثال: جرد رف المكياج"><button class="main" onclick="addTask()">إضافة مهمة</button><div id="taskList"></div><p id="taskCount"></p></div>
+
+<!-- منتجات وتحويلات -->
+<div class="page" id="page-products"><h2>📦 المنتجات والتحويلات</h2><div style="display:flex;gap:8px"><button class="main" style="flex:1" onclick="openPage('branchProd')">منتجات الفرع</button><button class="main" style="flex:1;background:#333" onclick="openPage('transfer')">التحويلات</button></div><div id="productListMini"></div></div>
+
+<!-- إضافة منتج -->
+<div class="page" id="page-newprod"><h2>➕ أنت أحد المنتج؟</h2><input id="pName" placeholder="اسم المنتج"><input id="pCode" placeholder="كود / باركود"><input id="pQty" type="number" placeholder="الكمية"><input id="pPrice" type="number" placeholder="السعر ر.س"><select id="pStatus"><option value="ok">متوفر</option><option value="warn">منخفض</option><option value="bad">حرج - متوقف</option></select><button class="main" onclick="addProduct()">حفظ المنتج</button></div>
+
+<!-- منتجات الفرع مثل أودو -->
+<div class="page" id="page-branchProd">
+<h2>🏬 منتجات الفرع - مثل أودو product.product</h2>
+<div style="display:flex;gap:6px"><input id="search" placeholder="ابحث بالاسم أو الباركود" oninput="renderAll()" style="flex:1"><button class="main" style="width:110px" onclick="openPage('odoo')">🔄 مزامنة أودو</button></div>
+<div class="filters" id="filters" style="margin-top:8px"></div>
+<p id="count"></p><div id="productList"></div><div id="detail" style="display:none"></div>
+</div>
+
+<!-- تحويل -->
+<div class="page" id="page-transfer"><h2>🔄 التحويل المتوقع - 887</h2><p>الواردة: 2 | الصادرة: 55 | الشحن: الاثنين + الخميس</p><label>من:</label><select id="from"><option>الدمام - الفرسان</option><option>الرياض - العليا</option><option>جدة - الروضة</option><option>مكة - العزيزية</option></select><label>إلى:</label><select id="to"><option>الرياض - العليا</option><option>الدمام - الفرسان</option><option>جدة - الروضة</option><option>مكة - العزيزية</option></select><input id="tProd" placeholder="اسم المنتج"><input id="tQty" type="number" value="10"><button class="main" onclick="doTransfer()">إرسال طلب تحويل</button><div id="tMsg" style="display:none;background:#e7f8ee;padding:10px;border-radius:10px;margin-top:10px"></div><div style="background:#f4f4f4;padding:10px;border-radius:10px;margin-top:10px"><b>الشحن بين المدن:</b><p>الدمام → الرياض: يومين | الرياض → جدة: يومين | جدة → مكة: يوم واحد</p></div></div>
+
+<!-- استلام -->
+<div class="page" id="page-receive"><h2>📥 استلام شحنة</h2><p>شحنة الاثنين + الخميس - القادمة: اليوم</p><input placeholder="رقم الشحنة / باركود"><button class="main" onclick="alert('تم استلام الشحنة ✅ - تم تحديث المخزون')">تأكيد الاستلام</button></div>
+
+<!-- تقارير -->
+<div class="page" id="page-reports"><h2>📊 التحليل والتقارير</h2><p>الدمام: 420K | الرياض: 350K | جدة: 280K | مكة: 95K | المدينة: 95K | القصيم: 80K</p><p>الإجمالي: 1.24M ريال - +12% عن الشهر الماضي</p></div>
+<div class="page" id="page-branchAnalysis"><h2>📈 تحليل فرعي</h2><p>فرع الفرسان - 221 متوقف - 0 سالب - 34 واردة</p><p>أفضل منتج: كريم أساس | أسوأ منتج: ماسكرا - 0</p></div>
+<div class="page" id="page-reports2"><h2>📋 التقارير</h2><p>• النواقص: 2623 صف<br>• الحرجة: 1972 صف<br>• التحويلات: 57 هذا الأسبوع</p></div>
+<div class="page" id="page-monthly"><h2>🗓️ التقارير الشهرية</h2><p>تقرير نوفمبر 2026 - 20 فرع - جاهز</p><button class="main" onclick="alert('تم تحميل التقرير')">تحميل التقرير الشهري</button></div>
+
+<!-- أودو -->
+<div class="page" id="page-odoo">
+<h2>🔗 ربط أودو - main-shati</h2>
+<p>الرابط: main-shati.shati.globalsolutions.sa<br>الموديل: product.product</p>
+<label>رابط أودو:</label><input id="odooUrl" value="https://main-shati.shati.globalsolutions.sa">
+<label>اسم قاعدة البيانات:</label><input id="odooDb" placeholder="مثال: main-shati">
+<label>اسم المستخدم:</label><input id="odooUser" placeholder="اسم المستخدم في أودو">
+<label>مفتاح API - من My Preferences > Account Security:</label><input id="odooKey" placeholder="الصق مفتاح API هنا - لا ترسل كلمة المرور">
+<button class="main" onclick="testOdoo()">اختبار الاتصال مع أودو</button>
+<div id="odooMsg" style="display:none;background:#e7f8ee;padding:10px;border-radius:10px;margin-top:10px"></div>
+<p style="font-size:12px;color:#666">بعد الربط، المنتجات بتصير تسحب من أودو مباشرة، والتحويل بيصير stock.picking حقيقي في أودو.</p>
+</div>
+
+<script>
+let products=JSON.parse(localStorage.getItem('wasl_final')||'null')||[
+ {name:"كريم أساس - ميبيلين",code:"88001",barcode:"62912388001",qty:45,price:85,branch:"الدمام - الفرسان",status:"ok",stock:{"الدمام":45,"الرياض":12,"جدة":0,"مكة":8}},
+ {name:"روج - ماك",code:"88002",barcode:"62912388002",qty:8,price:120,branch:"الرياض - العليا",status:"warn",stock:{"الدمام":5,"الرياض":8,"جدة":20,"مكة":0}},
+ {name:"ماسكرا - لوريال",code:"88003",barcode:"62912388003",qty:0,price:65,branch:"الدمام - الفرسان",status:"bad",stock:{"الدمام":0,"الرياض":0,"جدة":15,"مكة":3}},
+ {name:"عطر شاطئ الوصل",code:"88004",barcode:"62912388004",qty:32,price:180,branch:"جدة - الروضة",status:"ok",stock:{"الدمام":32,"الرياض":18,"جدة":32,"مكة":22}},
+ {name:"كريم ترطيب - نيفيا",code:"88005",barcode:"62912388005",qty:12,price:35,branch:"مكة - العزيزية",status:"warn",stock:{"الدمام":2,"الرياض":12,"جدة":6,"مكة":12}},
+ {name:"كريم أساس - 18.00 ر.س",code:"88007",barcode:"62912388007",qty:0,price:18,branch:"الدمام - الفرسان",status:"bad",stock:{"الدمام":0,"الرياض":0,"جدة":0,"مكة":0}}
+];
+let tasks=JSON.parse(localStorage.getItem('wasl_final_tasks')||'null')||[{text:"جرد رف المكياج",done:false},{text:"متابعة التحويل من الرياض",done:false}];
+let cur="الكل"; let filters=["الكل","متوفر","منخفض","حرج - متوقف","الدمام","الرياض","جدة","مكة"];
+function toggleMenu(){let m=document.getElementById('menu');m.style.display=m.style.display==='block'?'none':'block';}
+function openPage(p){
+ document.getElementById('menu').style.display='none';
+ document.getElementById('page-home').style.display=p==='home'?'block':'none';
+ ['tasks','products','newprod','branchProd','transfer','receive','reports','branchAnalysis','reports2','monthly','odoo'].forEach(x=>{
+   let el=document.getElementById('page-'+x); if(el) el.style.display=(x===p)?'block':'none';
+ });
+ renderAll(); window.scrollTo(0,0);
+}
+function renderAll(){
+ document.getElementById('filters').innerHTML=filters.map(f=>`<button class="${f===cur?'active':''}" onclick="setF('${f}')">${f}</button>`).join('');
+ let q=(document.getElementById('search')?.value||'').toLowerCase();
+ let list=products.filter(p=>{
+   if(cur==="متوفر" && p.status!=="ok") return false;
+   if(cur==="منخفض" && p.status!=="warn") return false;
+   if(cur==="حرج - متوقف" && p.status!=="bad") return false;
+   if(["الدمام","الرياض","جدة","مكة"].includes(cur) && !p.branch.includes(cur)) return false;
+   if(q && !p.name.includes(q) && !p.barcode.includes(q) && !p.code.includes(q)) return false;
+   return true;
+ });
+ document.getElementById('count').innerText=`عرض ${list.length} من ${products.length} منتج - مثل أودو`;
+ document.getElementById('productList').innerHTML=list.map(p=>{
+   let idx=products.indexOf(p); let label=p.status==='ok'?'متوفر':p.status==='warn'?'منخفض':'حرج';
+   return `<div class="item" onclick="showDetail(${idx})"><div><b>${p.name}</b><div style="font-size:12px;color:#666">كود: ${p.code} | باركود: ${p.barcode} | ${p.branch} | ${p.price} ر.س</div></div><div style="text-align:left"><span class="tag ${p.status}">${label}</span><div><b>${p.qty} حبة</b></div></div></div>`;
+ }).join('');
+ document.getElementById('productListMini').innerHTML=products.slice(0,3).map(p=>`<div class="item"><b>${p.name}</b><span>${p.qty} حبة</span></div>`).join('');
+ document.getElementById('taskList').innerHTML=tasks.map((t,i)=>`<div class="item"><label><input type="checkbox" ${t.done?'checked':''} onchange="toggleTask(${i})"> <span class="${t.done?'done':''}">${t.text}</span></label><button onclick="delTask(${i})">حذف</button></div>`).join('');
+ let done=tasks.filter(t=>t.done).length;
+ document.getElementById('taskCount').innerText=`أنجزت ${done} من ${tasks.length}`;
+ document.getElementById('taskHome').innerText=tasks.filter(t=>!t.done).length;
+}
+function setF(f){cur=f;renderAll();}
+function showDetail(i){
+ let p=products[i]; let rows=Object.entries(p.stock).map(([c,q])=>`<tr><td>${c}</td><td>${q} حبة</td><td>${q===0?'❌ ناقص':q<10?'⚠️ منخفض':'✅ متوفر'}</td></tr>`).join('');
+ let d=document.getElementById('detail'); d.style.display='block';
+ d.innerHTML=`<h3>${p.name}</h3><p>كود أودو: ${p.code} | باركود: ${p.barcode} | السعر: ${p.price} ر.س</p><b>الكمية في كل مدينة:</b><table><tr><th>المدينة</th><th>الكمية</th><th>الحالة</th></tr>${rows}</table><label>اطلب تحويل من:</label><select id="fromCity"><option>جدة</option><option>الرياض</option><option>الدمام</option><option>مكة</option></select><input id="qtyReq" type="number" value="10"><button class="main" onclick="requestTransfer(${i})">طلب تحويل لهذا المنتج</button><div id="msg2" style="display:none;background:#e7f8ee;padding:10px;border-radius:10px;margin-top:10px"></div>`;
+}
+function requestTransfer(i){let p=products[i]; let from=document.getElementById('fromCity').value; let q=document.getElementById('qtyReq').value; let m=document.getElementById('msg2'); m.style.display='block'; m.innerHTML=`✅ تم إرسال طلب: <b>${q} - ${p.name}</b><br>من ${from} إلى ${p.branch}<br>الوصول: يومين - الشحن: الخميس - بيظهر في أودو كـ stock.picking`;}
+function addProduct(){let n=document.getElementById('pName').value; if(!n) return alert('اكتب اسم المنتج'); products.unshift({name:n,code:document.getElementById('pCode').value||"88"+Math.floor(Math.random()*1000),barcode:document.getElementById('pCode').value||"",qty:parseInt(document.getElementById('pQty').value||'0'),price:parseInt(document.getElementById('pPrice').value||'0'),branch:"الدمام - الفرسان",status:document.getElementById('pStatus').value,stock:{"الدمام":10,"الرياض":5,"جدة":0,"مكة":2}}); localStorage.setItem('wasl_final',JSON.stringify(products)); alert('تمت إضافة المنتج ✅'); openPage('branchProd');}
+function addTask(){let v=document.getElementById('taskText').value; if(!v) return; tasks.push({text:v,done:false}); localStorage.setItem('wasl_final_tasks',JSON.stringify(tasks)); document.getElementById('taskText').value=''; renderAll();}
+function toggleTask(i){tasks[i].done=!tasks[i].done; localStorage.setItem('wasl_final_tasks',JSON.stringify(tasks)); renderAll();}
+function delTask(i){tasks.splice(i,1); localStorage.setItem('wasl_final_tasks',JSON.stringify(tasks)); renderAll();}
+function doTransfer(){let f=document.getElementById('from').value; let t=document.getElementById('to').value; let p=document.getElementById('tProd').value||'منتج'; let q=document.getElementById('tQty').value; let m=document.getElementById('tMsg'); m.style.display='block'; m.innerHTML=`✅ تم إرسال الطلب: <b>${q} - ${p}</b><br>من ${f} إلى ${t}<br>الوصول: يومين - الشحن: الخميس`;}
+async function testOdoo(){
+ let url=document.getElementById('odooUrl').value; let db=document.getElementById('odooDb').value; let user=document.getElementById('odooUser').value; let key=document.getElementById('odooKey').value;
+ let m=document.getElementById('odooMsg'); m.style.display='block';
+ if(!db||!user||!key){m.innerHTML='⚠️ عبي كل الحقول: قاعدة البيانات + المستخدم + مفتاح API'; return;}
+ m.innerHTML='⏳ جاري الاتصال بـ '+url+' ...';
+ try{
+   let res=await fetch(url+"/json/2/common",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({jsonrpc:"2.0",method:"call",params:{service:"common",method:"login",args:[db,user,key]},id:1})});
+   let data=await res.json();
+   if(data.result){m.innerHTML=`✅ تم الاتصال بأودو! UID: ${data.result}<br>الآن التطبيق بيقدر يسحب المنتجات من product.product`;}
+   else{m.innerHTML='❌ فشل الدخول - تأكد من اسم القاعدة والمستخدم ومفتاح API<br>'+JSON.stringify(data.error||data);}
+ }catch(e){m.innerHTML='❌ ما قدرنا نوصل للسيرفر - تأكد أن الرابط صح وأن CORS مفعل في أودو، أو جرب من نفس شبكة الشركة.<br>'+e;}
+}
+renderAll();
+</script>
+</body>
+</html><!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>شاطئ الوصل - علي خالد ويس</title>
+<style>
+*{box-sizing:border-box;font-family:system-ui} body{margin:0;background:#f4f4f4}
+header{background:#7A003C;color:#fff;padding:12px;display:flex;justify-content:space-between;align-items:center}
+.menuBtn{background:#fff;color:#7A003C;border:0;padding:8px 12px;border-radius:10px;font-weight:bold}
+/* البنر مثل الصورة بالضبط */
+.banner{background:#7A003C;color:#fff;margin:10px;border-radius:16px;padding:14px;display:flex;gap:12px;align-items:center;overflow:hidden}
+.banner-right{flex:1}
+.banner-right .topRow{display:flex;justify-content:space-between;align-items:center;font-size:12px}
+.pill{padding:4px 10px;border-radius:20px;font-weight:bold} .redPill{background:#d92d20} .greenPill{background:#8A9A00}
+.banner h2{margin:8px 0;font-size:22px;line-height:1.3}
+.banner p{font-size:13px;line-height:1.6;margin:0}
+.banner .date{font-size:12px;margin-top:8px;opacity:.9}
+.phone{width:110px;min-width:110px;background:#fff;border-radius:14px;overflow:hidden;color:#000;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+.phone .ph-head{background:#7A003C;color:#fff;padding:6px;font-size:11px}
+.phone .ph-img{background:#222;margin:8px;height:50px;border-radius:8px;display:flex;align-items:center;justify-content:center}
+.phone .ph-img div{width:50px;height:26px;border:2px solid #fff;border-radius:6px}
+.phone .price{color:#d92d20;font-weight:bold;font-size:16px}
+.phone small{font-size:10px;color:#666}
+.banner-btns{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.banner-btns span{background:rgba(255,255,255,.15);padding:5px 9px;border-radius:20px;font-size:11px}
+.readBtn{background:#fff;color:#7A003C;border:0;padding:7px 14px;border-radius:20px;font-weight:bold;margin-top:10px}
+.dropdown{background:#fff;margin:10px;border-radius:12px;padding:8px;display:none;box-shadow:0 4px 14px rgba(0,0,0,.1)}
+.dropdown div{padding:11px;border-bottom:1px solid #eee;cursor:pointer}
+h3{padding:0 12px;display:flex;justify-content:space-between}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:0 10px}
+.card{background:#fff;border-radius:12px;padding:12px;text-align:center;cursor:pointer}
+.card b{font-size:19px;color:#7A003C;display:block} .card small{color:#777}
+.alerts{display:flex;gap:8px;padding:10px;flex-wrap:wrap} .alert{flex:1;min-width:140px;padding:10px;border-radius:10px;text-align:center;font-size:13px}
+.red{background:#ffe8e8} .orange{background:#fff0d6} .grey{background:#eee}
+.page{background:#fff;margin:10px;border-radius:12px;padding:14px;display:none}
+input,select{width:100%;padding:11px;border:1px solid #ddd;border-radius:10px;margin:6px 0}
+.main{width:100%;background:#7A003C;color:#fff;border:0;padding:12px;border-radius:12px;font-size:16px}
+.item{display:flex;justify-content:space-between;background:#fafafa;padding:10px;border-radius:10px;margin:6px 0;align-items:center}
+.tag{padding:3px 9px;border-radius:12px;color:#fff;font-size:12px} .ok{background:#22a355}.warn{background:#e8a100}.bad{background:#d92d20}
+.filters{display:flex;gap:6px;overflow:auto} .filters button{padding:8px 12px;border-radius:20px;border:1px solid #ddd;background:#fff;white-space:nowrap}
+.filters button.active{background:#7A003C;color:#fff}
+.done{text-decoration:line-through;opacity:.6}
+table{width:100%;border-collapse:collapse;font-size:13px} td,th{padding:8px;border-bottom:1px solid #eee;text-align:right}
+@media(max-width:700px){.grid{grid-template-columns:1fr 1fr}.banner h2{font-size:18px}}
+</style>
+</head>
+<body>
+<header><div><b>شاطئ الوصل NMA</b><div style="font-size:12px">مرحباً، علي خالد ويس - فرع الفرسان</div></div><button class="menuBtn" onclick="toggleMenu()">☰ القائمة ▼</button></header>
+
+<div class="dropdown" id="menu">
+<div onclick="openPage('home')">🏠 الرئيسية</div>
+<div onclick="openPage('tasks')">✅ مهامي</div>
+<div onclick="openPage('products')">📦 المنتجات والتحويلات</div>
+<div onclick="openPage('newprod')">➕ أنت أحد المنتج؟</div>
+<div onclick="openPage('branchProd')">🏬 منتجات الفرع - مثل أودو</div>
+<div onclick="openPage('transfer')">🔄 التحويل المتوقع - 887</div>
+<div onclick="openPage('receive')">📥 استلام شحنة</div>
+<div onclick="openPage('reports')">📊 التحليل والتقارير</div>
+<div onclick="openPage('branchAnalysis')">📈 تحليل فرعي</div>
+<div onclick="openPage('reports2')">📋 التقارير</div>
+<div onclick="openPage('monthly')">🗓️ التقارير الشهرية</div>
+<div onclick="openPage('odoo')">🔗 ربط أودو</div>
+</div>
+
+<!-- الرئيسية -->
+<div id="page-home">
+<!-- البنر نفس الصورة -->
+<div class="banner">
+<div class="banner-right">
+<div class="topRow"><div>👤 <b>علي خالد ويس</b></div><div><span class="pill greenPill">📌 مهم</span> <span class="pill redPill">! مهم</span></div></div>
+<h2>📱 تطبيق NMA على جوالك الآن</h2>
+<p>زملاءنا في فروع شاطئ الوصل،<br>يسعدنا إطلاق تطبيق NMA للجوال — نفس النظام الذي تعرفونه على الويندوز، الآن في جيبك وبنفس حسابك وصلاحياتك.</p>
+<div class="banner-btns"><span>✕ منع المنتجات</span><span>📦 التحويلات</span><span>📊 التقارير</span><span>✅ المهام</span><span>🔄 التحويل المتوقع</span></div>
+<div class="date">🕐 <span id="liveDate">2026-11-03 - 5:06 م</span> • علي خالد ويس</div>
+<button class="readBtn" onclick="alert('تطبيق NMA - نفس نظام الويندوز الآن على جوالك')">← اقرأ المزيد</button>
+</div>
+<!-- صورة الجوال نفس اللي في الصورة -->
+<div class="phone">
+<div class="ph-head">منع المنتجات</div>
+<div class="ph-img"><div></div></div>
+<div style="font-size:11px">ربح منع - 500 مل</div>
+<div class="price">18.00 ر.س</div>
+<div><small>سعر البيع</small></div>
+<div style="display:flex;justify-content:space-between;padding:6px 8px;font-size:10px"><span>12<br>عدد</span><span>رسم البيع<br>عليك</span></div>
+</div>
+</div>
+<div style="text-align:center;font-size:12px;color:#666;margin:-4px 10px 6px">كل الإعلانات (1) | التاريخ والوقت يتحدث تلقائياً</div>
+
+<div style="background:#e9e9ff;padding:12px;margin:10px;border-radius:12px;display:flex;justify-content:space-between"><div><b>مساء الخير، علي خالد ويس</b><div style="font-size:12px" id="todayLine">الاثنين 9 نوفمبر 2026</div></div><div style="font-size:12px;text-align:left">عندك 0 منتج بالسالب و 221 منتج في الطريق إليك.</div></div>
+
+<h3>ملخص الفرع <span style="font-size:12px;color:#7A003C">كل التقارير ←</span></h3>
+<div class="grid">
+<div class="card" onclick="openPage('branchProd')"><span>المنتجات السالبة</span><b>0 منتج</b><small>0 وحدة بالسالب</small></div>
+<div class="card"><span>العروض المفعلة</span><b>0 منتج</b><small>0 وحدة في رصيد الفرع</small></div>
+<div class="card" onclick="openPage('branchProd')"><span>المتوقف عن البيع</span><b style="color:#d92d20">221 منتج</b><small>2,374 وحدة</small></div>
+<div class="card" onclick="openPage('transfer')"><span>التحويل الواردة</span><b>2 منتج</b><small>12 وحدة</small></div>
+<div class="card" onclick="openPage('transfer')"><span>التحويل الصادرة</span><b>55 منتج</b><small>229 وحدة</small></div>
+<div class="card"><span>مواعيد الشحنات</span><b>الاثنين + الخميس</b><small>الموعد القادم: اليوم</small></div>
+</div>
+<h3>المتابعة اليومية 📋</h3>
+<div class="grid">
+<div class="card" onclick="openPage('transfer')"><span>التحويل المتوقع</span><b>887</b><small>بشحنة ربط فشل قبل 11:00 م</small></div>
+<div class="card" onclick="openPage('tasks')"><span>مهام مطلوبة مني</span><b id="taskHome">0</b><small>مهمة من الإدارة</small></div>
+<div class="card"><span>بحاجة لردي</span><b>2</b><small>مراسلة تنتظرك</small></div>
+<div class="card"><span>رسائل غير مقروءة</span><b>20</b><small>مراسلة لم تُفتح بعد</small></div>
+<div class="card"><span>دفعات مفتوحة</span><b>0</b><small>قيد المعالجة</small></div>
+<div class="card" onclick="openPage('branchProd')"><span>منتجات الفرع</span><b style="font-size:14px">المكياج وبقية المنتجات</b><small>الفئات وحركة كل منتج</small></div>
+</div>
+<div class="alerts"><div class="alert red">⚠️ 1972 صف في حالة حرجة</div><div class="alert orange">⚠️ 2623 صف ناقص - 1829 بلا مصدر</div><div class="alert grey">⚠️ 1072 صف ناقص راف بلا مبيعات</div></div>
+</div>
+
+<!-- باقي الصفحات -->
+<div class="page" id="page-tasks"><h2>✅ مهامي - علي خالد ويس</h2><input id="taskText" placeholder="مهمة جديدة"><button class="main" onclick="addTask()">إضافة مهمة</button><div id="taskList"></div><p id="taskCount"></p></div>
+<div class="page" id="page-products"><h2>📦 المنتجات والتحويلات</h2><div style="display:flex;gap:8px"><button class="main" style="flex:1" onclick="openPage('branchProd')">منتجات الفرع</button><button class="main" style="flex:1;background:#333" onclick="openPage('transfer')">التحويلات</button></div><div id="productListMini"></div></div>
+<div class="page" id="page-newprod"><h2>➕ أنت أحد المنتج؟</h2><input id="pName" placeholder="اسم المنتج"><input id="pCode" placeholder="كود / باركود"><input id="pQty" type="number" placeholder="الكمية"><input id="pPrice" type="number" placeholder="السعر ر.س"><select id="pStatus"><option value="ok">متوفر</option><option value="warn">منخفض</option><option value="bad">حرج - متوقف</option></select><button class="main" onclick="addProduct()">حفظ المنتج</button></div>
+<div class="page" id="page-branchProd"><h2>🏬 منتجات الفرع - مثل أودو product.product</h2><div style="display:flex;gap:6px"><input id="search" placeholder="ابحث بالاسم أو الباركود" oninput="renderAll()" style="flex:1"><button class="main" style="width:110px" onclick="openPage('odoo')">🔄 مزامنة أودو</button></div><div class="filters" id="filters" style="margin-top:8px"></div><p id="count"></p><div id="productList"></div><div id="detail" style="display:none"></div></div>
+<div class="page" id="page-transfer"><h2>🔄 التحويل المتوقع - 887</h2><p>الواردة: 2 | الصادرة: 55 | الشحن: الاثنين + الخميس</p><label>من:</label><select id="from"><option>الدمام - الفرسان</option><option>الرياض - العليا</option><option>جدة - الروضة</option><option>مكة - العزيزية</option></select><label>إلى:</label><select id="to"><option>الرياض - العليا</option><option>الدمام - الفرسان</option><option>جدة - الروضة</option><option>مكة - العزيزية</option></select><input id="tProd" placeholder="اسم المنتج"><input id="tQty" type="number" value="10"><button class="main" onclick="doTransfer()">إرسال طلب تحويل</button><div id="tMsg" style="display:none;background:#e7f8ee;padding:10px;border-radius:10px;margin-top:10px"></div></div>
+<div class="page" id="page-receive"><h2>📥 استلام شحنة</h2><p>شحنة الاثنين + الخميس - القادمة: اليوم</p><input placeholder="رقم الشحنة / باركود"><button class="main" onclick="alert('تم استلام الشحنة ✅ - علي خالد ويس')">تأكيد الاستلام</button></div>
+<div class="page" id="page-reports"><h2>📊 التحليل والتقارير</h2><p>الدمام: 420K | الرياض: 350K | جدة: 280K | مكة: 95K | المدينة: 95K | القصيم: 80K</p><p>الإجمالي: 1.24M ريال - +12%</p></div>
+<div class="page" id="page-branchAnalysis"><h2>📈 تحليل فرعي - علي خالد ويس</h2><p>فرع الفرسان - 221 متوقف - 0 سالب - 34 واردة</p></div>
+<div class="page" id="page-reports2"><h2>📋 التقارير</h2><p>• النواقص: 2623 صف<br>• الحرجة: 1972 صف<br>• التحويلات: 57 هذا الأسبوع</p></div>
+<div class="page" id="page-monthly"><h2>🗓️ التقارير الشهرية</h2><p>تقرير نوفمبر 2026 - 20 فرع</p><button class="main" onclick="alert('تم تحميل التقرير')">تحميل التقرير الشهري</button></div>
+<div class="page" id="page-odoo"><h2>🔗 ربط أودو - main-shati</h2><p>المستخدم: علي خالد ويس<br>الرابط: main-shati.shati.globalsolutions.sa<br>الموديل: product.product</p><label>اسم قاعدة البيانات:</label><input id="odooDb" placeholder="مثال: main-shati"><label>اسم المستخدم:</label><input id="odooUser" value="علي خالد ويس"><label>مفتاح API:</label><input id="odooKey" placeholder="الصق مفتاح API هنا"><button class="main" onclick="testOdoo()">اختبار الاتصال مع أودو</button><div id="odooMsg" style="display:none;background:#e7f8ee;padding:10px;border-radius:10px;margin-top:10px"></div></div>
+
+<script>
+// التاريخ والوقت - يتحدث تلقائياً + ثابت مثل الصورة
+function updateDate(){
+ let now=new Date();
+ let d=now.toLocaleDateString('ar-SA',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+ let t=now.toLocaleTimeString('ar-SA',{hour:'numeric',minute:'2-digit'});
+ document.getElementById('liveDate').innerText=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')} - ${t} • علي خالد ويس`;
+ document.getElementById('todayLine').innerText=d;
+}
+updateDate(); setInterval(updateDate,60000);
+let products=JSON.parse(localStorage.getItem('wasl_final')||'null')||[
+ {name:"كريم أساس - ميبيلين",code:"88001",barcode:"62912388001",qty:45,price:85,branch:"الدمام - الفرسان",status:"ok",stock:{"الدمام":45,"الرياض":12,"جدة":0,"مكة":8}},
+ {name:"روج - ماك",code:"88002",barcode:"62912388002",qty:8,price:120,branch:"الرياض - العليا",status:"warn",stock:{"الدمام":5,"الرياض":8,"جدة":20,"مكة":0}},
+ {name:"ماسكرا - لوريال",code:"88003",barcode:"62912388003",qty:0,price:65,branch:"الدمام - الفرسان",status:"bad",stock:{"الدمام":0,"الرياض":0,"جدة":15,"مكة":3}},
+ {name:"عطر شاطئ الوصل",code:"88004",barcode:"62912388004",qty:32,price:180,branch:"جدة - الروضة",status:"ok",stock:{"الدمام":32,"الرياض":18,"جدة":32,"مكة":22}},
+ {name:"كريم ترطيب - نيفيا",code:"88005",barcode:"62912388005",qty:12,price:35,branch:"مكة - العزيزية",status:"warn",stock:{"الدمام":2,"الرياض":12,"جدة":6,"مكة":12}},
+ {name:"كريم أساس - 18.00 ر.س",code:"88007",barcode:"62912388007",qty:0,price:18,branch:"الدمام - الفرسان",status:"bad",stock:{"الدمام":0,"الرياض":0,"جدة":0,"مكة":0}}
+];
+let tasks=JSON.parse(localStorage.getItem('wasl_final_tasks')||'null')||[{text:"جرد رف المكياج",done:false},{text:"متابعة التحويل من الرياض",done:false}];
+let cur="الكل"; let filters=["الكل","متوفر","منخفض","حرج - متوقف","الدمام","الرياض","جدة","مكة"];
+function toggleMenu(){let m=document.getElementById('menu');m.style.display=m.style.display==='block'?'none':'block';}
+function openPage(p){
+ document.getElementById('menu').style.display='none';
+ document.getElementById('page-home').style.display=p==='home'?'block':'none';
+ ['tasks','products','newprod','branchProd','transfer','receive','reports','branchAnalysis','reports2','monthly','odoo'].forEach(x=>{let el=document.getElementById('page-'+x); if(el) el.style.display=(x===p)?'block':'none';});
+ renderAll(); window.scrollTo(0,0);
+}
+function renderAll(){
+ document.getElementById('filters').innerHTML=filters.map(f=>`<button class="${f===cur?'active':''}" onclick="setF('${f}')">${f}</button>`).join('');
+ let q=(document.getElementById('search')?.value||'').toLowerCase();
+ let list=products.filter(p=>{
+   if(cur==="متوفر" && p.status!=="ok") return false;
+   if(cur==="منخفض" && p.status!=="warn") return false;
+   if(cur==="حرج - متوقف" && p.status!=="bad") return false;
+   if(["الدمام","الرياض","جدة","مكة"].includes(cur) && !p.branch.includes(cur)) return false;
+   if(q && !p.name.includes(q) && !p.barcode.includes(q) && !p.code.includes(q)) return false;
+   return true;
+ });
+ document.getElementById('count').innerText=`عرض ${list.length} من ${products.length} منتج - مثل أودو`;
+ document.getElementById('productList').innerHTML=list.map(p=>{let idx=products.indexOf(p); let label=p.status==='ok'?'متوفر':p.status==='warn'?'منخفض':'حرج'; return `<div class="item" onclick="showDetail(${idx})"><div><b>${p.name}</b><div style="font-size:12px;color:#666">كود: ${p.code} | باركود: ${p.barcode} | ${p.branch} | ${p.price} ر.س</div></div><div style="text-align:left"><span class="tag ${p.status}">${label}</span><div><b>${p.qty} حبة</b></div></div></div>`;}).join('');
+ document.getElementById('productListMini').innerHTML=products.slice(0,3).map(p=>`<div class="item"><b>${p.name}</b><span>${p.qty} حبة</span></div>`).join('');
+ document.getElementById('taskList').innerHTML=tasks.map((t,i)=>`<div class="item"><label><input type="checkbox" ${t.done?'checked':''} onchange="toggleTask(${i})"> <span class="${t.done?'done':''}">${t.text}</span></label><button onclick="delTask(${i})">حذف</button></div>`).join('');
+ let done=tasks.filter(t=>t.done).length; document.getElementById('taskCount').innerText=`أنجزت ${done} من ${tasks.length}`; document.getElementById('taskHome').innerText=tasks.filter(t=>!t.done).length;
+}
+function setF(f){cur=f;renderAll();}
+function showDetail(i){let p=products[i]; let rows=Object.entries(p.stock).map(([c,q])=>`<tr><td>${c}</td><td>${q} حبة</td><td>${q===0?'❌ ناقص':q<10?'⚠️ منخفض':'✅ متوفر'}</td></tr>`).join(''); let d=document.getElementById('detail'); d.style.display='block'; d.innerHTML=`<h3>${p.name}</h3><p>كود أودو: ${p.code} | باركود: ${p.barcode} | السعر: ${p.price} ر.س</p><b>الكمية في كل مدينة:</b><table><tr><th>المدينة</th><th>الكمية</th><th>الحالة</th></tr>${rows}</table><label>اطلب تحويل من:</label><select id="fromCity"><option>جدة</option><option>الرياض</option><option>الدمام</option><option>مكة</option></select><input id="qtyReq" type="number" value="10"><button class="main" onclick="requestTransfer(${i})">طلب تحويل لهذا المنتج</button><div id="msg2" style="display:none;background:#e7f8ee;padding:10px;border-radius:10px;margin-top:10px"></div>`;}
+function requestTransfer(i){let p=products[i]; let from=document.getElementById('fromCity').value; let q=document.getElementById('qtyReq').value; let m=document.getElementById('msg2'); m.style.display='block'; m.innerHTML=`✅ تم إرسال طلب: <b>${q} - ${p.name}</b><br>من ${from} إلى ${p.branch}<br>الوصول: يومين - الشحن: الخميس`;}
+function addProduct(){let n=document.getElementById('pName').value; if(!n) return alert('اكتب اسم المنتج'); products.unshift({name:n,code:document.getElementById('pCode').value||"88"+Math.floor(Math.random()*1000),barcode:document.getElementById('pCode').value||"",qty:parseInt(document.getElementById('pQty').value||'0'),price:parseInt(document.getElementById('pPrice').value||'0'),branch:"الدمام - الفرسان",status:document.getElementById('pStatus').value,stock:{"الدمام":10,"الرياض":5,"جدة":0,"مكة":2}}); localStorage.setItem('wasl_final',JSON.stringify(products)); alert('تمت إضافة المنتج ✅'); openPage('branchProd');}
+function addTask(){let v=document.getElementById('taskText').value; if(!v) return; tasks.push({text:v,done:false}); localStorage.setItem('wasl_final_tasks',JSON.stringify(tasks)); document.getElementById('taskText').value=''; renderAll();}
+function toggleTask(i){tasks[i].done=!tasks[i].done; localStorage.setItem('wasl_final_tasks',JSON.stringify(tasks)); renderAll();}
+function delTask(i){tasks.splice(i,1); localStorage.setItem('wasl_final_tasks',JSON.stringify(tasks)); renderAll();}
+function doTransfer(){let f=document.getElementById('from').value; let t=document.getElementById('to').value; let p=document.getElementById('tProd').value||'منتج'; let q=document.getElementById('tQty').value; let m=document.getElementById('tMsg'); m.style.display='block'; m.innerHTML=`✅ تم إرسال الطلب: <b>${q} - ${p}</b><br>من ${f} إلى ${t}<br>الوصول: يومين - الشحن: الخميس`;}
+async function testOdoo(){
+ let db=document.getElementById('odooDb').value; let user=document.getElementById('odooUser').value; let key=document.getElementById('odooKey').value;
+ let m=document.getElementById('odooMsg'); m.style.display='block';
+ if(!db||!user||!key){m.innerHTML='⚠️ عبي كل الحقول'; return;}
+ m.innerHTML='⏳ جاري الاتصال بـ أودو ...';
+ try{
+   let res=await fetch("https://main-shati.shati.globalsolutions.sa/json/2/common",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({jsonrpc:"2.0",method:"call",params:{service:"common",method:"login",args:[db,user,key]},id:1})});
+   let data=await res.json();
+   if(data.result){m.innerHTML=`✅ تم الاتصال بأودو! أهلاً علي خالد ويس - UID: ${data.result}`;}
+   else{m.innerHTML='❌ فشل الدخول - تأكد من البيانات';}
+ }catch(e){m.innerHTML='❌ ما قدرنا نوصل للسيرفر - جرب من شبكة الشركة.<br>'+e;}
+}
+renderAll();
+</script>
+</body>
+</html><!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>شاطئ الوصل - علي خالد ويس</title>
+<style>
+*{box-sizing:border-box;font-family:system-ui} body{margin:0;background:#f4f4f4}
+header{background:#7A003C;color:#fff;padding:12px;display:flex;justify-content:space-between;align-items:center}
+.menuBtn{background:#fff;color:#7A003C;border:0;padding:8px 12px;border-radius:10px;font-weight:bold}
+.banner{background:#7A003C;color:#fff;margin:10px;border-radius:16px;padding:14px;display:flex;gap:12px;align-items:center;overflow:hidden}
+.banner-right{flex:1}
+.banner-right .topRow{display:flex;justify-content:space-between;align-items:center;font-size:12px}
+.pill{padding:4px 10px;border-radius:20px;font-weight:bold} .redPill{background:#d92d20} .greenPill{background:#8A9A00}
+.banner h2{margin:8px 0;font-size:22px;line-height:1.3}
+.banner p{font-size:13px;line-height:1.6;margin:0}
+.banner .date{font-size:12px;margin-top:8px;opacity:.9}
+.phone{width:110px;min-width:110px;background:#fff;border-radius:14px;overflow:hidden;color:#000;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+.phone .ph-head{background:#7A003C;color:#fff;padding:6px;font-size:11px}
+.phone .ph-img{background:#222;margin:8px;height:50px;border-radius:8px;display:flex;align-items:center;justify-content:center}
+.phone .ph-img div{width:50px;height:26px;border:2px solid #fff;border-radius:6px}
+.phone .price{color:#d92d20;font-weight:bold;font-size:16px}
+.phone small{font-size:10px;color:#666}
+.banner-btns{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.banner-btns span{background:rgba(255,255,255,.15);padding:5px 9px;border-radius:20px;font-size:11px}
+.readBtn{background:#fff;color:#7A003C;border:0;padding:7px 14px;border-radius:20px;font-weight:bold;margin-top:10px}
+.dropdown{background:#fff;margin:10px;border-radius:12px;padding:8px;display:none;box-shadow:0 4px 14px rgba(0,0,0,.1)}
+.dropdown div{padding:11px;border-bottom:1px solid #eee;cursor:pointer}
+h3{padding:0 12px;display:flex;justify-content:space-between}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:0 10px}
+.card{background:#fff;border-radius:12px;padding:12px;text-align:center;cursor:pointer}
+.card b{font-size:19px;color:#7A003C;display:block} .card small{color:#777}
+.alerts{display:flex;gap:8px;padding:10px;flex-wrap:wrap} .alert{flex:1;min-width:140px;padding:10px;border-radius:10px;text-align:center;font-size:13px}
+.red{background:#ffe8e8} .orange{background:#fff0d6} .grey{background:#eee}
+.page{background:#fff;margin:10px;border-radius:12px;padding:14px;display:none}
+input,select{width:100%;padding:11px;border:1px solid #ddd;border-radius:10px;margin:6px 0}
+.main{width:100%;background:#7A003C;color:#fff;border:0;padding:12px;border-radius:12px;font-size:16px}
+.item{display:flex;justify-content:space-between;background:#fafafa;padding:10px;border-radius:10px;margin:6px 0;align-items:center}
+.tag{padding:3px 9px;border-radius:12px;color:#fff;font-size:12px} .ok{background:#22a355}.warn{background:#e8a100}.bad{background:#d92d20}
+.filters{display:flex;gap:6px;overflow:auto} .filters button{padding:8px 12px;border-radius:20px;border:1px solid #ddd;background:#fff;white-space:nowrap}
+.filters button.active{background:#7A003C;color:#fff}
+.done{text-decoration:line-through;opacity:.6}
+table{width:100%;border-collapse:collapse;font-size:13px} td,th{padding:8px;border-bottom:1px solid #eee;text-align:right}
+@media(max-width:700px){.grid{grid-template-columns:1fr 1fr}.banner h2{font-size:18px}}
+</style>
+</head>
+<body>
+<header><div><b>شاطئ الوصل NMA</b><div style="font-size:12px">مرحباً، علي خالد ويس - فرع الفرسان</div></div><button class="menuBtn" onclick="toggleMenu()">☰ القائمة ▼</button></header>
+<div class="dropdown" id="menu">
+<div onclick="openPage('home')">🏠 الرئيسية</div>
+<div onclick="openPage('tasks')">✅ مهامي</div>
+<div onclick="openPage('products')">📦 المنتجات والتحويلات</div>
+<div onclick="openPage('newprod')">➕ أنت أحد المنتج؟</div>
+<div onclick="openPage('branchProd')">🏬 منتجات الفرع - مثل أودو</div>
+<div onclick="openPage('transfer')">🔄 التحويل المتوقع - 887</div>
+<div onclick="openPage('receive')">📥 استلام شحنة</div>
+<div onclick="openPage('reports')">📊 التحليل والتقارير</div>
+<div onclick="openPage('branchAnalysis')">📈 تحليل فرعي</div>
+<div onclick="openPage('reports2')">📋 التقارير</div>
+<div onclick="openPage('monthly')">🗓️ التقارير الشهرية</div>
+<div onclick="openPage('odoo')">🔗 ربط أودو</div>
+</div>
+<div id="page-home">
+<div class="banner">
+<div class="banner-right">
+<div class="topRow"><div>👤 <b>علي خالد ويس</b></div><div><span class="pill greenPill">📌 مهم</span> <span class="pill redPill">! مهم</span></div></div>
+<h2>📱 تطبيق NMA على جوالك الآن</h2>
+<p>زملاءنا في فروع شاطئ الوصل،<br>يسعدنا إطلاق تطبيق NMA للجوال — نفس النظام الذي تعرفونه على الويندوز، الآن في جيبك وبنفس حسابك وصلاحياتك.</p>
+<div class="banner-btns"><span>✕ منع المنتجات</span><span>📦 التحويلات</span><span>📊 التقارير</span><span>✅ المهام</span><span>🔄 التحويل المتوقع</span></div>
+<div class="date">🕐 <span id="liveDate">2026-11-03 - 5:06 م</span> • علي خالد ويس</div>
+<button class="readBtn" onclick="alert('تطبيق NMA - نفس نظام الويندوز الآن على جوالك')">← اقرأ المزيد</button>
+</div>
+<div class="phone">
+<div class="ph-head">منع المنتجات</div>
+<div class="ph-img"><div></div></div>
+<div style="font-size:11px">ربح منع - 500 مل</div>
+<div class="price">18.00 ر.س</div>
+<div><small>سعر البيع</small></div>
+<div style="display:flex;justify-content:space-between;padding:6px 8px;font-size:10px"><span>12<br>عدد</span><span>رسم البيع<br>عليك</span></div>
+</div>
+</div>
+<div style="text-align:center;font-size:12px;color:#666;margin:-4px 10px 6px">كل الإعلانات (1) | التاريخ والوقت يتحدث تلقائياً</div>
+<div style="background:#e9e9ff;padding:12px;margin:10px;border-radius:12px;display:flex;justify-content:space-between"><div><b>مساء الخير، علي خالد ويس</b><div style="font-size:12px" id="todayLine">الاثنين 9 نوفمبر 2026</div></div><div style="font-size:12px;text-align:left">عندك 0 منتج بالسالب و 221 منتج في الطريق إليك.</div></div>
+<h3>ملخص الفرع <span style="font-size:12px;color:#7A003C">كل التقارير ←</span></h3>
+<div class="grid">
+<div class="card" onclick="openPage('branchProd')"><span>المنتجات السالبة</span><b>0 منتج</b><small>0 وحدة بالسالب</small></div>
+<div class="card"><span>العروض المفعلة</span><b>0 منتج</b><small>0 وحدة في رصيد الفرع</small></div>
+<div class="card" onclick="openPage('branchProd')"><span>المتوقف عن البيع</span><b style="color:#d92d20">221 منتج</b><small>2,374 وحدة</small></div>
+<div class="card" onclick="openPage('transfer')"><span>التحويل الواردة</span><b>2 منتج</b><small>12 وحدة</small></div>
+<div class="card" onclick="openPage('transfer')"><span>التحويل الصادرة</span><b>55 منتج</b><small>229 وحدة</small></div>
+<div class="card"><span>مواعيد الشحنات</span><b>الاثنين + الخميس</b><small>الموعد القادم: اليوم</small></div>
+</div>
+<h3>المتابعة اليومية 📋</h3>
+<div class="grid">
+<div class="card" onclick="openPage('transfer')"><span>التحويل المتوقع</span><b>887</b><small>بشحنة ربط فشل قبل 11:00 م</small></div>
+<div class="card" onclick="openPage('tasks')"><span>مهام مطلوبة مني</span><b id="taskHome">0</b><small>مهمة من الإدارة</small></div>
+<div class="card"><span>بحاجة لردي</span><b>2</b><small>مراسلة تنتظرك</small></div>
+<div class="card"><span>رسائل غير مقروءة</span><b>20</b><small>مراسلة لم تُفتح بعد</small></div>
+<div class="card"><span>دفعات مفتوحة</span><b>0</b><small>قيد المعالجة</small></div>
+<div class="card" onclick="openPage('branchProd')"><span>منتجات الفرع</span><b style="font-size:14px">المكياج وبقية المنتجات</b><small>الفئات وحركة كل منتج</small></div>
+</div>
+<div class="alerts"><div class="alert red">⚠️ 1972 صف في حالة حرجة</div><div class="alert orange">⚠️ 2623 صف ناقص - 1829 بلا مصدر</div><div class="alert grey">⚠️ 1072 صف ناقص راف بلا مبيعات</div></div>
+</div>
+<div class="page" id="page-tasks"><h2>✅ مهامي - علي خالد ويس</h2><input id="taskText" placeholder="مهمة جديدة"><button class="main" onclick="addTask()">إضافة مهمة</button><div id="taskList"></div><p id="taskCount"></p></div>
+<div class="page" id="page-products"><h2>📦 المنتجات والتحويلات</h2><div style="display:flex;gap:8px"><button class="main" style="flex:1" onclick="openPage('branchProd')">منتجات الفرع</button><button class="main" style="flex:1;background:#333" onclick="openPage('transfer')">التحويلات</button></div><div id="productListMini"></div></div>
+<div class="page" id="page-newprod"><h2>➕ أنت أحد المنتج؟</h2><input id="pName" placeholder="اسم المنتج"><input id="pCode" placeholder="كود / باركود"><input id="pQty" type="number" placeholder="الكمية"><input id="pPrice" type="number" placeholder="السعر ر.س"><select id="pStatus"><option value="ok">متوفر</option><option value="warn">منخفض</option><option value="bad">حرج - متوقف</option></select><button class="main" onclick="addProduct()">حفظ المنتج</button></div>
+<div class="page" id="page-branchProd"><h2>🏬 منتجات الفرع - مثل أودو product.product</h2><div style="display:flex;gap:6px"><input id="search" placeholder="ابحث بالاسم أو الباركود" oninput="renderAll()" style="flex:1"><button class="main" style="width:110px" onclick="openPage('odoo')">🔄 مزامنة أودو</button></div><div class="filters" id="filters" style="margin-top:8px"></div><p id="count"></p><div id="productList"></div><div id="detail" style="display:none"></div></div>
+<div class="page" id="page-transfer"><h2>🔄 التحويل المتوقع - 887</h2><p>الواردة: 2 | الصادرة: 55 | الشحن: الاثنين + الخميس</p><label>من:</label><select id="from"><option>الدمام - الفرسان</option><option>الرياض - العليا</option><option>جدة - الروضة</option><option>مكة - العزيزية</option></select><label>إلى:</label><select id="to"><option>الرياض - العليا</option><option>الدمام - الفرسان</option><option>جدة - الروضة</option><option>مكة - العزيزية</option></select><input id="tProd" placeholder="اسم المنتج"><input id="tQty" type="number" value="10"><button class="main" onclick="doTransfer()">إرسال طلب تحويل</button><div id="tMsg" style="display:none;background:#e7f8ee;padding:10px;border-radius:10px;margin-top:10px"></div></div>
+<div class="page" id="page-receive"><h2>📥 استلام شحنة</h2><p>شحنة الاثنين + الخميس - القادمة: اليوم</p><input placeholder="رقم الشحنة / باركود"><button class="main" onclick="alert('تم استلام الشحنة ✅ - علي خالد ويس')">تأكيد الاستلام</button></div>
+<div class="page" id="page-reports"><h2>📊 التحليل والتقارير</h2><p>الدمام: 420K | الرياض: 350K | جدة: 280K | مكة: 95K | المدينة: 95K | القصيم: 80K</p><p>الإجمالي: 1.24M ريال - +12%</p></div>
+<div class="page" id="page-branchAnalysis"><h2>📈 تحليل فرعي - علي خالد ويس</h2><p>فرع الفرسان - 221 متوقف - 0 سالب - 34 واردة</p></div>
+<div class="page" id="page-reports2"><h2>📋 التقارير</h2><p>• النواقص: 2623 صف<br>• الحرجة: 1972 صف<br>• التحويلات: 57 هذا الأسبوع</p></div>
+<div class="page" id="page-monthly"><h2>🗓️ التقارير الشهرية</h2><p>تقرير نوفمبر 2026 - 20 فرع</p><button class="main" onclick="alert('تم تحميل التقرير')">تحميل التقرير الشهري</button></div>
+<div class="page" id="page-odoo"><h2>🔗 ربط أودو - main-shati</h2><p>المستخدم: علي خالد ويس<br>الرابط: main-shati.shati.globalsolutions.sa<br>الموديل: product.product</p><label>اسم قاعدة البيانات:</label><input id="odooDb" placeholder="مثال: main-shati"><label>اسم المستخدم:</label><input id="odooUser" value="علي خالد ويس"><label>مفتاح API:</label><input id="odooKey" placeholder="الصق مفتاح API هنا"><button class="main" onclick="testOdoo()">اختبار الاتصال مع أودو</button><div id="odooMsg" style="display:none;background:#e7f8ee;padding:10px;border-radius:10px;margin-top:10px"></div></div>
+<script>
+function updateDate(){let now=new Date();let d=now.toLocaleDateString('ar-SA',{weekday:'long',day:'numeric',month:'long',year:'numeric'});let t=now.toLocaleTimeString('ar-SA',{hour:'numeric',minute:'2-digit'});document.getElementById('liveDate').innerText=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')} - ${t} • علي خالد ويس`;document.getElementById('todayLine').innerText=d;}
+updateDate();setInterval(updateDate,60000);
+let products=JSON.parse(localStorage.getItem('wasl_final')||'null')||[{name:"كريم أساس - ميبيلين",code:"88001",barcode:"62912388001",qty:45,price:85,branch:"الدمام - الفرسان",status:"ok",stock:{"الدمام":45,"الرياض":12,"جدة":0,"مكة":8}},{name:"روج - ماك",code:"88002",barcode:"62912388002",qty:8,price:120,branch:"الرياض - العليا",status:"warn",stock:{"الدمام":5,"الرياض":8,"جدة":20,"مكة":0}},{name:"ماسكرا - لوريال",code:"88003",barcode:"62912388003",qty:0,price:65,branch:"الدمام - الفرسان",status:"bad",stock:{"الدمام":0,"الرياض":0,"جدة":15,"مكة":3}},{name:"عطر شاطئ الوصل",code:"88004",barcode:"62912388004",qty:32,price:180,branch:"جدة - الروضة",status:"ok",stock:{"الدمام":32,"الرياض":18,"جدة":32,"مكة":22}},{name:"كريم ترطيب - نيفيا",code:"88005",barcode:"62912388005",qty:12,price:35,branch:"مكة - العزيزية",status:"warn",stock:{"الدمام":2,"الرياض":12,"جدة":6,"مكة":12}},{name:"كريم أساس - 18.00 ر.س",code:"88007",barcode:"62912388007",qty:0,price:18,branch:"الدمام - الفرسان",status:"bad",stock:{"الدمام":0,"الرياض":0,"جدة":0,"مكة":0}}];
+let tasks=JSON.parse(localStorage.getItem('wasl_final_tasks')||'null')||[{text:"جرد رف المكياج",done:false},{text:"متابعة التحويل من الرياض",done:false}];
+let cur="الكل";let filters=["الكل","متوفر","منخفض","حرج - متوقف","الدمام","الرياض","جدة","مكة"];
+function toggleMenu(){let m=document.getElementById('menu');m.style.display=m.style.display==='block'?'none':'block';}
+function openPage(p){document.getElementById('menu').style.display='none';document.getElementById('page-home').style.display=p==='home'?'block':'none';['tasks','products','newprod','branchProd','transfer','receive','reports','branchAnalysis','reports2','monthly','odoo'].forEach(x=>{let el=document.getElementById('page-'+x);if(el)el.style.display=(x===p)?'block':'none';});renderAll();window.scrollTo(0,0);}
+function renderAll(){document.getElementById('filters').innerHTML=filters.map(f=>`<button class="${f===cur?'active':''}" onclick="setF('${f}')">${f}</button>`).join('');let q=(document.getElementById('search')?.value||'').toLowerCase();let list=products.filter(p=>{if(cur==="متوفر"&&p.status!=="ok")return false;if(cur==="منخفض"&&p.status!=="warn")return false;if(cur==="حرج - متوقف"&&p.status!=="bad")return false;if(["الدمام","الرياض","جدة","مكة"].includes(cur)&&!p.branch.includes(cur))return false;if(q&&!p.name.includes(q)&&!p.barcode.includes(q)&&!p.code.includes(q))return false;return true;});document.getElementById('count').innerText=`عرض ${list.length} من ${products.length} منتج - مثل أودو`;document.getElementById('productList').innerHTML=list.map(p=>{let idx=products.indexOf(p);let label=p.status==='ok'?'متوفر':p.status==='warn'?'منخفض':'حرج';return `<div class="item" onclick="showDetail(${idx})"><div><b>${p.name}</b><div style="font-size:12px;color:#666">كود: ${p.code} | باركود: ${p.barcode} | ${p.branch} | ${p.price} ر.س</div></div><div style="text-align:left"><span class="tag ${p.status}">${label}</span><div><b>${p.qty} حبة</b></div></div></div>`;}).join('');document.getElementById('productListMini').innerHTML=products.slice(0,3).map(p=>`<div class="item"><b>${p.name}</b><span>${p.qty} حبة</span></div>`).join('');document.getElementById('taskList').innerHTML=tasks.map((t,i)=>`<div class="item"><label><input type="checkbox" ${t.done?'checked':''} onchange="toggleTask(${i})"> <span class="${t.done?'done':''}">${t.text}</span></label><button onclick="delTask(${i})">حذف</button></div>`).join('');let done=tasks.filter(t=>t.done).length;document.getElementById('taskCount').innerText=`أنجزت ${done} من ${tasks.length}`;document.getElementById('taskHome').innerText=tasks.filter(t=>!t.done).length;}
+function setF(f){cur=f;renderAll();}
+function showDetail(i){let p=products[i];let rows=Object.entries(p.stock).map(([c,q])=>`<tr><td>${c}</td><td>${q} حبة</td><td>${q===0?'❌ ناقص':q<10?'⚠️ منخفض':'✅ متوفر'}</td></tr>`).join('');let d=document.getElementById('detail');d.style.display='block';d.innerHTML=`<h3>${p.name}</h3><p>كود أودو: ${p.code} | باركود: ${p.barcode} | السعر: ${p.price} ر.س</p><b>الكمية في كل مدينة:</b><table><tr><th>المدينة</th><th>الكمية</th><th>الحالة</th></tr>${rows}</table><label>اطلب تحويل من:</label><select id="fromCity"><option>جدة</option><option>الرياض</option><option>الدمام</option><option>مكة</option></select><input id="qtyReq" type="number" value="10"><button class="main" onclick="requestTransfer(${i})">طلب تحويل لهذا المنتج</button><div id="msg2" style="display:none;background:#e7f8ee;padding:10px;border-radius:10px;margin-top:10px"></div>`;}
+function requestTransfer(i){let p=products[i];let from=document.getElementById('fromCity').value;let q=document.getElementById('qtyReq').value;let m=document.getElementById('msg2');m.style.display='block';m.innerHTML=`✅ تم إرسال طلب: <b>${q} - ${p.name}</b><br>من ${from} إلى ${p.branch}<br>الوصول: يومين - الشحن: الخميس`;}
+function addProduct(){let n=document.getElementById('pName').value;if(!n)return alert('اكتب اسم المنتج');products.unshift({name:n,code:document.getElementById('pCode').value||"88"+Math.floor(Math.random()*1000),barcode:document.getElementById('pCode').value||"",qty:parseInt(document.getElementById('pQty').value||'0'),price:parseInt(document.getElementById('pPrice').value||'0'),branch:"الدمام - الفرسان",status:document.getElementById('pStatus').value,stock:{"الدمام":10,"الرياض":5,"جدة":0,"مكة":2}});localStorage.setItem('wasl_final',JSON.stringify(products));alert('تمت إضافة المنتج ✅');openPage('branchProd');}
+function addTask(){let v=document.getElementById('taskText').value;if(!v)return;tasks.push({text:v,done:false});localStorage.setItem('wasl_final_tasks',JSON.stringify(tasks));document.getElementById('taskText').value='';renderAll();}
+function toggleTask(i){tasks[i].done=!tasks[i].done;localStorage.setItem('wasl_final_tasks',JSON.stringify(tasks));renderAll();}
+function delTask(i){tasks.splice(i,1);localStorage.setItem('wasl_final_tasks',JSON.stringify(tasks));renderAll();}
+function doTransfer(){let f=document.getElementById('from').value;let t=document.getElementById('to').value;let p=document.getElementById('tProd').value||'منتج';let q=document.getElementById('tQty').value;let m=document.getElementById('tMsg');m.style.display='block';m.innerHTML=`✅ تم إرسال الطلب: <b>${q} - ${p}</b><br>من ${f} إلى ${t}<br>الوصول: يومين - الشحن: الخميس`;}
+async function testOdoo(){let db=document.getElementById('odooDb').value;let user=document.getElementById('odooUser').value;let key=document.getElementById('odooKey').value;let m=document.getElementById('odooMsg');m.style.display='block';if(!db||!user||!key){m.innerHTML='⚠️ عبي كل الحقول';return;}m.innerHTML='⏳ جاري الاتصال بـ أودو ...';try{let res=await fetch("https://main-shati.shati.globalsolutions.sa/json/2/common",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({jsonrpc:"2.0",method:"call",params:{service:"common",method:"login",args:[db,user,key]},id:1})});let data=await res.json();if(data.result){m.innerHTML=`✅ تم الاتصال بأودو! أهلاً علي خالد ويس - UID: ${data.result}`;}else{m.innerHTML='❌ فشل الدخول - تأكد من البيانات';}}catch(e){m.innerHTML='❌ ما قدرنا نوصل للسيرفر - جرب من شبكة الشركة.<br>'+e;}}
+renderAll();
+</script>
+</body>
+</html>
