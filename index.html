@@ -19,8 +19,9 @@ nav{display:flex;gap:2px;flex-wrap:wrap}
 .dropdown button{width:100%;text-align:right;background:none;border:none;padding:11px 10px;font-size:15px;cursor:pointer;border-radius:8px;display:flex;gap:8px}
 .dropdown button:hover{background:#fdeef1}
 .dropdown .group{font-size:13px;font-weight:900;color:#8e1e3f;padding:10px 10px 4px}
-.user{display:flex;align-items:center;gap:8px;font-size:13px}
+.user{display:flex;align-items:center;gap:8px;font-size:13px;background:rgba(255,255,255,.15);padding:6px 12px;border-radius:20px}
 .user b{display:block}
+.user span{font-size:11px;opacity:.9}
 .wrap{padding:12px}
 .hero{background:#dcd6f5;border-radius:14px;padding:16px;display:flex;justify-content:space-between;align-items:center}
 .hero h1{font-size:21px}
@@ -35,10 +36,12 @@ nav{display:flex;gap:2px;flex-wrap:wrap}
 .sec b{font-size:16px}
 .sec a{color:#8e1e3f;font-size:13px;text-decoration:none}
 .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
-.card{background:#fff;border-radius:12px;padding:14px;min-height:110px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.05)}
+.card{background:#fff;border-radius:12px;padding:14px;min-height:110px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.05);transition:.2s;border:1px solid transparent}
+.card:active{transform:scale(.97);border-color:#8e1e3f}
 .card small{color:#777;font-size:12px}
 .card h3{color:#b71c3f;font-size:18px;margin:8px 0 4px}
 .card p{font-size:11px;color:#888}
+.card .icon{font-size:26px;display:block;margin-bottom:6px}
 .alerts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 .alert{background:#fff;border:1px solid #ffccbc;padding:8px 12px;border-radius:20px;font-size:12px;color:#c62828}
 .bottom{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:14px}
@@ -49,6 +52,12 @@ nav{display:flex;gap:2px;flex-wrap:wrap}
 .page.active{display:block}
 .page-box{background:#fff;border-radius:14px;padding:20px}
 .back{background:#8e1e3f;color:#fff;border:none;padding:10px 18px;border-radius:10px;margin-top:14px;cursor:pointer}
+/* شريط أيقونات سفلي جديد */
+.bottom-nav{position:fixed;bottom:0;right:0;left:0;background:#fff;display:flex;justify-content:space-around;padding:10px 0 14px;box-shadow:0 -2px 15px rgba(0,0,0,.1);z-index:200}
+.bottom-nav button{background:none;border:none;font-size:11px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;color:#666}
+.bottom-nav button span{font-size:22px}
+.bottom-nav button.active{color:#8e1e3f;font-weight:800}
+body{padding-bottom:70px}
 @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.bottom{grid-template-columns:1fr}.banner{flex-direction:column}.topbar{flex-direction:column}}
 </style>
 </head>
@@ -57,37 +66,37 @@ nav{display:flex;gap:2px;flex-wrap:wrap}
 <div class="logo">NMA <small>v2.63.78</small></div>
 <nav>
 <div class="nav-item"><button class="nav-btn active" onclick="toggleMenu(event,'m1')">الرئيسية ⌄</button><div class="dropdown" id="m1"><button onclick="openPage('الرئيسية')">🏠 الرئيسية</button><button onclick="openPage('مهامي')">✅ مهامي</button><div class="group">المنتجات والتحويلات</div><button onclick="openPage('أين أجد المنتج؟')">🔍 أين أجد المنتج؟</button><button onclick="openPage('منتجات الفرع')">🏬 منتجات الفرع</button><button onclick="openPage('التحويل المتوقع')">🔄 التحويل المتوقع</button><button onclick="openPage('استلام شحنة')">📦 استلام شحنة</button><div class="group">التحليل والتقارير</div><button onclick="openPage('تحليل فرعي')">📊 تحليل فرعي</button><button onclick="openPage('التقارير')">📋 التقارير</button><button onclick="openPage('التقارير الشهرية')">📅 التقارير الشهرية</button></div></div>
-<div class="nav-item"><button class="nav-btn" onclick="toggleMenu(event,'m2')">الطلبات ⌄</button><div class="dropdown" id="m2"><button onclick="openPage('طلبات المنتجات')">🛒 طلبات المنتجات</button></div></div>
+<div class="nav-item"><button class="nav-btn" onclick="toggleMenu(event,'m2')">الطلبات ⌄</button><div class="dropdown" id="m2"><button onclick="openPage('طلبات المنتجات')">🛒 طلبات المنتجات</button><button onclick="openPage('الطلبات المعلقة')">⏳ الطلبات المعلقة</button><button onclick="openPage('طلباتي')">📦 طلباتي</button></div></div>
 <div class="nav-item"><button class="nav-btn" onclick="toggleMenu(event,'m3')">المراسلات ⌄</button><div class="dropdown" id="m3"><button onclick="openPage('المراسلات الرسمية')">📩 المراسلات الرسمية</button><button onclick="openPage('المحادثات الداخلية')">💬 المحادثات الداخلية</button><button onclick="openPage('ملفات الدفعات')">📁 ملفات الدفعات</button></div></div>
 <div class="nav-item"><button class="nav-btn" onclick="toggleMenu(event,'m4')">المرجع ⌄</button><div class="dropdown" id="m4"><button onclick="openPage('المسؤوليات')">👥 المسؤوليات</button><button onclick="openPage('الآليات والتعليمات')">📖 الآليات والتعليمات</button><button onclick="openPage('بطاقات التعريف')">🪪 بطاقات التعريف</button></div></div>
-<div class="nav-item"><button class="nav-btn" onclick="toggleMenu(event,'m5')">حسابي ⌄</button><div class="dropdown" id="m5"><button onclick="openPage('حسابي والبريد')">👤 حسابي والبريد</button></div></div>
+<div class="nav-item"><button class="nav-btn" onclick="toggleMenu(event,'m5')">حسابي ⌄</button><div class="dropdown" id="m5"><button onclick="openPage('حسابي والبريد')">👤 حسابي والبريد</button><button onclick="openPage('إعدادات الحساب')">⚙️ إعدادات الحساب</button><button onclick="openPage('تسجيل خروج')">🚪 تسجيل خروج</button></div></div>
 </nav>
-<div class="user">🔔<div><b>فرع الفرسان</b><span>فرع الفرسان</span></div>👤</div>
+<div class="user"><span style="font-size:20px">👤</span><div><b>علي خالد ويس</b><span>فرع الفرسان</span></div><span>🔔</span></div>
 </div>
 
 <div id="home" class="wrap">
-<div class="hero"><div><p style="color:#6a5acd;font-size:13px">مساء الخير</p><h1>مرحباً، فرع الفرسان</h1><p>لديك اليوم 261 منتجات متوقعة عن البيع و 6 منتجاً بالسالب و 119 منتج في الطريق إليك.</p></div><div style="font-size:28px">🌙</div></div>
+<div class="hero"><div><p style="color:#6a5acd;font-size:13px">مساء الخير، علي خالد ويس 🌙</p><h1>مرحباً، علي خالد ويس</h1><p>لديك اليوم 261 منتجات متوقعة عن البيع و 6 منتجاً بالسالب و 119 منتج في الطريق إليك.</p></div><div style="font-size:28px">🌙</div></div>
 
 <div class="banner"><div><span class="badge">مهم !</span> <span class="badge2">مثبت</span><h2 style="margin-top:10px">تطبيق NMA على جوالك الآن 📱</h2><p>زملائنا في فروع شاطئ النجاح<br>يسعدنا إطلاق تطبيق NMA للجوال — نفس النظام الذي تعرفونه على الويندوز الآن في جيبك وبنفس حسابك وصلاحياتك.</p></div><div><div style="background:#fff;color:#000;border-radius:10px;padding:12px;text-align:center"><b>18.00 ر.س</b><br><small>تخفيض خاص</small></div><br><button class="btn-white" onclick="openPage('تطبيق NMA')">← اقرأ المزيد</button></div></div>
 
-<div class="sec"><b>ملخص الفرع</b><a href="#" onclick="openPage('ملخص الفرع');return false">كل التقارير</a></div>
+<div class="sec"><b>📊 ملخص الفرع</b><a href="#" onclick="openPage('ملخص الفرع');return false">كل التقارير</a></div>
 <div class="grid">
-<div class="card" onclick="openPage('المنتجات السالبة')"><small>📈 المنتجات السالبة</small><h3>6 منتج</h3><p>6 وحدة بالسالب</p></div>
-<div class="card" onclick="openPage('العروض المشغلة')"><small>🏷️ العروض المشغلة</small><h3>0 منتج</h3><p>0 وحدة في رصيد الفرع</p></div>
-<div class="card" onclick="openPage('المتوقعة عن البيع')"><small>🕐 المتوقعة عن البيع</small><h3>261 منتج</h3><p>2,496 وحدة - آخر أسبوع 18 - أرد 15 يوم - فتال شهر 68</p></div>
-<div class="card" onclick="openPage('التحويل الواردة إلى الفرع')"><small>📥 التحويل الواردة إلى الفرع</small><h3>119 منتج</h3><p>634 وحدة</p></div>
-<div class="card" onclick="openPage('التحويل الصادرة من الفرع')"><small>📤 التحويل الصادرة من الفرع</small><h3>55 منتج</h3><p>233 وحدة</p></div>
-<div class="card" onclick="openPage('مواعيد الشحنات')"><small>🚚 مواعيد الشحنات</small><h3>الاثنين + الخميس</h3><p>الموعد القادم: غداً (الخميس)</p></div>
+<div class="card" onclick="openPage('المنتجات السالبة')"><span class="icon">📈</span><small>المنتجات السالبة</small><h3>6 منتج</h3><p>6 وحدة بالسالب</p></div>
+<div class="card" onclick="openPage('العروض المشغلة')"><span class="icon">🏷️</span><small>العروض المشغلة</small><h3>0 منتج</h3><p>0 وحدة في رصيد الفرع</p></div>
+<div class="card" onclick="openPage('المتوقعة عن البيع')"><span class="icon">🕐</span><small>المتوقعة عن البيع</small><h3>261 منتج</h3><p>2,496 وحدة - آخر أسبوع 18 - أرد 15 يوم - فتال شهر 68</p></div>
+<div class="card" onclick="openPage('التحويل الواردة إلى الفرع')"><span class="icon">📥</span><small>التحويل الواردة إلى الفرع</small><h3>119 منتج</h3><p>634 وحدة</p></div>
+<div class="card" onclick="openPage('التحويل الصادرة من الفرع')"><span class="icon">📤</span><small>التحويل الصادرة من الفرع</small><h3>55 منتج</h3><p>233 وحدة</p></div>
+<div class="card" onclick="openPage('مواعيد الشحنات')"><span class="icon">🚚</span><small>مواعيد الشحنات</small><h3>الاثنين + الخميس</h3><p>الموعد القادم: غداً (الخميس)</p></div>
 </div>
 
-<div class="sec"><b>المتابعة اليومية</b><a href="#" onclick="openPage('المتابعة اليومية');return false">عرض الكل</a></div>
+<div class="sec"><b>📌 المتابعة اليومية</b><a href="#" onclick="openPage('المتابعة اليومية');return false">عرض الكل</a></div>
 <div class="grid">
-<div class="card" onclick="openPage('مهام مطلوبة مني')"><small>📋 مهام مطلوبة مني</small><h3>1</h3><p>مهمة من الإدارة لم تُنجز</p></div>
-<div class="card" onclick="openPage('بحاجة لردي')"><small>↩️ بحاجة لردي</small><h3>0</h3><p>مراسلة تنتظر ردك</p></div>
-<div class="card" onclick="openPage('رسائل غير مقروءة')"><small>✉️ رسائل غير مقروءة</small><h3>19</h3><p>مراسلة لم تُفتح بعد</p></div>
-<div class="card" onclick="openPage('دفعات مفتوحة')"><small>🧾 دفعات مفتوحة</small><h3>0</h3><p>ملف دفعات غير معالجة</p></div>
-<div class="card" onclick="openPage('منتجات الفرع')"><small>🧴 منتجات الفرع</small><h3>المكياج وبقية المنتجات</h3><p>الفئات والقطاعات وحالة كل منتج</p></div>
-<div class="card" onclick="openPage('أصناف سالبة')"><small>📉 أصناف سالبة</small><h3>6</h3><p>من إجمالي الفرع</p></div>
+<div class="card" onclick="openPage('مهام مطلوبة مني')"><span class="icon">📋</span><small>مهام مطلوبة مني</small><h3>1</h3><p>مهمة من الإدارة لم تُنجز</p></div>
+<div class="card" onclick="openPage('بحاجة لردي')"><span class="icon">↩️</span><small>بحاجة لردي</small><h3>0</h3><p>مراسلة تنتظر ردك</p></div>
+<div class="card" onclick="openPage('رسائل غير مقروءة')"><span class="icon">✉️</span><small>رسائل غير مقروءة</small><h3>19</h3><p>مراسلة لم تُفتح بعد</p></div>
+<div class="card" onclick="openPage('دفعات مفتوحة')"><span class="icon">🧾</span><small>دفعات مفتوحة</small><h3>0</h3><p>ملف دفعات غير معالجة</p></div>
+<div class="card" onclick="openPage('منتجات الفرع')"><span class="icon">🧴</span><small>منتجات الفرع</small><h3>المكياج وبقية المنتجات</h3><p>الفئات والقطاعات وحالة كل منتج</p></div>
+<div class="card" onclick="openPage('أصناف سالبة')"><span class="icon">📉</span><small>أصناف سالبة</small><h3>6</h3><p>من إجمالي الفرع</p></div>
 </div>
 
 <div class="alerts">
@@ -105,6 +114,14 @@ nav{display:flex;gap:2px;flex-wrap:wrap}
 </div>
 
 <div id="pageView" class="page"><div class="page-box"><h2 id="pageTitle"></h2><p id="pageDesc"></p><button class="back" onclick="goHome()">⬅ رجوع للرئيسية</button></div></div>
+
+<div class="bottom-nav">
+<button class="active" onclick="goHome()"><span>🏠</span>الرئيسية</button>
+<button onclick="openPage('طلبات المنتجات')"><span>🛒</span>الطلبات</button>
+<button onclick="openPage('المراسلات الرسمية')"><span>📩</span>المراسلات</button>
+<button onclick="openPage('منتجات الفرع')"><span>🏬</span>المنتجات</button>
+<button onclick="openPage('حسابي والبريد')"><span>👤</span>حسابي</button>
+</div>
 
 <script>
 function toggleMenu(e,id){e.stopPropagation();document.querySelectorAll('.dropdown').forEach(d=>{if(d.id!==id)d.classList.remove('open')});document.getElementById(id).classList.toggle('open')}
