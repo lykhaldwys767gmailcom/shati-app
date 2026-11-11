@@ -5,87 +5,120 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>شاطئ الوصل | علي خالد ويس</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,Arial,sans-serif}
-body{background:#f7f3f0;color:#222}
-:root{--wine:#6d0033;--wine2:#8a0040;--gold:#c9a24b;--gold2:#f1d98c;--card:#fff}
-/* الهيدر - مرة واحدة فقط في البداية */
-header{position:sticky;top:0;z-index:100;background:linear-gradient(135deg,#4a0022,#6d0033 55%,#8a0040);color:#fff;padding:14px 16px 18px;box-shadow:0 10px 30px rgba(0,0,0,.25);border-bottom:3px solid var(--gold)}
-.top{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:auto}
-.logo{display:flex;align-items:center;gap:12px}
-.logo-icon{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#f1d98c,#c9a24b);display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 0 0 3px rgba(255,255,255,.2),0 8px 20px rgba(0,0,0,.3)}
-.logo b{font-size:20px;line-height:1.1}
-.logo span{font-size:12px;color:#f1d98c;letter-spacing:.5px}
-.pill{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:6px 12px;border-radius:20px;font-size:12px}
-.hero{max-width:1100px;margin:auto;text-align:center;padding-top:12px}
-.hero h1{font-size:26px}
-.hero p{font-size:13px;opacity:.9;margin-top:4px}
-.gold-line{width:90px;height:3px;background:linear-gradient(90deg,transparent,#f1d98c,transparent);margin:10px auto 0;border-radius:10px}
-
-/* المحتوى */
-.wrap{max-width:1100px;margin:auto;padding:16px}
-.section-title{display:flex;align-items:center;gap:10px;margin:18px 0 12px}
-.section-title i{width:38px;height:38px;border-radius:12px;background:#6d0033;color:#f1d98c;display:flex;align-items:center;justify-content:center;font-size:19px;font-style:normal}
-.section-title h2{font-size:18px}
-.section-title span{flex:1;height:1px;background:#e8ddd6}
-
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-@media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:420px){.grid{grid-template-columns:1fr 1fr}}
-.card{background:var(--card);border-radius:18px;padding:16px 10px;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.06);border:1px solid #f0e6df;transition:.2s}
-.card:active{transform:scale(.97)}
-.icon{width:58px;height:58px;margin:auto;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:30px;background:linear-gradient(135deg,#fff8e6,#f9edc8);border:1px solid #e9d9a8;box-shadow:0 4px 12px rgba(201,162,75,.25)}
-.card h3{font-size:14px;margin:10px 0 3px}
-.card p{font-size:11px;color:#888}
-.badge{display:inline-block;margin-top:8px;background:#fff2f6;color:#6d0033;border:1px solid #f2c9d8;font-size:11px;padding:3px 9px;border-radius:20px;font-weight:700}
-
-.banner{margin-top:18px;background:linear-gradient(135deg,#6d0033,#9a0050);border-radius:20px;padding:18px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:12px;overflow:hidden;position:relative}
-.banner:before{content:"";position:absolute;left:-20px;top:-20px;width:120px;height:120px;background:rgba(255,255,255,.08);border-radius:50%}
-.banner h3{font-size:18px}
-.banner p{font-size:12px;opacity:.9;margin-top:4px}
-.btn{background:#f1d98c;color:#4a0022;border:none;padding:11px 18px;border-radius:25px;font-weight:800;cursor:pointer;white-space:nowrap}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,sans-serif}
+body{background:#f6f2f0;color:#222}
+a{text-decoration:none;color:inherit}
+/* الشريط العلوي - مرة واحدة فقط */
+.topbar{background:#6d0033;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;position:sticky;top:0;z-index:100}
+.topbar .right{display:flex;align-items:center;gap:14px;font-size:13px}
+.topbar .right b{background:#fff;color:#6d0033;padding:4px 10px;border-radius:8px}
+.topbar .left{display:flex;align-items:center;gap:12px;font-size:13px}
+.logo{width:36px;height:36px;background:#fff;color:#6d0033;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900}
+.badge{background:#f1d98c;color:#6d0033;font-size:11px;padding:2px 7px;border-radius:20px;font-weight:800}
+/* ترحيب */
+.welcome{max-width:1200px;margin:14px auto;background:linear-gradient(90deg,#eef2ff,#dbe4ff);border-radius:14px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
+.welcome h2{font-size:19px}
+.welcome p{font-size:12px;color:#666;margin-top:3px}
+.welcome .time{font-size:12px;color:#7b61ff;font-weight:700}
+/* البانر الكبير */
+.hero{max-width:1200px;margin:auto;background:linear-gradient(135deg,#4a0022,#6d0033 55%,#8a0040);color:#fff;border-radius:16px;padding:22px 18px;display:flex;justify-content:space-between;gap:16px;overflow:hidden}
+.hero h1{font-size:23px}
+.hero p{font-size:13px;opacity:.9;margin-top:8px;line-height:1.7;max-width:520px}
+.hero .tag{display:flex;gap:6px;margin-bottom:10px}
+.tag span{font-size:11px;padding:4px 10px;border-radius:20px}
+.tag .red{background:#e11d48}.tag .green{background:#16a34a}.tag .dark{background:rgba(0,0,0,.3)}
+.hero-btn{margin-top:14px;background:#fff;color:#6d0033;border:none;padding:9px 18px;border-radius:20px;font-weight:800;cursor:pointer}
+.hero-left{text-align:center;background:rgba(0,0,0,.25);border-radius:14px;padding:12px;min-width:180px}
+.hero-left .phone{width:70px;height:110px;background:#fff;border-radius:12px;margin:auto;color:#222;padding:8px;font-size:11px}
+.hero-left .price{color:#d00;font-weight:900;font-size:18px}
+.wrap{max-width:1200px;margin:auto;padding:12px 14px 30px}
+.sec{display:flex;justify-content:space-between;align-items:center;margin:20px 0 10px}
+.sec h3{font-size:15px}
+.sec a{font-size:12px;color:#6d0033}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,1fr)}.hero{flex-direction:column}}
+@media(max-width:500px){.grid{grid-template-columns:repeat(2,1fr)}}
+.card{background:#fff;border-radius:14px;padding:14px;border:1px solid #eee;text-align:left}
+.card .ic{font-size:18px;width:34px;height:34px;border-radius:9px;background:#fdf2f6;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.card small{font-size:11px;color:#888}
+.card b{font-size:18px;color:#6d0033;display:block;margin-top:4px}
+.card span{font-size:11px;color:#999}
+.alerts{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:14px 0}
+.alerts span{background:#fff;border:1px solid #f3d1a8;color:#a16207;font-size:11px;padding:6px 10px;border-radius:20px}
+.bottom{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media(max-width:800px){.bottom{grid-template-columns:1fr}}
+.box{background:#fff;border-radius:14px;padding:14px;border:1px solid #eee}
+.box h4{font-size:14px;margin-bottom:10px;display:flex;justify-content:space-between}
+.box p{font-size:12px;padding:8px 0;border-bottom:1px solid #f5f5f5;display:flex;justify-content:space-between}
 footer{text-align:center;padding:20px;color:#999;font-size:12px}
 </style>
 </head>
 <body>
 
-<!-- الهيدر الوحيد - في البداية فقط -->
-<header>
-  <div class="top">
-    <div class="logo">
-      <div class="logo-icon">🌊</div>
-      <div><b>شاطئ الوصل</b><br><span>علي خالد ويس • ALI KHALED</span></div>
-    </div>
-    <div class="pill">✦ النسخة الفاخرة</div>
-  </div>
-  <div class="hero">
-    <h1>أهلاً بك في شاطئ الوصل</h1>
-    <p>تجربة راقية • تنظيم أنيق • كل خدماتك في مكان واحد</p>
-    <div class="gold-line"></div>
-  </div>
-</header>
-
-<div class="wrap">
-  <div class="section-title"><i>✦</i><h2>خدماتنا المميزة</h2><span></span></div>
-
-  <div class="grid">
-    <div class="card"><div class="icon">🏖️</div><h3>حجز الشاطئ</h3><p>جلسات خاصة وعائلية</p><span class="badge">احجز الآن</span></div>
-    <div class="card"><div class="icon">🍽️</div><h3>المطعم الفاخر</h3><p>أطباق بحرية طازجة</p><span class="badge">قائمة الطعام</span></div>
-    <div class="card"><div class="icon">☕</div><h3>الكافيه</h3><p>قهوة مختصة بإطلالة</p><span class="badge">اطلب</span></div>
-    <div class="card"><div class="icon">🏊</div><h3>المسبح</h3><p>مسابح للكبار والصغار</p><span class="badge">متاح اليوم</span></div>
-    <div class="card"><div class="icon">🎉</div><h3>المناسبات</h3><p>حفلات وأعراس على البحر</p><span class="badge">استفسر</span></div>
-    <div class="card"><div class="icon">🎡</div><h3>ألعاب الأطفال</h3><p>منطقة آمنة وممتعة</p><span class="badge">للعائلة</span></div>
-    <div class="card"><div class="icon">🚤</div><h3>رحلات بحرية</h3><p>جولات غروب الشمس</p><span class="badge">رحلة VIP</span></div>
-    <div class="card"><div class="icon">💆</div><h3>السبا والاسترخاء</h3><p>مساج وجلسات استجمام</p><span class="badge">احجز جلسة</span></div>
-    <div class="card"><div class="icon">📞</div><h3>تواصل معنا</h3><p>نرد عليك بسرعة</p><span class="badge">اتصل بنا</span></div>
-  </div>
-
-  <div class="banner">
-    <div><h3>عرض الغروب الذهبي 🌅</h3><p>خصم خاص لأعضاء شاطئ الوصل هذا الأسبوع</p></div>
-    <button class="btn">احجز مكانك →</button>
-  </div>
-
-  <footer>© 2026 شاطئ الوصل - علي خالد ويس • صُنع بحب على البحر</footer>
+<!-- الشريط العلوي -->
+<div class="topbar">
+  <div class="left"><span>🏖️ فرع الفرسان</span><span>🔔 <span class="badge">8</span></span><span>👤</span></div>
+  <div class="right"><a href="#">حسابي ▾</a><a href="#">المرجع ▾</a><a href="#">المراسلات ▾</a><a href="#">الطلبات ▾</a><a href="#"><b>الرئيسية</b></a><div class="logo">W</div></div>
 </div>
 
+<!-- الترحيب -->
+<div class="welcome">
+  <div><h2>مرحباً, فرع الفرسان 🌙</h2><p>لديك اليوم 261 حجز متوقفة عن البيع و 6 منتجات بالسالب و 119 منتج في الطريق إليك.</p></div>
+  <div style="text-align:left"><div class="time">مساء الخير</div><div style="font-size:11px;color:#888">الأربعاء 11 نوفمبر 2026</div></div>
+</div>
+
+<!-- البانر الكبير -->
+<div class="hero">
+  <div>
+    <div class="tag"><span class="red">! مهم</span><span class="green">● متاح</span><span class="dark">الإعلانات والتحميلات ✦</span></div>
+    <h1>تطبيق شاطئ الوصل على جوالك الآن 📱</h1>
+    <p>زملاءنا في فروع شاطئ الوصل<br>يسعدنا إطلاق تطبيق شاطئ الوصل للجوال — نفس النظام الذي تعرفونه على الويندوز الآن في جيبك وبنفس حسابك وصلاحياتك.</p>
+    <button class="hero-btn">← اقرأ المزيد</button>
+    <p style="font-size:11px">11-03-2026 5:06 م - سليم عبده ويس 🕒</p>
+  </div>
+  <div class="hero-left">
+    <div style="font-size:11px;margin-bottom:8px">مع تحيات</div>
+    <div class="phone">📱<br><b>شاطئ الوصل</b><br><span class="price">18.00 ر.س</span><br>خصم خاص</div>
+    <div style="font-size:11px;margin-top:8px">كل الإعلانات (1)</div>
+    <button style="background:#fff;color:#6d0033;border:none;padding:7px 14px;border-radius:20px;font-weight:800;margin-top:8px">← اقرأ المزيد</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="sec"><h3>▦ ملخص الفرع</h3><a href="#">كل التقارير</a></div>
+  <div class="grid">
+    <div class="card"><div class="ic">📈</div><small>المنتجات السائلة</small><b>6 منتج</b><span>6 وحدة بالسالب</span></div>
+    <div class="card"><div class="ic">🏷️</div><small>العروض الممكنة</small><b>0 منتج</b><span>0 وحدة في رصيد الفرع</span></div>
+    <div class="card"><div class="ic">⏱️</div><small>المتوقفة عن البيع</small><b>261 منتج</b><span>2,496 وحدة</span></div>
+    <div class="card"><div class="ic">📦</div><small>التحويل الواردة إلى الفرع</small><b>119 منتج</b><span>634 وحدة</span></div>
+    <div class="card"><div class="ic">📤</div><small>التحويل الصادرة من الفرع</small><b>55 منتج</b><span>233 وحدة</span></div>
+    <div class="card"><div class="ic">📅</div><small>مواعيد الشحنات</small><b>الاثنين + الخميس</b><span>الموعد القادم: غداً (الخميس)</span></div>
+  </div>
+
+  <div class="sec"><h3>▦ المتابعة اليومية</h3></div>
+  <div class="grid">
+    <div class="card"><div class="ic">📋</div><small>مهام مطلوبة مني</small><b>1</b><span>مهمة من الإدارة لم تُنجز</span></div>
+    <div class="card"><div class="ic">✉️</div><small>بحاجة لردي</small><b>0</b><span>مراسلة تنتظر ردك</span></div>
+    <div class="card"><div class="ic">📩</div><small>رسائل غير مقروءة</small><b>19</b><span>مراسلة لم تُفتح بعد</span></div>
+    <div class="card"><div class="ic">💳</div><small>دفعات مفتوحة</small><b>0</b><span>ملف دفعات قيد المعالجة</span></div>
+    <div class="card"><div class="ic">✏️</div><small>منتجات الفرع</small><b>المكافآت وثيقة المنتجات</b><span>الفئات والعلامات وحالة كل منتج</span></div>
+    <div class="card"><div class="ic">📊</div><small>أصناف سائلة</small><b>6</b><span>من إجمالي الفرع</span></div>
+  </div>
+
+  <div class="alerts">
+    <span>⚠️ 6 منشأ رصيد سالب</span>
+    <span>⚠️ 2021 صنفاً في حالة حرجة</span>
+    <span>⚠️ 2596 صنفاً فائضاً عنها 1861 في مصر في المستودعات</span>
+    <span>⚠️ 1100 صنفاً زائدة به مبيعات</span>
+  </div>
+
+  <div class="bottom">
+    <div class="box"><h4>آخر المراسلات <a href="#">عرض الكل</a></h4><p><span>سحب</span><b>إدارة المخزون - 11-11-2026 4:39 م</b></p><p><span>سحب</span><b>آية التحويل بين الفروع</b></p><p><span>سحب</span><b>آية استلام التحويل</b></p></div>
+    <div class="box"><h4>آخر التعليمات <a href="#">عرض الكل</a></h4><p><span>آية استلام التحويل</span><b>الإصدار 1.0</b></p><p><span>آية التحويل بين الفروع</span><b>الإصدار 1.0</b></p></div>
+    <div class="box"><h4>▦ ملخص فرعي <a href="#">الكل</a></h4><p><span>الأصناف 12798</span><b>سائلة 6 - حرجة 2021 - متخمة 931</b></p><p><span>ناقصة 2596 - زائدة 1100</span><b>متوسط التغطية 272 يوم</b></p><p style="font-size:11px;color:#999">آخر مراجعة 11-11-2026 4:22 م</p></div>
+  </div>
+
+  <footer>© 2026 شاطئ الوصل - علي خالد ويس • نفس فكرة NMA بالضبط</footer>
+</div>
 </body>
 </html>
