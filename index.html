@@ -3,190 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>NMA - فرع الفرسان v2.0.5.76</title>
+<title>NMA - فرع الفرسان</title>
 <style>
 *{box-sizing:border-box;font-family:Tahoma,Arial,sans-serif}
-body{margin:0;background:#f7f3f4;color:#222}
-header{background:#7a0f38;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;position:sticky;top:0;z-index:10;flex-wrap:wrap;gap:10px}
-header b{font-size:22px;letter-spacing:1px}
-nav{display:flex;gap:8px;flex-wrap:wrap}
-nav a{color:#fff;text-decoration:none;font-size:14px;cursor:pointer;padding:7px 10px;border-radius:8px}
-nav a.active,nav a:hover{background:#fff;color:#7a0f38}
-.badge{background:#ffcc00;color:#000;border-radius:50%;padding:1px 7px;font-size:11px;font-weight:bold}
-.wrap{max-width:1200px;margin:auto;padding:16px}
-.card{background:#fff;border-radius:14px;padding:16px;margin-bottom:16px;box-shadow:0 2px 10px #0001}
-h2{margin:0 0 12px;color:#7a0f38}
-h3{margin:0 0 8px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
-.stat{background:#fdf2f6;border-radius:12px;padding:14px;text-align:center}
-.stat b{font-size:28px;color:#7a0f38;display:block}
-table{width:100%;border-collapse:collapse;font-size:14px}
-th,td{padding:10px;border-bottom:1px solid #eee;text-align:right}
-th{background:#fafafa;color:#7a0f38}
-.btn{background:#7a0f38;color:#fff;border:0;padding:10px 18px;border-radius:9px;cursor:pointer;font-weight:bold}
-.btn-outline{background:#fff;color:#7a0f38;border:1px solid #7a0f38;padding:9px 14px;border-radius:9px;cursor:pointer}
-input,select{width:100%;padding:11px;border:1px solid #ddd;border-radius:9px}
-.flex{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.pill{background:#e8f5e9;color:#0a7a2e;padding:3px 10px;border-radius:20px;font-size:12px}
-.toggle{width:46px;height:26px;background:#7a0f38;border-radius:20px;position:relative;flex-shrink:0}
-.toggle:after{content:"";position:absolute;width:20px;height:20px;background:#fff;border-radius:50%;top:3px;left:3px}
-.hidden{display:none}
-.small{color:#777;font-size:13px}
-.person{border:1px solid #eee;border-radius:12px;padding:14px}
-.person b{color:#7a0f38}
-.mechanism{border:1px solid #eee;border-radius:12px;padding:14px;display:flex;justify-content:space-between;cursor:pointer}
-.mechanism:hover{background:#fdf2f6}
-.empty{text-align:center;padding:30px;color:#777}
-.logo{width:60px;height:60px;background:#fdeef3;border-radius:50%;display:grid;place-items:center;font-size:26px;margin:auto}
+body{margin:0;background:#fdf8f9;color:#222}
+a{cursor:pointer}
+/* الهيدر */
+header{background:#7a0f38;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:8px 16px;position:sticky;top:0;z-index:20}
+header .left{display:flex;gap:16px;align-items:center;font-size:14px}
+header .left a{color:#fff;text-decoration:none;padding:7px 10px;border-radius:8px}
+header .left a.active{background:#fff;color:#7a0f38;font-weight:bold}
+header .right{display:flex;gap:12px;align-items:center}
+.badge{background:#ff3b30;color:#fff;border-radius:50%;padding:0 6px;font-size:11px;font-weight:bold;position:relative;top:-8px;right:-4px}
+.logo{font-weight:900;font-size:20px;letter-spacing:1px}
+.logo small{font-size:9px;display:block;font-weight:400}
+.wrap{max-width:1280px;margin:auto;padding:14px}
+/* الترحيب */
+.welcome{background:#dfe6ff;border-radius:12px;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.welcome h2{margin:0;font-size:20px}
+.welcome p{margin:4px 0 0;color:#444;font-size:13px}
+.welcome .time{color:#7a0f38;font-weight:bold;font-size:13px}
+.moon{width:38px;height:38px;background:#cdd6ff;border-radius:50%;display:grid;place-items:center;font-size:20px}
+/* البانر */
+.banner{background:linear-gradient(90deg,#6d0a2e,#9c1240);color:#fff;border-radius:14px;padding:18px;display:flex;gap:18px;align-items:center;justify-content:space-between;overflow:hidden;margin-bottom:14px}
+.banner h2{margin:0;font-size:22px}
+.banner p{font-size:13px;line-height:1.7;opacity:.95}
+.pill{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:bold}
+.pill-gold{background:#c9a227;color:#fff}.pill-red{background:#e11d48}.pill-green{background:#22c55e}
+.btn-white{background:#fff;color:#222;border:0;padding:9px 16px;border-radius:9px;font-weight:bold;cursor:pointer}
+.btn-dark{background:#1a1a1a;color:#fff;border:0;padding:8px 14px;border-radius:8px;font-size:12px;cursor:pointer}
+.phone{background:#fff;color:#000;border-radius:18px;width:110px;padding:8px;text-align:center;flex-shrink:0}
+.phone .top{width:50px;height:8px;background:#000;border-radius:10px;margin:auto}
+.phone b{font-size:18px;color:#c00}
+.phone small{font-size:10px;color:#666}
+/* العناوين */
+.sec{display:flex;justify-content:space-between;align-items:center;margin:16px 2px 10px}
+.sec h3{margin:0;font-size:16px}
+.sec a{color:#7a0f38;font-size:13px;text-decoration:none}
+/* البطاقات */
+.grid6{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+@media(max-width:900px){.grid6{grid-template-columns:repeat(2,1fr)}.banner{flex-direction:column;text-align:center}}
+.card{background:#fff;border-radius:14px;padding:14px;box-shadow:0 1px 6px #0001;min-height:110px}
+.card .top{display:flex;justify-content:space-between;align-items:flex-start}
+.card .ic{width:32px;height:32px;background:#fdf2f6;border-radius:8px;display:grid;place-items:center;font-size:16px}
+.card small{color:#777;font-size:12px;display:block;margin-top:8px;line-height:1.5}
+.card b{font-size:20px;color:#7a0f38;display:block;margin-top:4px}
+.card b.red{color:#c00}.card b.orange{color:#d97706}.card b.green{color:#0a7a2e}
+.card b.teal{color:#0e7490}
+/* التحذيرات */
+.warns{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.warns span{border:1px solid #fca5a5;background:#fff7ed;padding:7px 10px;border-radius:20px;font-size:12px;color:#991b1b}
+/* الأسفل */
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media(max-width:900px){.grid3{grid-template-columns:1fr}}
+.box{background:#fff;border-radius:14px;padding:14px}
+.box h3{font-size:15px;display:flex;justify-content:space-between}
+table{width:100%;border-collapse:collapse;font-size:13px}
+td{padding:8px 4px;border-bottom:1px solid #f1f1f1;text-align:center}
+td:first-child{text-align:right}
 </style>
 </head>
 <body>
 <header>
-<div><b>NMA</b> <span style="font-size:12px">v2.0.5.76</span> &nbsp; 🔔 <span class="badge">7</span> &nbsp; 👤 فرع الفرسان - فرع الفرسان</div>
-<nav>
-<a onclick="show('home',this)" class="active">الرئيسية</a>
-<a onclick="show('neg',this)">التقارير</a>
-<a onclick="show('customers',this)">التقارير الشهرية</a>
-<a onclick="show('orders',this)">الطلبات</a>
-<a onclick="show('files',this)">المراسلات</a>
-<a onclick="show('resp',this)">المرجع</a>
-<a onclick="show('account',this)">حسابي</a>
-</nav>
+<div class="right"><div class="logo">NMA<small>v2.0.5.76</small></div><div>🔔<span class="badge">8</span></div><div>👤 فرع الفرسان<br><small style="font-size:11px;opacity:.8">فرع الفرسان</small></div></div>
+<div class="left"><a class="active">الرئيسية ▾</a><a>الطلبات ▾</a><a>المراسلات ▾</a><a>المرجع ▾</a><a>حسابي ▾</a></div>
 </header>
 
 <div class="wrap">
+<div style="font-size:12px;color:#777;margin-bottom:8px">الرئيسية &lt; الرئيسية</div>
 
-<!-- 1 - الرئيسية -->
-<section id="home">
-<div class="card"><h2>👋 أهلاً بك، فرع الفرسان</h2><p class="small">حسابي > الرئيسية - لوحة تحكم الفرع</p>
-<div class="grid">
-<div class="stat"><span>العروض المشغلة</span><b>0</b></div>
-<div class="stat"><span>المتوقع عن البيع</span><b>261</b></div>
-<div class="stat"><span>التحويلات الواردة</span><b>119</b></div>
-<div class="stat"><span>التحويلات الصادرة</span><b>55</b></div>
-</div><p>📦 مواعيد الشحنات: <b>الاثنين + الخميس</b></p>
-<button class="btn" onclick="show('neg',null)">عرض المنتجات السالبة →</button>
+<!-- الترحيب -->
+<div class="welcome">
+<div><h2>مرحباً، فرع الفرسان</h2><p>لديك اليوم 261 منتجات متوقفة عن البيع و 6 منتجاً بالسالب و 119 منتج في الطريق إليك.</p></div>
+<div style="display:flex;gap:10px;align-items:center"><div style="text-align:left"><div class="time">مساء الخير ↻</div><div style="font-size:12px;color:#555">الأربعاء 11 نوفمبر 2026</div></div><div class="moon">☾</div></div>
 </div>
-<div class="card"><h3>روابط سريعة</h3><div class="flex">
-<button class="btn-outline" onclick="show('resp',null)">دليل المسؤوليات</button>
-<button class="btn-outline" onclick="show('mech',null)">الآليات والتعليمات</button>
-<button class="btn-outline" onclick="show('cards',null)">بطاقات التعريف</button>
-<button class="btn-outline" onclick="show('files',null)">ملفات الدفعات</button>
-<button class="btn-outline" onclick="show('customers',null)">عدد العملاء</button>
-</div></div>
-</section>
 
-<!-- 2 - المنتجات السالبة -->
-<section id="neg" class="hidden">
-<div class="card"><h2>التقارير > المنتجات السالبة</h2>
-<div class="grid"><div class="stat"><span>العروض المشغلة</span><b>0</b></div><div class="stat"><span>المتوقع عن البيع</span><b>261</b></div><div class="stat"><span>التحويلات الواردة</span><b>119</b></div><div class="stat"><span>التحويلات الصادرة</span><b>55</b></div></div>
-<p>📦 مواعيد الشحنات: <b>الاثنين + الخميس</b></p>
-<table><tr><th>المنتج</th><th>الباركود</th><th>الكمية</th></tr>
-<tr><td>ارم اند هامر</td><td>033200191223</td><td style="color:red"><b>-1</b></td></tr>
-<tr><td>لوريال باريس كريم</td><td>3600524026202</td><td style="color:red"><b>-1</b></td></tr>
-<tr><td>قشافة أظافر أطفال</td><td>4710468212124</td><td style="color:red"><b>-1</b></td></tr>
-<tr><td>دوف مزيل عرق</td><td>4800888196514</td><td style="color:red"><b>-1</b></td></tr>
-<tr><td>يورياج غسول</td><td>6287016717755</td><td style="color:red"><b>-1</b></td></tr>
-<tr><td>أحمر شفاه فلورمار</td><td>8682536012010</td><td style="color:red"><b>-1</b></td></tr>
-</table></div>
-</section>
-
-<!-- 3 - عدد العملاء -->
-<section id="customers" class="hidden">
-<div class="card"><h2>التقارير الشهرية - عدد العملاء</h2><p>الفترة: أغسطس 2026 - أكتوبر 2026</p>
-<div class="grid"><div class="stat"><span>الفترة الحالية</span><b>13,073</b></div><div class="stat"><span>الفرق</span><b>+13,073</b></div><div class="stat"><span>نفس الفترة السنة السابقة</span><b>0</b></div><div class="stat"><span>الحالة</span><b>جديد - فرع جديد</b></div></div>
-<table><tr><th>الشهر</th><th>عدد العملاء</th></tr><tr><td>أغسطس</td><td>4,032</td></tr><tr><td>سبتمبر</td><td>4,480</td></tr><tr><td>أكتوبر</td><td>4,561</td></tr></table>
-<h3 style="margin-top:16px">المقارنة التفصيلية للفروع</h3><table><tr><th>الفرع</th><th>الإجمالي</th></tr><tr><td>الفرسان</td><td><b>13,073</b></td></tr></table></div>
-</section>
-
-<!-- 4 - الطلبات -->
-<section id="orders" class="hidden">
-<div class="card"><h2>الطلبات > طلبات المنتجات</h2>
-<div class="flex"><button class="btn">الوارد إلى فرعي</button><button class="btn-outline">طلباتي</button><button class="btn-outline">بالانتظار الرد فقط</button></div>
-<div class="empty"><div style="font-size:40px">📦</div><h3>لا توجد طلبات</h3></div></div>
-</section>
-
-<!-- 5 - ملفات الدفعات -->
-<section id="files" class="hidden">
-<div class="card"><h2>المراسلات > ملفات الدفعات</h2><button class="btn">+ رفع ملف دفعات</button><br><br>
-<table><tr><th>الرقم</th><th>المورد</th><th>المرجع</th><th>الأصناف</th><th>الكمية</th><th>الحالة</th></tr>
-<tr><td>REQ-00004</td><td>شركة صفوة المحيط للتجارة</td><td>P22470</td><td>32</td><td>192</td><td><span class="pill">مكتمل</span></td></tr>
-<tr><td>REQ-00002</td><td>ehjvbgfdgbfd</td><td>P32545</td><td>76</td><td>975</td><td><span class="pill">مكتمل</span></td></tr>
-<tr><td>REQ-00001</td><td>اتصالاتي</td><td>P54575</td><td>-</td><td>-</td><td><span class="pill">مكتمل</span></td></tr>
-</table><p class="small">رفع بواسطة: سميرة محمد / بدر</p></div>
-</section>
-
-<!-- 6 - دليل المسؤوليات -->
-<section id="resp" class="hidden">
-<div class="card"><h2>المرجع > دليل المسؤوليات</h2><div class="flex"><button class="btn" onclick="show('resp',null)">دليل المسؤوليات</button><button class="btn-outline" onclick="show('mech',null)">الآليات والتعليمات</button><button class="btn-outline" onclick="show('cards',null)">بطاقات التعريف</button></div><br>
-<div class="grid">
-<div class="person"><b>ادراج المنتجات في SFDA</b><p>بدر محمد نصر غالب</p></div>
-<div class="person"><b>الجرد الدوري، تصحيح المخزون</b><p>ساري حسن</p></div>
-<div class="person"><b>بطاقة المنتج والتعريب</b><p>احمد امين الطيب</p></div>
-<div class="person"><b>تواريخ الانتهاء ورمز الدفعة</b><p>اكرم صادق العبادي</p></div>
-<div class="person"><b>التحويلات من الفروع</b><p>حكيم خالد المسعودي</p></div>
-<div class="person"><b>كل ما يخص نظام Odoo</b><p>باسم محمد عبد الغفور</p></div>
-<div class="person"><b>كل ما يخص نواقص الفروع</b><p>علي عبدالله المعيقل</p></div>
-<div class="person"><b>مسؤول صيانة كل ملايخ الأجهزة</b><p>دان خالد المسعودي</p></div>
-</div></div>
-</section>
-
-<!-- 7 - الآليات -->
-<section id="mech" class="hidden">
-<div class="card"><h2>المرجع > الآليات والتعليمات</h2><p class="small">الكل من suleiman abdo - الإصدار 1.0</p><div class="grid">
-<div class="mechanism"><span>آلية استلام التحويل</span><b>10 خطوة</b></div>
-<div class="mechanism"><span>آلية التحويل بين الفروع</span><b>5 خطوة</b></div>
-<div class="mechanism"><span>آلية تحديث رقم الدفعة وتاريخ الانتهاء</span><b>6 خطوة</b></div>
-<div class="mechanism"><span>آلية المرتجعات</span><b>6 خطوة</b></div>
-<div class="mechanism"><span>آلية إنشاء تقارير تصحيح السوالف</span><b>8 خطوة</b></div>
-<div class="mechanism"><span>آلية التعامل مع التوالف في الفروع</span><b>10 خطوة</b></div>
-<div class="mechanism"><span>إجراء عمل الجرد الفعلي</span><b>5 خطوة</b></div>
-<div class="mechanism"><span>سجل إجراءات النظافة</span><b>8 خطوة</b></div>
-<div class="mechanism"><span>آلية طلب التحويل</span><b>7 خطوة</b></div>
-<div class="mechanism"><span>آلية فحص المنتج عند الاستلام</span><b>20 خطوة</b></div>
-<div class="mechanism"><span>آلية متابعة تواريخ الانتهاء</span><b>6 خطوة</b></div>
-<div class="mechanism"><span>آلية مراقبة التوالف</span><b>13 خطوة</b></div>
-</div></div>
-</section>
-
-<!-- 8 - بطاقات التعريف -->
-<section id="cards" class="hidden">
-<div class="card"><h2>المرجع > بطاقات التعريف</h2><p>المسؤول: <b>احمد امين الطيب</b></p>
-<div class="card" style="background:#fdf2f6"><h3>🔒 افتح بطاقة التعريف بالباركود ورقم الدفعة</h3><p class="small">لحماية من طباعة بطاقة منتج لمنتج آخر، اكتب الباركود ورقم الدفعة كما على العبوة للبطاقة الخاصة به، إن وُجدت.</p>
-<div class="flex"><input placeholder="الباركود" id="bc"><input placeholder="رقم الدفعة (Batch)" id="batch"><button class="btn" onclick="showCard()">عرض البطاقة 🔍</button></div></div>
-<div class="empty" id="cardEmpty"><div class="logo">🏷️</div><h3>امسح باركود المنتج ثم اكتب رقم الدفعة</h3><p>ستظهر البطاقة بصورة وتصلها مع ملف Word للتنزيل والطباعة المباشرة</p></div>
-<div id="cardResult" class="hidden card"><h3 id="cardTitle"></h3><p>الباركود: <b id="cardBc"></b> | الدفعة: <b id="cardBatch"></b></p><button class="btn">تحميل Word + طباعة</button></div>
+<!-- البانر -->
+<div class="banner">
+<div style="max-width:420px"><div style="display:flex;gap:6px"><span class="pill pill-gold">⚡ مهم</span><span class="pill pill-red">● مثبت</span><span class="pill" style="background:#fff;color:#333">📢 الإعلانات والتحديثات</span></div>
+<h2 style="margin-top:10px">تطبيق NMA على جوالك الآن 📱</h2>
+<p>زملائنا في فروع شاطئ الوصل<br>يسعدنا إطلاق تطبيق NMA للجوال — نفس النظام الذي تعرفونه على الويندوز الآن في جيبك وبنفس حسابك وصلاحياتك.</p>
+<p style="font-size:12px;opacity:.8">🕐 2026-11-03 5:06 م - سليمان عبده ويس</p>
 </div>
-</section>
-
-<!-- 9 - حسابي والبريد -->
-<section id="account" class="hidden">
-<div class="card"><h2>حسابي > حسابي والبريد</h2>
-<div class="card"><h3>👤 الحساب</h3><table><tr><th>الاسم</th><th>اسم المستخدم</th><th>الدور في WASL</th><th>الفرع</th></tr><tr><td>فرع الفرسان</td><td>forsan</td><td>الفرع</td><td>فرع الفرسان</td></tr></table></div>
-<div class="card"><h3>@ بريد الفرع الرسمي</h3><p><b>forsan.branch@shatialwasl.com.sa</b> <span class="pill">موثق</span></p><p class="small">خادم SMTP: smtp.gmail.com:587 | اسم المرسل: فرع الفرسان | آخر مزامنة: 11-11-2026 11:09 م</p>
-<div class="flex"><button class="btn">إعادة الربط</button><button class="btn-outline">اختبار الاتصال</button><button class="btn-outline">فك الربط</button></div><p class="small">يُستخدم حسابك لإرسال نسخ المراسلات الرسمية لنفسه، خاصة الأنواع المحددة مسبقاً.</p></div>
-<div class="card"><h3>📩 استقبال الردود من البريد</h3><div class="flex"><div class="toggle"></div><p>قراءة الردود التي تصل إلى صندوق البريد وإضافتها إلى المحادثات. كل 5 دقائق أثناء imap.gmail.com الردود على رسائل WASL، ورسائل محادثاتها، ورسائل الفروع المفتوحة لفتح محادثة جديدة.</p></div><p class="small">آخر مزامنة: 11-11-2026 8:21 م | الحالة: <b>مفعل</b> <button class="btn-outline">مزامنة الآن ↻</button></p></div>
+<div style="text-align:center"><div style="font-size:11px;opacity:.8">كل الإعلانات (1)</div><h2 style="margin:8px 0">تطبيق NMA على جوالك الآن</h2><p style="font-size:11px">NMA - نفس النظام الذي تعرفونه على الويندوز الآن في جيبك</p><div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:10px 0"><span style="background:#ffffff22;padding:5px 8px;border-radius:20px;font-size:11px">📊 منتجات</span><span style="background:#ffffff22;padding:5px 8px;border-radius:20px;font-size:11px">💬 مراسلات</span><span style="background:#ffffff22;padding:5px 8px;border-radius:20px;font-size:11px">🧾 فواتير</span><span style="background:#ffffff22;padding:5px 8px;border-radius:20px;font-size:11px">📦 التحويلات</span></div><button class="btn-dark">⬇ تحميل للأندرويد - حمله من الرابط الرسمي الآن</button><br><br><button class="btn-white">← اقرأ المزيد</button></div>
+<div class="phone"><div class="top"></div><div style="font-size:10px;margin:8px 0">منع الشحنات</div><div style="background:#eee;height:70px;border-radius:10px;display:grid;place-items:center">🛒</div><b>18.00 رس</b><div><small>12<br>قطعة</small></div><div style="font-size:10px;color:#c00">تخفيض 30%</div></div>
 </div>
-</section>
+
+<!-- ملخص الفرع -->
+<div class="sec"><h3>▦ ملخص الفرع</h3><a>كل التقارير ←</a></div>
+<div class="grid6">
+<div class="card"><div class="top"><small>المنتجات السالبة</small><span class="ic">📉</span></div><b class="red">6 منتج</b><small>6 وحدة بالسالب</small></div>
+<div class="card"><div class="top"><small>العروض المشغلة</small><span class="ic">🏷️</span></div><b>0 منتج</b><small>0 وحدة • 0 عدد في الفرع</small></div>
+<div class="card"><div class="top"><small>المتوقع عن البيع</small><span class="ic">🕐</span></div><b class="orange">261 منتج</b><small>2,496 وحدة<br>آخر أسبوع: 18 • آخر يوم: 18 • خلال 18 يوم - 68 • من قبل شهر: ...</small></div>
+<div class="card"><div class="top"><small>التحويل الواردة إلى الفرع</small><span class="ic">📥</span></div><b class="teal">119 منتج</b><small>634 وحدة</small></div>
+<div class="card"><div class="top"><small>التحويلات الصادرة من الفرع</small><span class="ic">📤</span></div><b>55 منتج</b><small>233 وحدة</small></div>
+<div class="card"><div class="top"><small>مواعيد الشحنات</small><span class="ic">🚚</span></div><b class="teal">الاثنين + الخميس</b><small>الموعد القادم: غداً (الخميس)</small></div>
+</div>
+
+<!-- المتابعة اليومية -->
+<div class="sec"><h3>▦ المتابعة اليومية</h3></div>
+<div class="grid6">
+<div class="card"><div class="top"><small>مهام مطلوبة مني</small><span class="ic">☰</span></div><b>1</b><small>مهمة من الإدارة لم تُنجز</small></div>
+<div class="card"><div class="top"><small>بحاجة لردي</small><span class="ic">↩️</span></div><b>0</b><small>مراسلة تنتظر ردك</small></div>
+<div class="card"><div class="top"><small>رسائل غير مقروءة</small><span class="ic">✉️</span></div><b class="red">19</b><small>مراسلة لم تُفتح بعد</small></div>
+<div class="card"><div class="top"><small>دفعات مفتوحة</small><span class="ic">📄</span></div><b>0</b><small>ملف دفعات قيد المعالجة</small></div>
+<div class="card"><div class="top"><small>منتجات الفرع</small><span class="ic">✏️</span></div><b style="font-size:16px">المكياج وبقية المنتجات</b><small>الهبات والعلامات كل صنف</small></div>
+<div class="card"><div class="top"><small>أصناف سالبة</small><span class="ic">📉</span></div><b class="red">6</b><small>من إجمالي الفرع</small></div>
+</div>
+
+<div class="warns"><span>⚠️ 6 صنفاً رصيد سالب</span><span>⚠️ 2021 صنفاً في حالة حرجة</span><span>⚠️ 2596 صنفاً ناقص منها 1861 في مصدر في المستودعات</span><span>⚠️ 1100 صنفاً راكداً بلا مبيعات</span></div>
+
+<div class="grid3">
+<div class="box"><h3>📩 آخر المراسلات <a>عرض الكل</a></h3><p><b>سحب</b><br><small>إدارة المخزون - 2026-11-11 4:39 م</small></p><p><b>سحب</b><br><small>إدارة المخزون - 2026-11-11 4:39 م</small></p></div>
+<div class="box"><h3>📋 آخر التعليمات <a>الكل</a></h3><p>📄 آلية استلام التحويل<br><small>الإصدار 1.0</small></p><p>📄 آلية التحويل بين الفروع</p></div>
+<div class="box"><h3>📊 ملخص فرعي <a>التفاصيل</a></h3><table><tr><td>الانتصاف</td><td>سالبة</td><td>حرجة</td><td>منخفضة</td><td>ناقصة</td><td>راكدة</td><td>متوسط التغطية</td></tr><tr><td><b>12798</b></td><td style="color:red"><b>6</b></td><td style="color:orange"><b>2021</b></td><td><b>931</b></td><td><b>2596</b></td><td><b>1100</b></td><td><b>272 يوم</b></td></tr></table><small>آخر مزامنة: 2026-11-11 6:42 م</small></div>
+</div>
 
 </div>
-<script>
-function show(id,el){
-document.querySelectorAll('section').forEach(s=>s.classList.add('hidden'));
-document.getElementById(id).classList.remove('hidden');
-if(el){document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));el.classList.add('active')}
-window.scrollTo(0,0);
-}
-function showCard(){
-let bc=document.getElementById('bc').value||'---';
-let b=document.getElementById('batch').value||'---';
-if(!document.getElementById('bc').value){alert('امسح الباركود أولاً');return}
-document.getElementById('cardEmpty').classList.add('hidden');
-document.getElementById('cardResult').classList.remove('hidden');
-document.getElementById('cardBc').textContent=bc;
-document.getElementById('cardBatch').textContent=b;
-document.getElementById('cardTitle').textContent='بطاقة تعريف المنتج - '+bc;
-}
-</script>
 </body>
 </html>
