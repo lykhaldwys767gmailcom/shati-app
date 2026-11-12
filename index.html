@@ -1,43 +1,70 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تطبيق شاتي</title>
+<title>شاطئ الوصل</title>
 <style>
 body{font-family:system-ui; background:#f2f2f2; margin:0; padding:14px}
-h1{font-size:20px; text-align:center}
+h1{font-size:22px; text-align:center}
+.sub{text-align:center; color:#777; font-size:13px; margin-bottom:14px}
 .menu{background:#fff; border-radius:14px; padding:12px; margin-bottom:12px}
-.menu h2{margin:0 0 8px; font-size:18px; color:#111}
-.item{padding:11px 8px; border-bottom:1px solid #eee; display:flex; justify-content:space-between; align-items:center}
+.menu h2{margin:0 0 8px; font-size:18px}
+.item{padding:11px 8px; border-bottom:1px solid #eee}
 .item:last-child{border:0}
 .small{color:#777; font-size:13px; display:block}
 .divider{border-top:1px solid #ddd; margin:10px 0}
 .header{font-weight:bold; background:#f7f7f7; padding:10px; border-radius:8px; margin:8px 0}
-.order-btn{background:#111; color:#fff; border:0; padding:8px 14px; border-radius:20px; font-size:14px}
-.tabs{display:flex; gap:8px; margin:10px 0}
+.order-btn{background:#111; color:#fff; border:0; padding:8px 14px; border-radius:20px}
+.tabs{display:flex; gap:8px}
 .tab{flex:1; background:#fff; border:1px solid #ddd; border-radius:10px; padding:10px; text-align:center; font-size:13px}
 </style>
 </head>
 <body>
-<h1>تطبيق شاتي - القوائم</h1>
-<div id="app">جاري التحميل...</div>
-<script src="menu_data.js"></script>
-<script>
-const app = document.getElementById('app');
-let html = '';
-appMenus.forEach(g => {
-  html += `<div class="menu"><h2>${g.icon} ${g.title}</h2>`;
-  g.items.forEach(it => {
-    if(it.divider) html += `<div class="divider"></div>`;
-    else if(it.header) html += `<div class="header">${it.title}</div>`;
-    else html += `<div class="item"><div><b>${it.title}</b><span class="small">${it.subtitle||''}</span></div><span>›</span></div>`;
-  });
-  html += `</div>`;
-});
-html += `<div class="menu"><h2>طلبات المنتجات</h2><div class="tabs">${orderTabs.map(t=>`<div class="tab">${t.icon}<br>${t.title}</div>`).join('')}</div><p>داخل <b>أين أجد المنتج؟</b> بجانب الفرع زر <button class="order-btn">اطلب</button></p></div>`;
-app.innerHTML = html;
-</script>
+<h1>شاطئ الوصل</h1>
+<div class="sub">تطبيق شاطئ الوصل - القوائم</div>
+
+<div class="menu"><h2>🏠 الرئيسية</h2>
+<div class="item"><b>الرئيسية</b><span class="small">الصفحة الرئيسية</span></div>
+<div class="item"><b>مهامي</b><span class="small">المهام الخاصة فيك</span></div>
+<div class="divider"></div>
+<div class="item"><b>أين أجد المنتج؟</b><span class="small">تبحث عن المنتج وين موجود</span></div>
+<div class="item"><b>منتجات الفرع</b><span class="small">منتجات فرعك</span></div>
+<div class="item"><b>التحويل المتوقع</b><span class="small">التحويلات اللي متوقع توصلك</span></div>
+<div class="item"><b>استلام شحنة</b><span class="small">استلام الشحنات</span></div>
+<div class="divider"></div>
+<div class="header">التحليل والتقارير</div>
+<div class="item"><b>تحليل فرعي</b></div>
+<div class="item"><b>التقارير</b></div>
+<div class="item"><b>التقارير الشهرية</b></div>
+</div>
+
+<div class="menu"><h2>🛒 الطلبات</h2>
+<div class="item"><b>طلبات المنتج</b></div>
+<div class="item"><b>طلبات المنتجات</b></div>
+</div>
+
+<div class="menu"><h2>✉️ المراسلات</h2>
+<div class="item"><b>المراسلات الرسمية</b></div>
+<div class="item"><b>المحادثات الداخلية</b></div>
+<div class="item"><b>ملفات الدفعات</b></div>
+</div>
+
+<div class="menu"><h2>📖 المرجع</h2>
+<div class="item"><b>المسؤوليات</b></div>
+<div class="item"><b>الآليات والتعليمات</b></div>
+<div class="item"><b>بطاقات التعريف</b></div>
+</div>
+
+<div class="menu"><h2>👤 حسابي</h2>
+<div class="item"><b>حسابي والبريد</b></div>
+<div class="item"><b>التحكم في التطبيق والتطوير</b></div>
+</div>
+
+<div class="menu"><h2>طلبات المنتجات</h2>
+<div class="tabs"><div class="tab">📥<br>الوارد إلى فرعي</div><div class="tab">🧺<br>طلباتي</div><div class="tab">⏳<br>بانتظار الرد فقط</div></div>
+<p>داخل <b>أين أجد المنتج؟</b> بجانب الفرع زر <button class="order-btn">اطلب</button></p>
+</div>
+
 </body>
 </html>
