@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>NMA - فرع الفرسان</title>
+<title>NMA - فرع الفرسان - مطور</title>
 <style>
 *{box-sizing:border-box;font-family:Tahoma,Arial,sans-serif}
 body{margin:0;background:#fdf8f9;color:#222}
 header{background:#7a0f38;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:8px 16px;position:sticky;top:0;z-index:20}
 header .left{display:flex;gap:10px;align-items:center;font-size:14px;flex-wrap:wrap}
-header .left a{color:#fff;text-decoration:none;padding:7px 10px;border-radius:8px}
+header .left a{color:#fff;text-decoration:none;padding:7px 10px;border-radius:8px;cursor:pointer}
 header .left a.active{background:#fff;color:#7a0f38;font-weight:bold}
 .badge{background:#ff3b30;color:#fff;border-radius:50%;padding:0 6px;font-size:11px;font-weight:bold}
 .logo{font-weight:900;font-size:20px}.logo small{font-size:9px;display:block}
@@ -36,18 +36,17 @@ header .left a.active{background:#fff;color:#7a0f38;font-weight:bold}
 .box{background:#fff;border-radius:14px;padding:14px}
 table{width:100%;border-collapse:collapse;font-size:13px}td{padding:8px 4px;border-bottom:1px solid #f1f1f1;text-align:center}td:first-child{text-align:right}
 .hidden{display:none}.back{color:#7a0f38;cursor:pointer;font-weight:bold}
+.new{border:2px solid #7a0f38}
 </style>
 </head>
 <body>
 <header>
-<div style="display:flex;gap:12px;align-items:center"><div class="logo">NMA<small>v2.0.5.76</small></div><div>🔔<span class="badge">8</span></div><div>👤 فرع الفرسان</div></div>
-<div class="left"><a onclick="go('home',this)" class="active">🏠 الرئيسية</a><a onclick="go('orders',this)">🛒 الطلبات</a><a onclick="go('msgs',this)">✉️ المراسلات</a><a onclick="go('ref',this)">📚 المرجع</a><a onclick="go('account',this)">👤 حسابي</a></div>
+<div style="display:flex;gap:12px;align-items:center"><div class="logo">NMA<small>v2.0.5.76</small></div><div>🔔<span class="badge">10</span></div><div>👤 فرع الفرسان</div></div>
+<div class="left"><a onclick="go('home',this)" class="active">🏠 الرئيسية</a><a onclick="go('orders',this)">🛒 الطلبات</a><a onclick="go('msgs',this)">✉️ المراسلات</a><a onclick="go('ref',this)">📚 المرجع</a><a onclick="go('reports',this)">📊 التقارير</a><a onclick="go('account',this)">👤 حسابي</a></div>
 </header>
 <div class="wrap">
-
-<!-- الرئيسية -->
 <section id="home">
-<div class="welcome"><div><h2>مرحباً، فرع الفرسان</h2><p>لديك اليوم 261 منتجات متوقفة عن البيع و 6 منتجاً بالسالب و 119 منتج في الطريق إليك.</p></div><div style="text-align:left"><b style="color:#7a0f38">مساء الخير ↻</b><div style="font-size:12px">الخميس 12 نوفمبر 2026</div></div></div>
+<div class="welcome"><div><h2>مرحباً، فرع الفرسان</h2><p>لديك اليوم 274 منتجات متوقفة عن البيع و 5 منتجاً بالسالب و 0 منتج في الطريق إليك.</p></div><div style="text-align:left"><b style="color:#7a0f38">مساء الخير ↻</b><div style="font-size:12px">الخميس 12 نوفمبر 2026</div></div></div>
 <div class="banner">
 <div><div><span class="pill pill-gold">⚡ مهم</span> <span class="pill pill-red">● مثبت</span> <span class="pill" style="background:#fff;color:#333">📢 الإعلانات والتحديثات</span></div>
 <h2 style="margin-top:10px">تطبيق NMA على جوالك الآن 📱</h2>
@@ -56,51 +55,58 @@ table{width:100%;border-collapse:collapse;font-size:13px}td{padding:8px 4px;bord
 <div style="text-align:center"><button class="btn-dark">⬇ تحميل للأندرويد</button><br><br><button class="btn-white" onclick="go('app',null)">← اقرأ المزيد</button></div>
 <div class="phone" onclick="go('neg',null)"><div>منع الشحنات</div><div style="background:#eee;height:70px;border-radius:10px;display:grid;place-items:center">🛒</div><b>18.00 رس</b><div><small>12 قطعة</small></div></div>
 </div>
-
 <div class="sec"><h3>▦ ملخص الفرع</h3></div>
 <div class="grid6">
-<div class="card" onclick="go('neg',null)"><small>المنتجات السالبة 📉</small><b class="red">6 منتج</b><small>اضغط للفتح 👆</small></div>
-<div class="card" onclick="go('offers',null)"><small>العروض المشغلة 🏷️</small><b>0 منتج</b><small>اضغط للفتح 👆</small></div>
-<div class="card" onclick="go('stopped',null)"><small>المتوقع عن البيع 🕐</small><b class="orange">261 منتج</b><small>اضغط للفتح 👆</small></div>
-<div class="card" onclick="go('incoming',null)"><small>التحويل الواردة 📥</small><b class="teal">119 منتج</b><small>اضغط للفتح 👆</small></div>
-<div class="card" onclick="go('outgoing',null)"><small>التحويلات الصادرة 📤</small><b>55 منتج</b><small>اضغط للفتح 👆</small></div>
-<div class="card" onclick="go('ship',null)"><small>مواعيد الشحنات 🚚</small><b class="teal">الاثنين + الخميس</b><small>اضغط للفتح 👆</small></div>
+<div class="card" onclick="go('neg',null)"><small>المنتجات السالبة 📉</small><b class="red">5 منتج</b><small>5 وحدة بالسالب 👆</small></div>
+<div class="card" onclick="go('offers',null)"><small>العروض المشغلة 🏷️</small><b>0 منتج</b><small>0 وحدة في رصيد الفرع 👆</small></div>
+<div class="card" onclick="go('stopped',null)"><small>المتوقف عن البيع 🕐</small><b class="orange">274 منتج</b><small>2,640 وحدة 👆</small></div>
+<div class="card" onclick="go('incoming',null)"><small>التحويل الواردة 📥</small><b class="teal">0 منتج</b><small>0 وحدة 👆</small></div>
+<div class="card" onclick="go('outgoing',null)"><small>التحويلات الصادرة 📤</small><b>56 منتج</b><small>235 وحدة 👆</small></div>
+<div class="card" onclick="go('ship',null)"><small>مواعيد الشحنات 🚚</small><b class="teal">الاثنين + الخميس</b><small>الموعد القادم: اليوم الخميس 👆</small></div>
 </div>
-
 <div class="sec"><h3>▦ المتابعة اليومية</h3></div>
 <div class="grid6">
-<div class="card" onclick="go('tasks',null)"><small>مهام مطلوبة مني ☰</small><b>1</b><small>اضغط للفتح 👆</small></div>
-<div class="card" onclick="go('msgs',null)"><small>بحاجة لردي ↩️</small><b>0</b><small>اضغط للفتح 👆</small></div>
-<div class="card" onclick="go('msgs',null)"><small>رسائل غير مقروءة ✉️</small><b class="red">19</b><small>اضغط للفتح 👆</small></div>
-<div class="card" onclick="go('pay',null)"><small>دفعات مفتوحة 📄</small><b>0</b><small>اضغط للفتح 👆</small></div>
+<div class="card" onclick="go('tasks',null)"><small>مهام مطلوبة مني ☰</small><b>1</b><small>مهمة من الإدارة لم تُنجز 👆</small></div>
+<div class="card" onclick="go('msgs',null)"><small>بحاجة لردي ↩️</small><b>1</b><small>مراسلة تنتظر ردك 👆</small></div>
+<div class="card" onclick="go('msgs',null)"><small>رسائل غير مقروءة ✉️</small><b class="red">20</b><small>مراسلة لم تُفتح بعد 👆</small></div>
+<div class="card" onclick="go('pay',null)"><small>دفعات مفتوحة 📄</small><b>0</b><small>ملف دفعات قيد المعالجة 👆</small></div>
 <div class="card" onclick="go('products',null)"><small>منتجات الفرع ✏️</small><b style="font-size:16px">المكياج وبقية المنتجات</b><small>اضغط للفتح 👆</small></div>
-<div class="card" onclick="go('neg',null)"><small>أصناف سالبة 📉</small><b class="red">6</b><small>اضغط للفتح 👆</small></div>
+<div class="card" onclick="go('neg',null)"><small>أصناف سالبة 📉</small><b class="red">5</b><small>من تحليل الفرع 👆</small></div>
 </div>
-
-<div class="warns"><span onclick="go('neg',null)">⚠️ 6 صنفاً رصيد سالب - اضغط</span><span onclick="go('neg',null)">⚠️ 2021 صنفاً في حالة حرجة</span><span onclick="go('stopped',null)">⚠️ 2596 صنفاً ناقص</span><span onclick="go('stopped',null)">⚠️ 1100 صنفاً راكداً</span></div>
+<div class="sec"><h3>▦ ✨ الإضافات الجديدة من الصور</h3></div>
+<div class="grid6">
+<div class="card new" onclick="go('customers',null)"><small>عدد العملاء 👥</small><b>13,073 عميل</b><small>فرع جديد - اضغط للفتح 👆</small></div>
+<div class="card new" onclick="go('reports',null)"><small>التقارير الشهرية 📊</small><b>أغسطس - أكتوبر</b><small>اضغط للفتح 👆</small></div>
+<div class="card new" onclick="go('incoming2',null)"><small>التحويلات الواردة للفرع 📥</small><b class="teal">فاضية - 0</b><small>صفحة التقارير - اضغط 👆</small></div>
+<div class="card new" onclick="go('outgoing',null)"><small>التحويلات الصادرة من الفرع 📤</small><b>55 منتج - النرجس</b><small>233 وحدة - اضغط 👆</small></div>
+<div class="card new" onclick="go('stopped',null)"><small>المتوقع عن البيع - تفصيل 🕐</small><b class="orange">2,496 وحدة</b><small>261 منتج - اضغط 👆</small></div>
+<div class="card new" onclick="go('incoming',null)"><small>منتجات في الطريق 🚚</small><b class="teal">634 وحدة</b><small>119 منتج - اضغط 👆</small></div>
+</div>
+<div class="warns"><span onclick="go('neg',null)">⚠️ 5 صنفاً رصيد سالب</span><span onclick="go('neg',null)">⚠️ 1993 صنفاً في حالة حرجة</span><span onclick="go('stopped',null)">⚠️ 2601 صنفاً ناقص</span><span onclick="go('stopped',null)">⚠️ 1105 صنفاً راكداً</span></div>
 <div class="grid3">
-<div class="box" onclick="go('msgs',null)" style="cursor:pointer"><h3>📩 آخر المراسلات</h3><p><b>سحب</b><br><small>إدارة المخزون - 2026-11-11 4:39 م</small></p><p>اضغط لفتح المراسلات 👆</p></div>
+<div class="box" onclick="go('msgs',null)" style="cursor:pointer"><h3>📩 آخر المراسلات</h3><p><b>تحت المعالجة</b><br><small>إدارة المخزون - 2026-11-12 8:38 ص</small></p><p>اضغط لفتح المراسلات 👆</p></div>
 <div class="box" onclick="go('ref',null)" style="cursor:pointer"><h3>📋 آخر التعليمات</h3><p>📄 آلية استلام التحويل</p><p>📄 آلية التحويل بين الفروع</p><p>اضغط لفتح المرجع 👆</p></div>
-<div class="box" onclick="go('neg',null)" style="cursor:pointer"><h3>📊 ملخص فرعي</h3><table><tr><td>الانتصاف</td><td>سالبة</td><td>حرجة</td><td>ناقصة</td><td>راكدة</td></tr><tr><td><b>12798</b></td><td style="color:red"><b>6</b></td><td><b>2021</b></td><td><b>2596</b></td><td><b>1100</b></td></tr></table><p style="font-size:12px;margin-top:8px">👥 عدد العملاء: <b>13,073</b> - أغسطس 4,032 / سبتمبر 4,480 / أكتوبر 4,561 - فرع جديد</p></div>
+<div class="box" onclick="go('analysis',null)" style="cursor:pointer"><h3>📊 ملخص فرعي + عملاء</h3><table><tr><td>الانتصاف</td><td>سالبة</td><td>حرجة</td><td>ناقصة</td><td>راكدة</td></tr><tr><td><b>12856</b></td><td style="color:red"><b>5</b></td><td><b>1993</b></td><td><b>2601</b></td><td><b>1105</b></td></tr></table><p style="font-size:12px;margin-top:8px">👥 <b>13,073 عميل</b> - أغسطس 4,032 / سبتمبر 4,480 / أكتوبر 4,561</p></div>
 </div>
 </section>
-
-<!-- الصفحات الداخلية - كل أيقونة تفتح صفحتها -->
-<section id="neg" class="hidden"><div class="back" onclick="go('home',null)">← رجوع للرئيسية</div><div class="box"><h2>📉 المنتجات السالبة - 6 منتج</h2><table><tr><td>ارم اند هامر</td><td>033200191223</td><td style="color:red"><b>-1</b></td></tr><tr><td>لوريال باريس كريم</td><td>3600524026202</td><td style="color:red"><b>-1</b></td></tr><tr><td>دوف مزيل عرق</td><td>4800888196514</td><td style="color:red"><b>-1</b></td></tr></table></div></section>
-<section id="offers" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>🏷️ العروض المشغلة</h2><p>لا توجد عروض مشغلة حالياً - 0 منتج</p></div></section>
-<section id="stopped" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>🕐 المتوقع عن البيع - 261 منتج</h2><p>2,496 وحدة متوقفة عن البيع</p></div></section>
-<section id="incoming" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>📥 التحويل الواردة - 119 منتج</h2><p>634 وحدة في الطريق إليك</p></div></section>
-<section id="outgoing" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>📤 التحويلات الصادرة - 55 منتج</h2><p>233 وحدة - كلها إلى فرع النرجس - رقم التحويل ALFOR/INT/00895</p></div></section>
-<section id="ship" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>🚚 مواعيد الشحنات</h2><p><b>الاثنين + الخميس</b><br>الموعد القادم: غداً (الخميس)</p></div></section>
+<section id="neg" class="hidden"><div class="back" onclick="go('home',null)">← رجوع للرئيسية</div><div class="box"><h2>📉 المنتجات السالبة - 5 منتج</h2><table><tr><td>ارم اند هامر</td><td>033200191223</td><td style="color:red"><b>-1</b></td></tr><tr><td>لوريال باريس كريم</td><td>3600524026202</td><td style="color:red"><b>-1</b></td></tr><tr><td>دوف مزيل عرق</td><td>4800888196514</td><td style="color:red"><b>-1</b></td></tr></table></div></section>
+<section id="offers" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>🏷️ العروض المشغلة</h2><p>لا توجد عروض مشغلة حالياً - 0 منتج - 0 وحدة في رصيد الفرع</p></div></section>
+<section id="stopped" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>🕐 المتوقف عن البيع - 274 منتج</h2><p>2,640 وحدة متوقفة عن البيع</p><p>2601 صنفاً ناقص - 1105 صنفاً راكد - 1993 صنفاً حرج</p></div></section>
+<section id="incoming" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>📥 التحويل الواردة - 0 منتج</h2><p>0 وحدة في الطريق إليك</p></div></section>
+<section id="incoming2" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>📥 التقارير / التحويلات الواردة إلى الفرع</h2><p>لا توجد تحويلات واردة حالياً - الصفحة فاضية - 0 سطر</p></div></section>
+<section id="outgoing" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>📤 التحويلات الصادرة من الفرع - 56 منتج</h2><p>235 وحدة - كلها إلى <b>فرع النرجس</b></p><p>رقم التحويل: <b>ALFOR/INT/00895</b></p></div></section>
+<section id="ship" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>🚚 مواعيد الشحنات</h2><p><b>الاثنين + الخميس</b><br>الموعد القادم: اليوم الخميس</p></div></section>
 <section id="tasks" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>☰ مهام مطلوبة مني - 1</h2><p>مهمة من الإدارة لم تُنجز</p></div></section>
-<section id="msgs" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>✉️ المراسلات - 19 غير مقروءة</h2><p><b>سحب</b> - إدارة المخزون - 2026-11-11 4:39 م</p><p><b>سحب</b> - إدارة المخزون - 2026-11-11 4:39 م</p></div></section>
+<section id="msgs" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>✉️ المراسلات - 20 غير مقروءة</h2><p><b>تحت المعالجة</b> - إدارة المخزون - 2026-11-12 8:38 ص</p><p>1 مراسلة تنتظر ردك</p></div></section>
 <section id="pay" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>📄 دفعات مفتوحة - 0</h2><p>لا توجد ملفات دفعات قيد المعالجة</p></div></section>
-<section id="products" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>✏️ منتجات الفرع</h2><p>المكياج وبقية المنتجات</p></div></section>
+<section id="products" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>✏️ منتجات الفرع</h2><p>المكياج وبقية المنتجات - 12856 صنف</p></div></section>
 <section id="orders" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>🛒 الطلبات</h2><p>لا توجد طلبات</p></div></section>
 <section id="ref" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>📚 المرجع</h2><p>📄 آلية استلام التحويل - 10 خطوة</p><p>📄 آلية التحويل بين الفروع - 5 خطوة</p><p>🏷️ بطاقات التعريف - المسؤول: احمد امين الطيب</p></div></section>
 <section id="account" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>👤 حسابي</h2><p>فرع الفرسان - forsan<br>✉️ forsan.branch@shatialwasl.com.sa</p></div></section>
 <section id="app" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>📱 تطبيق NMA على جوالك الآن</h2><p>نفس النظام الذي تعرفونه على الويندوز الآن في جيبك وبنفس حسابك وصلاحياتك.</p><p>🕐 2026-11-03 5:06 م - علي خالد ويس</p><button class="btn">⬇ تحميل للأندرويد</button></div></section>
-
+<section id="customers" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>👥 التقارير الشهرية / عدد العملاء</h2><p>فرع جديد - إجمالي العملاء: <b>13,073 عميل</b></p><table><tr><td>الشهر</td><td>عدد العملاء</td></tr><tr><td>أغسطس</td><td><b>4,032</b></td></tr><tr><td>سبتمبر</td><td><b>4,480</b></td></tr><tr><td>أكتوبر</td><td><b>4,561</b></td></tr><tr><td><b>الإجمالي</b></td><td><b>13,073</b></td></tr></table></div></section>
+<section id="reports" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>📊 التقارير</h2><p onclick="go('customers',null)" style="cursor:pointer;color:#7a0f38;font-weight:bold">👥 عدد العملاء - 13,073 - اضغط للفتح 👆</p><p onclick="go('incoming2',null)" style="cursor:pointer;color:#7a0f38;font-weight:bold">📥 التحويلات الواردة إلى الفرع - فاضية - اضغط 👆</p><p onclick="go('outgoing',null)" style="cursor:pointer;color:#7a0f38;font-weight:bold">📤 التحويلات الصادرة من الفرع - 56 منتج - النرجس - اضغط 👆</p><p onclick="go('stopped',null)" style="cursor:pointer;color:#7a0f38;font-weight:bold">🕐 المتوقف عن البيع - 274 منتج - اضغط 👆</p></div></section>
+<section id="analysis" class="hidden"><div class="back" onclick="go('home',null)">← رجوع</div><div class="box"><h2>📊 تحليل فرعي</h2><table><tr><td>الانتصاف</td><td>سالبة</td><td>حرجة</td><td>منخفضة</td><td>ناقصة</td><td>راكدة</td><td>متوسط التغطية</td></tr><tr><td><b>12856</b></td><td><b>5</b></td><td><b>1993</b></td><td><b>919</b></td><td><b>2601</b></td><td><b>1105</b></td><td><b>271 يوم</b></td></tr></table></div></section>
 </div>
 <script>
 function go(id,el){
