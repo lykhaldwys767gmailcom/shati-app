@@ -1,4 +1,4 @@
-// menu_data.dart - النسخة المحدثة النهائية - جاهز نسخ ولصق
+// menu_data.dart - Final Version - Ready to copy
 
 import 'package:flutter/material.dart';
 
@@ -33,8 +33,6 @@ class MenuGroup {
 }
 
 final List<MenuGroup> appMenus = [
-
-  // 1. الرئيسية
   MenuGroup(
     id: 'home',
     title: 'الرئيسية',
@@ -54,8 +52,6 @@ final List<MenuGroup> appMenus = [
       MenuItem(id: 'monthly_reports', title: 'التقارير الشهرية', route: '/monthly-reports', icon: Icons.calendar_month_outlined),
     ],
   ),
-
-  // 2. الطلبات
   MenuGroup(
     id: 'orders',
     title: 'الطلبات',
@@ -65,8 +61,6 @@ final List<MenuGroup> appMenus = [
       MenuItem(id: 'products_orders', title: 'طلبات المنتجات', route: '/products-orders', icon: Icons.list_alt_outlined),
     ],
   ),
-
-  // 3. المراسلات
   MenuGroup(
     id: 'messages',
     title: 'المراسلات',
@@ -77,8 +71,6 @@ final List<MenuGroup> appMenus = [
       MenuItem(id: 'payments', title: 'ملفات الدفعات', route: '/payment-files', icon: Icons.folder_outlined),
     ],
   ),
-
-  // 4. المرجع
   MenuGroup(
     id: 'reference',
     title: 'المرجع',
@@ -89,8 +81,6 @@ final List<MenuGroup> appMenus = [
       MenuItem(id: 'id_cards', title: 'بطاقات التعريف', route: '/id-cards', icon: Icons.badge_outlined),
     ],
   ),
-
-  // 5. حسابي
   MenuGroup(
     id: 'account',
     title: 'حسابي',
@@ -102,7 +92,6 @@ final List<MenuGroup> appMenus = [
   ),
 ];
 
-// تبويبات داخل طلبات المنتجات - مع زر اطلب
 class OrderTab {
   final String id;
   final String title;
@@ -117,5 +106,4 @@ final List<OrderTab> orderTabs = [
   OrderTab(id: 'waiting', title: 'بانتظار الرد فقط', icon: Icons.hourglass_empty_outlined, route: '/orders/waiting'),
 ];
 
-// زر اطلب - يظهر بجانب الفرع في صفحة أين أجد المنتج؟
 const String orderButtonLabel = 'اطلب';
