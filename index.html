@@ -270,4 +270,1860 @@
             width: 32px;
             height: 32px;
             border-radius: 50%;
-            background: rgba(255,255,2
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .user-info {
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+            line-height: 1.2;
+        }
+
+        .user-info strong {
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .user-info span {
+            font-size: 11px;
+            opacity: 0.8;
+        }
+
+        .left-dropdown {
+            left: 0;
+            right: auto;
+            min-width: 280px;
+        }
+
+        /* ================= مسار الصفحة (Breadcrumb) ================= */
+        .breadcrumb-bar {
+            background-color: #fff;
+            padding: 10px 24px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 13px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .breadcrumb-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .breadcrumb-bar span.current {
+            color: var(--primary-burgundy);
+            font-weight: 700;
+        }
+
+        .back-home-btn {
+            display: none;
+            background: var(--light-burgundy-bg);
+            color: var(--primary-burgundy);
+            border: 1px solid #f3d1dc;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 12.5px;
+            font-weight: 700;
+            cursor: pointer;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .back-home-btn:hover {
+            background: var(--primary-burgundy);
+            color: #fff;
+        }
+
+        /* ================= الحاوية الرئيسية ================= */
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 18px 24px 40px;
+        }
+
+        /* ================= شريط الترحيب العلوي ================= */
+        .welcome-card {
+            background: linear-gradient(90deg, #f3f5fc 0%, #f8f9fc 60%, #ffffff 100%);
+            border: 1px solid #e6e9f4;
+            border-radius: 12px;
+            padding: 16px 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .welcome-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .moon-icon-box {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background-color: #e4e9fb;
+            color: #4a6cf7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .welcome-text h2 {
+            font-size: 18px;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 3px;
+        }
+
+        .welcome-text p {
+            font-size: 13.5px;
+            color: #475569;
+        }
+
+        .welcome-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .date-box {
+            text-align: left;
+            line-height: 1.3;
+        }
+
+        .date-box .greeting {
+            color: #3b82f6;
+            font-weight: 700;
+            font-size: 13.5px;
+            display: block;
+        }
+
+        .date-box .date-str {
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        .refresh-btn {
+            background: transparent;
+            border: none;
+            color: #475569;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .refresh-btn:hover {
+            background-color: #e2e8f0;
+            transform: rotate(180deg);
+        }
+
+        /* ================= بانر الإعلانات والتحديثات ================= */
+        .announcement-banner {
+            background: linear-gradient(105deg, #630c28 0%, #861439 55%, #751030 100%);
+            border-radius: 14px;
+            padding: 20px 28px;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(130, 20, 55, 0.18);
+        }
+
+        .banner-right {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .banner-badges {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 13px;
+        }
+
+        .banner-category {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 700;
+            opacity: 0.95;
+        }
+
+        .badge-pill {
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 11.5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .badge-important {
+            background-color: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            color: #fff;
+        }
+
+        .badge-pinned {
+            background-color: rgba(234, 179, 8, 0.25);
+            border: 1px solid rgba(250, 204, 21, 0.5);
+            color: #fef08a;
+        }
+
+        .banner-title {
+            font-size: 21px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .banner-desc {
+            font-size: 14px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 650px;
+            margin-bottom: 16px;
+        }
+
+        .banner-meta {
+            font-size: 12.5px;
+            color: rgba(255, 255, 255, 0.85);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .banner-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            z-index: 2;
+        }
+
+        .banner-promo-info {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .promo-sub-tag {
+            font-size: 11px;
+            background: rgba(255,255,255,0.12);
+            padding: 3px 10px;
+            border-radius: 6px;
+        }
+
+        .promo-heading {
+            font-size: 18px;
+            font-weight: 800;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .promo-features {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .promo-chip {
+            background: rgba(0,0,0,0.22);
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 4px 9px;
+            border-radius: 6px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .android-badge {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(52, 211, 153, 0.4);
+            color: #a7f3d0;
+            padding: 5px 14px;
+            border-radius: 8px;
+            font-size: 11.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .banner-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-between;
+            height: 150px;
+        }
+
+        .all-announcements-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        .all-announcements-link:hover {
+            text-decoration: underline;
+        }
+
+        .read-more-btn {
+            background-color: #fff;
+            color: var(--primary-burgundy);
+            border: none;
+            padding: 9px 18px;
+            border-radius: 8px;
+            font-size: 13.5px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            transition: 0.2s;
+        }
+
+        .read-more-btn:hover {
+            background-color: #f8f9fa;
+            transform: translateY(-1px);
+        }
+
+        .phone-mockup {
+            width: 115px;
+            height: 195px;
+            background: #1e1e1e;
+            border-radius: 18px;
+            padding: 5px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+            border: 2px solid #444;
+            flex-shrink: 0;
+        }
+
+        .phone-screen {
+            background: #fff;
+            width: 100%;
+            height: 100%;
+            border-radius: 13px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            color: #333;
+        }
+
+        .phone-header {
+            background: var(--primary-burgundy);
+            color: #fff;
+            font-size: 8px;
+            text-align: center;
+            padding: 4px;
+            font-weight: 700;
+        }
+
+        .phone-scanner {
+            background: #2b2b2b;
+            height: 45px;
+            margin: 6px;
+            border-radius: 6px;
+            border: 1px solid #666;
+        }
+
+        .phone-product {
+            padding: 4px 6px;
+            text-align: center;
+            font-size: 8px;
+        }
+
+        .phone-price {
+            color: #d93025;
+            font-weight: 800;
+            font-size: 12px;
+            margin: 3px 0;
+        }
+
+        .phone-stock {
+            background: #e8f5e9;
+            color: #2e7d32;
+            font-size: 8px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 4px;
+            font-weight: 700;
+        }
+
+        /* ================= عناوين الأقسام ================= */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            margin-top: 8px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: 800;
+            color: #1f2937;
+        }
+
+        .section-title i {
+            color: var(--primary-burgundy);
+            font-size: 16px;
+        }
+
+        .section-link {
+            color: var(--primary-burgundy);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .section-link:hover {
+            text-decoration: underline;
+        }
+
+        /* ================= شبكة البطاقات (5 أعمدة) ================= */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            margin-bottom: 26px;
+        }
+
+        .stat-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px 18px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 118px;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+            border-color: #dcdcdc;
+        }
+
+        .card-top {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .card-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #374151;
+        }
+
+        .card-body {
+            text-align: left;
+        }
+
+        .card-value {
+            font-size: 21px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 4px;
+        }
+
+        .card-sub {
+            font-size: 11.5px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* ألوان البطاقات */
+        .icon-red { background: #fde8e8; color: #d93025; }
+        .val-red { color: #d93025; }
+        .icon-orange { background: #fef3c7; color: #d97706; }
+        .val-orange { color: #d97706; }
+        .icon-coral { background: #ffedd5; color: #e06c53; }
+        .val-coral { color: #e06c53; }
+        .icon-teal { background: #ccfbf1; color: #0f766e; }
+        .val-teal { color: #0f766e; }
+        .icon-burgundy { background: #fce7f3; color: #821437; }
+        .val-burgundy { color: #821437; }
+        .icon-pink { background: #fae8ff; color: #a21caf; }
+        .val-pink { color: #a21caf; }
+        .icon-purple { background: #f3e8ff; color: #7e22ce; }
+        .val-purple { color: #7e22ce; }
+
+        /* ================= شريط التنبيهات السفلي ================= */
+        .bottom-alerts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .alert-pill {
+            background-color: #fff;
+            border: 1px solid #f1d5d5;
+            border-radius: 8px;
+            padding: 7px 14px;
+            font-size: 12.5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .alert-pill:hover {
+            background-color: #fff8f8;
+            transform: translateY(-1px);
+        }
+
+        .pill-red { color: #d93025; border-color: #fad2cf; }
+        .pill-coral { color: #e06c53; border-color: #f9d8ce; }
+        .pill-gray { color: #6b7280; border-color: #e5e7eb; }
+
+        /* ================= تنسيق الصفحات الداخلية التفاعلية ================= */
+        #subpageView {
+            display: none;
+            animation: fadeIn 0.2s ease;
+        }
+
+        .subpage-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 22px 26px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .subpage-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 16px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .subpage-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .subpage-title .icon-box {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: var(--light-burgundy-bg);
+            color: var(--primary-burgundy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .subpage-title h2 {
+            font-size: 19px;
+            font-weight: 800;
+            color: #1f2937;
+        }
+
+        .subpage-title p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .toolbar-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-input {
+            padding: 8px 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 13.5px;
+            min-width: 240px;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-burgundy);
+        }
+
+        .btn-primary {
+            background: var(--primary-burgundy);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13.5px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: var(--dark-burgundy);
+        }
+
+        .btn-outline {
+            background: #fff;
+            color: #374151;
+            border: 1px solid #d1d5db;
+            padding: 7px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-outline:hover {
+            background: #f9fafb;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13.5px;
+        }
+
+        .data-table th {
+            background: #f8fafc;
+            color: #475569;
+            font-weight: 700;
+            text-align: right;
+            padding: 12px 14px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .data-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid #f1f5f9;
+            color: #1e293b;
+        }
+
+        .data-table tr:hover td {
+            background: #fdfafb;
+        }
+
+        .status-tag {
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 11.5px;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .status-active { background: #dcfce7; color: #15803d; }
+        .status-warning { background: #fef3c7; color: #b45309; }
+        .status-danger { background: #fee2e2; color: #b91c1c; }
+        .status-info { background: #e0f2fe; color: #0369a1; }
+
+        .qty-input {
+            width: 65px;
+            padding: 4px 8px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .toast-msg {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            background: #1e293b;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 13.5px;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            display: none;
+            align-items: center;
+            gap: 10px;
+            z-index: 3000;
+        }
+
+        /* ================= نافذة منبثقة (Modal) ================= */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-box {
+            background: #fff;
+            border-radius: 14px;
+            width: 90%;
+            max-width: 520px;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: fadeIn 0.2s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 12px;
+            margin-bottom: 14px;
+        }
+
+        .modal-header h3 {
+            color: var(--primary-burgundy);
+            font-size: 18px;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .modal-footer {
+            margin-top: 18px;
+            padding-top: 12px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12.5px;
+            color: #666;
+        }
+
+        @media (max-width: 1200px) {
+            .cards-grid { grid-template-columns: repeat(3, 1fr); }
+            .banner-promo-info { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .cards-grid { grid-template-columns: repeat(2, 1fr); }
+            .announcement-banner { flex-direction: column; align-items: flex-start; gap: 16px; }
+            .banner-left { width: 100%; justify-content: space-between; }
+            .navbar { padding: 0 12px; }
+            .nav-link-btn { padding: 6px 8px; font-size: 12px; }
+        }
+
+        @media (max-width: 480px) {
+            .cards-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= الشريط العلوي ================= -->
+    <header class="navbar">
+        <div class="nav-right">
+            <a href="#" class="brand" onclick="openPage('الرئيسية', 'الرئيسية'); return false;">
+                <div class="brand-logo">
+                    <i class="fa-solid fa-store"></i>
+                </div>
+                <div class="brand-text">
+                    <strong>NMA</strong>
+                    <span>v2.63.78</span>
+                </div>
+            </a>
+
+            <ul class="nav-links">
+                <!-- 1. الرئيسية ▼ -->
+                <li class="nav-item">
+                    <button class="nav-link-btn active" onclick="toggleDropdown(this)">
+                        <span>الرئيسية</span>
+                        <i class="fa-solid fa-chevron-down arrow"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'الرئيسية'); return false;">
+                            <span class="dropdown-item-right"><i class="fa-solid fa-house"></i> الرئيسية</span>
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'مهامي'); return false;">
+                            <span class="dropdown-item-right"><i class="fa-solid fa-list-check"></i> مهامي</span>
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'أين أجد المنتج؟'); return false;">
+                            <span class="dropdown-item-right"><i class="fa-solid fa-magnifying-glass-location"></i> أين أجد المنتج؟</span>
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'منتجات الفرع'); return false;">
+                            <span class="dropdown-item-right"><i class="fa-solid fa-boxes-stacked"></i> منتجات الفرع</span>
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'التحويل المتوقع'); return false;">
+                            <span class="dropdown-item-right"><i class="fa-solid fa-clipboard-list"></i> التحويل المتوقع</span>
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'استلام شحنة'); return false;">
+                            <span class="dropdown-item-right"><i class="fa-solid fa-truck-ramp-box"></i> استلام شحنة</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-section-label">التحليل والتقارير</div>
+                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'تحليل فرعي'); return false;">
+                            <span class="dropdown-item-right"><i class="fa-solid fa-chart-line"></i> تحليل فرعي</span>
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'التقارير'); return false;">
+                            <span class="dropdown-item-right"><i class="fa-solid fa-file-lines"></i> التقارير</span>
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'التقارير الشهرية'); return false;">
+                            <span class="dropdown-item-right"><i class="fa-regular fa-calendar-days"></i> التقارير الشهرية</span>
+                        </a>
+                    </div>
+                </li>
+
+                <!-- 2. الطلبات ▼ -->
+                <li class="nav-item">
+                    <button class="nav-link-btn" onclick="toggleDropdown(this)">
+                        <span>الطلبات</span>
+                        <i class="fa-solid fa-chevron-down arrow"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" onclick="openPage('الطلبات', 'طلبات المنتج'); return false;">
+                            <span class="dropdown-item-right"><i class="fa-solid fa-box"></i> طلبات المنتج</span>
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="openPage('الطلبات', 'طلبات المنتجات'); return false;">
+                            <span class="dropdown-item-right"><i class="fa-solid fa-boxes-packing"></i> طلبات المنتجات</span>
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="openPage('الطلبات', 'الوارد إلى فرعي'); return false;">
+                            <span class="dropdown-item-right"><i class="fa-solid fa-truck-fast"></i> الوارد إلى فرعي</span>
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="openPage('الطلبات', 'طلباتي'); return false;">
+                            <span class="dropdown-item-right"><i class="fa-solid fa-clipboard-check"></i> طلباتي</span>
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="openPage('الطلبات', 'بانتظار الرد فقط'); return false;">
+                            <span class="dropdown-item-right"><i class="fa-regular fa-hourglass-half"></i> بانتظار الرد فقط</span>
+                        </a>
+                    </div>
+                </li>
+
+                <!-- 3. المراسلات ▼ -->
+                <li class="nav-item">
+                    <button class="nav-link-btn" onclick="toggleDropdown(this)">
+                        <span>المراسلات</span>
+                        <i class="fa-solid fa-chevron-down arrow"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" onclick="openPage('المراسلات', 'المراسلات الرسمية'); return false;">
+                            <span class="dropdown-item-right"><i class="fa-regular fa-envelope"></i> المراسلات الرسمية</span>
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="openPage('المراسلات', 'المحادثات الداخلية'); return false;">
+                            <span class="dropdown-item-right"><i class="fa-regular fa-comments"></i> المحادثات الداخلية</span>
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="openPage('المراسلات', 'ملفات الدفعات'); return false;">
+                            <span class="dropdown-item-right"><i class="fa-solid fa-file-invoice-dollar"></i> ملفات الدفعات</span>
+                        </a>
+                    </div>
+                </li>
+
+                <!-- 4. المرجع ▼ -->
+                <li class="nav-item">
+                    <button class="nav-link-btn" onclick="toggleDropdown(this)">
+                        <span>المرجع</span>
+                        <i class="fa-solid fa-chevron-down arrow"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" onclick="openPage('المرجع', 'المسؤوليات'); return false;">
+                            <span class="dropdown-item-right"><i class="fa-solid fa-user-shield"></i> المسؤوليات</span>
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="openPage('المرجع', 'الآليات والتعليمات'); return false;">
+                            <span class="dropdown-item-right"><i class="fa-solid fa-book-open"></i> الآليات والتعليمات</span>
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="openPage('المرجع', 'بطاقات التعريف'); return false;">
+                            <span class="dropdown-item-right"><i class="fa-regular fa-id-badge"></i> بطاقات التعريف</span>
+                        </a>
+                    </div>
+                </li>
+
+                <!-- 5. حسابي ▼ -->
+                <li class="nav-item">
+                    <button class="nav-link-btn" onclick="toggleDropdown(this)">
+                        <span>حسابي</span>
+                        <i class="fa-solid fa-chevron-down arrow"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" onclick="openPage('حسابي', 'حسابي والبريد'); return false;">
+                            <span class="dropdown-item-right"><i class="fa-regular fa-user"></i> حسابي والبريد</span>
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="openPage('حسابي', 'التحكم في التطبيق والتطوير'); return false;">
+                            <span class="dropdown-item-right"><i class="fa-solid fa-sliders"></i> التحكم في التطبيق والتطوير</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="nav-left">
+            <!-- إشعارات تفاعلية -->
+            <div class="nav-item notification-wrapper">
+                <div class="notification-btn" onclick="toggleDropdown(this)" title="الإشعارات">
+                    <i class="fa-solid fa-bell"></i>
+                    <span class="notification-badge" id="notifCountBadge">13</span>
+                </div>
+                <div class="dropdown-menu left-dropdown">
+                    <div class="dropdown-section-label">آخر إشعارات فرع الفرسان</div>
+                    <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'التحويل المتوقع'); return false;">
+                        <span class="dropdown-item-right"><i class="fa-solid fa-clipboard-list"></i> 991 منتجاً بانتظار الرد قبل 11:00 م</span>
+                    </a>
+                    <a href="#" class="dropdown-item" onclick="openPage('المراسلات', 'المراسلات الرسمية'); return false;">
+                        <span class="dropdown-item-right"><i class="fa-regular fa-envelope"></i> لديك 21 مراسلة رسمية غير مقروءة</span>
+                    </a>
+                    <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'مهامي'); return false;">
+                        <span class="dropdown-item-right"><i class="fa-solid fa-list-check"></i> مهمة جديدة من الإدارة لم تُنجز</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item" onclick="markAllRead(); return false;" style="justify-content:center; color:var(--primary-burgundy); font-weight:700;">
+                        تحديد الكل كمقروء
+                    </a>
+                </div>
+            </div>
+
+            <!-- قائمة الفرع -->
+            <div class="nav-item profile-wrapper">
+                <div class="user-profile" onclick="toggleDropdown(this)">
+                    <div class="user-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <strong>فرع الفرسان</strong>
+                        <span>فرع الفرسان</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down" style="font-size: 11px; opacity: 0.8;"></i>
+                </div>
+                <div class="dropdown-menu left-dropdown" style="min-width: 210px;">
+                    <div class="dropdown-section-label">المستخدم: علي خالد ويس</div>
+                    <a href="#" class="dropdown-item" onclick="openPage('حسابي', 'حسابي والبريد'); return false;">
+                        <span class="dropdown-item-right"><i class="fa-regular fa-id-card"></i> بيانات الحساب والفرع</span>
+                    </a>
+                    <a href="#" class="dropdown-item" onclick="openPage('حسابي', 'التحكم في التطبيق والتطوير'); return false;">
+                        <span class="dropdown-item-right"><i class="fa-solid fa-gear"></i> إعدادات التطبيق</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= مسار التنقل (Breadcrumb) ================= -->
+    <div class="breadcrumb-bar">
+        <div class="breadcrumb-links">
+            <span id="breadMain" style="cursor:pointer;" onclick="openPage('الرئيسية', 'الرئيسية')">الرئيسية</span>
+            <i class="fa-solid fa-chevron-left" style="font-size: 10px;"></i>
+            <span class="current" id="breadSub">الرئيسية</span>
+        </div>
+        <button class="back-home-btn" id="backHomeBtn" onclick="openPage('الرئيسية', 'الرئيسية')">
+            <i class="fa-solid fa-arrow-right"></i>
+            <span>العودة للرئيسية</span>
+        </button>
+    </div>
+
+    <!-- ================= المحتوى الرئيسي ================= -->
+    <main class="container">
+
+        <!-- 1. عرض الصفحة الرئيسية (نفس الشكل الأصلي 100%) -->
+        <div id="homeDashboardView">
+            <!-- بطاقة الترحيب -->
+            <section class="welcome-card">
+                <div class="welcome-right">
+                    <div class="moon-icon-box">
+                        <i class="fa-solid fa-moon"></i>
+                    </div>
+                    <div class="welcome-text">
+                        <h2>مرحبا، فرع الفرسان</h2>
+                        <p>لديك اليوم 291 منتجات متوقفة عن البيع و3 منتجاً بالسالب و1 منتج في الطريق إليك.</p>
+                    </div>
+                </div>
+
+                <div class="welcome-left">
+                    <div class="date-box">
+                        <span class="greeting">مساء الخير</span>
+                        <span class="date-str" id="currentDate">الجمعة 13 نوفمبر 2026</span>
+                    </div>
+                    <button class="refresh-btn" onclick="refreshDashboard()" title="تحديث البيانات">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- بانر الإعلانات والتحديثات -->
+            <section class="announcement-banner">
+                <div class="banner-right">
+                    <div class="banner-badges">
+                        <span class="banner-category"><i class="fa-solid fa-bullhorn"></i> الإعلانات والتحديثات</span>
+                        <span class="badge-pill badge-important"><i class="fa-solid fa-circle-exclamation"></i> مهم</span>
+                        <span class="badge-pill badge-pinned"><i class="fa-solid fa-thumbtack"></i> مثبت</span>
+                    </div>
+
+                    <h1 class="banner-title">
+                        <span>📱 تطبيق NMA على جوالك الآن</span>
+                    </h1>
+
+                    <p class="banner-desc">
+                        زملاءنا في فروع شاطئ الوصل،<br>
+                        يسعدنا إطلاق تطبيق NMA — نفس النظام الذي تعرفونه على الويندوز الآن في جيبك وبنفس حسابك وصلاحياتك.
+                    </p>
+
+                    <div class="banner-meta">
+                        <i class="fa-regular fa-clock"></i>
+                        <span>2026-11-03 · 5:06 م · <strong>علي خالد ويس</strong></span>
+                    </div>
+                </div>
+
+                <div class="banner-left">
+                    <div class="banner-promo-info">
+                        <span class="promo-sub-tag">NMA شاطئ الوصل</span>
+                        <div class="promo-heading">تطبيق NMA على جوالك الآن</div>
+                        <div class="promo-features">
+                            <span class="promo-chip"><i class="fa-solid fa-barcode"></i> ماسح المنتجات</span>
+                            <span class="promo-chip"><i class="fa-regular fa-envelope"></i> المراسلات</span>
+                            <span class="promo-chip"><i class="fa-solid fa-list-check"></i> المهام</span>
+                            <span class="promo-chip"><i class="fa-solid fa-money-bill-wave"></i> الدفعات</span>
+                            <span class="promo-chip"><i class="fa-solid fa-truck-fast"></i> التحويل المتوقع</span>
+                        </div>
+                        <div class="android-badge">
+                            <i class="fa-brands fa-android"></i>
+                            <span>متوفر الآن لأجهزة Android — حمله من رابط التنزيل في الإعلان</span>
+                        </div>
+                    </div>
+
+                    <div class="banner-actions">
+                        <a href="#" class="all-announcements-link" onclick="openAnnouncementModal(); return false;">كل الإعلانات (1)</a>
+                        <button class="read-more-btn" onclick="openAnnouncementModal()">
+                            <i class="fa-solid fa-arrow-left"></i>
+                            <span>اقرأ المزيد</span>
+                        </button>
+                    </div>
+
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="phone-header">ماسح المنتجات</div>
+                            <div class="phone-scanner"></div>
+                            <div class="phone-product">
+                                <div style="font-weight:700;">زيت مساج - 500 مل</div>
+                                <div class="phone-price">18.00 ر.س</div>
+                                <div style="font-size:7px; color:#888;">بدلاً من 20.00 ر.س</div>
+                                <div class="phone-stock">نشط • 12</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- قسم ملخص الفرع -->
+            <div class="section-header">
+                <div class="section-title">
+                    <i class="fa-solid fa-table-cells-large"></i>
+                    <span>ملخص الفرع</span>
+                </div>
+                <a href="#" class="section-link" onclick="openPage('الرئيسية', 'التقارير'); return false;">كل التقارير</a>
+            </div>
+
+            <section class="cards-grid">
+                <div class="stat-card" onclick="openPage('الرئيسية', 'تحليل فرعي')">
+                    <div class="card-top">
+                        <div class="card-icon icon-red"><i class="fa-solid fa-arrow-trend-down"></i></div>
+                        <span class="card-title">المنتجات السالبة</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value val-red">3 منتج</div>
+                        <div class="card-sub">3 وحدة بالسالب</div>
+                    </div>
+                </div>
+
+                <div class="stat-card" onclick="openPage('الرئيسية', 'منتجات الفرع')">
+                    <div class="card-top">
+                        <div class="card-icon icon-orange"><i class="fa-solid fa-tag"></i></div>
+                        <span class="card-title">العروض المفعّلة</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value val-orange">0 منتج</div>
+                        <div class="card-sub">0 وحدة في رصيد الفرع</div>
+                    </div>
+                </div>
+
+                <div class="stat-card" onclick="openPage('الرئيسية', 'منتجات الفرع')">
+                    <div class="card-top">
+                        <div class="card-icon icon-coral"><i class="fa-solid fa-pause"></i></div>
+                        <span class="card-title">المتوقف عن البيع</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value val-coral">291 منتج</div>
+                        <div class="card-sub">3,098 وحدة<br>آخر أسبوع: 10 · آخر 15 يوم: 143 · خلال شهر: 77</div>
+                    </div>
+                </div>
+
+                <div class="stat-card" onclick="openPage('الطلبات', 'الوارد إلى فرعي')">
+                    <div class="card-top">
+                        <div class="card-icon icon-teal"><i class="fa-solid fa-box-open"></i></div>
+                        <span class="card-title">التحاويل الواردة إلى الفرع</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value val-teal">1 منتج</div>
+                        <div class="card-sub">1 وحدة</div>
+                    </div>
+                </div>
+
+                <div class="stat-card" onclick="openPage('الطلبات', 'طلباتي')">
+                    <div class="card-top">
+                        <div class="card-icon icon-burgundy"><i class="fa-solid fa-arrow-up-from-bracket"></i></div>
+                        <span class="card-title">التحاويل الصادرة من الفرع</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value val-burgundy">56 منتج</div>
+                        <div class="card-sub">235 وحدة</div>
+                    </div>
+                </div>
+
+                <div class="stat-card" onclick="openPage('الرئيسية', 'استلام شحنة')">
+                    <div class="card-top">
+                        <div class="card-icon icon-teal"><i class="fa-solid fa-truck"></i></div>
+                        <span class="card-title">مواعيد الشحنات</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value val-teal" style="font-size: 19px;">الاثنين + الخميس</div>
+                        <div class="card-sub">الموعد القادم: الاثنين</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- قسم المتابعة اليومية -->
+            <div class="section-header">
+                <div class="section-title">
+                    <i class="fa-regular fa-calendar-check"></i>
+                    <span>المتابعة اليومية</span>
+                </div>
+            </div>
+
+            <section class="cards-grid">
+                <div class="stat-card" onclick="openPage('الرئيسية', 'التحويل المتوقع')">
+                    <div class="card-top">
+                        <div class="card-icon icon-coral"><i class="fa-solid fa-clipboard-list"></i></div>
+                        <span class="card-title">التحويل المتوقع</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value val-coral">991</div>
+                        <div class="card-sub">991 منتجاً بانتظار ردك قبل 11:00 م</div>
+                    </div>
+                </div>
+
+                <div class="stat-card" onclick="openPage('الرئيسية', 'مهامي')">
+                    <div class="card-top">
+                        <div class="card-icon icon-pink"><i class="fa-solid fa-list-check"></i></div>
+                        <span class="card-title">مهام مطلوبة مني</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value val-pink" id="homeTaskCount">1</div>
+                        <div class="card-sub">مهمة من الإدارة لم تُنجز</div>
+                    </div>
+                </div>
+
+                <div class="stat-card" onclick="openPage('الطلبات', 'بانتظار الرد فقط')">
+                    <div class="card-top">
+                        <div class="card-icon icon-coral"><i class="fa-solid fa-reply"></i></div>
+                        <span class="card-title">بحاجة لردي</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value val-coral">1</div>
+                        <div class="card-sub">مراسلة تنتظر ردك</div>
+                    </div>
+                </div>
+
+                <div class="stat-card" onclick="openPage('المراسلات', 'المراسلات الرسمية')">
+                    <div class="card-top">
+                        <div class="card-icon icon-burgundy"><i class="fa-regular fa-envelope"></i></div>
+                        <span class="card-title">رسائل غير مقروءة</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value val-burgundy">21</div>
+                        <div class="card-sub">مراسلة لم تُفتح بعد</div>
+                    </div>
+                </div>
+
+                <div class="stat-card" onclick="openPage('المراسلات', 'ملفات الدفعات')">
+                    <div class="card-top">
+                        <div class="card-icon icon-teal"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                        <span class="card-title">دفعات مفتوحة</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value val-teal">0</div>
+                        <div class="card-sub">ملف دفعات قيد المعالجة</div>
+                    </div>
+                </div>
+
+                <div class="stat-card" onclick="openPage('الرئيسية', 'منتجات الفرع')">
+                    <div class="card-top">
+                        <div class="card-icon icon-purple"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <span class="card-title">منتجات الفرع</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value val-purple" style="font-size: 18px;">المكياج وبقية المنتجات</div>
+                        <div class="card-sub">الفئات والعلامات وحالة كل منتج</div>
+                    </div>
+                </div>
+
+                <div class="stat-card" onclick="openPage('الرئيسية', 'تحليل فرعي')">
+                    <div class="card-top">
+                        <div class="card-icon icon-red"><i class="fa-solid fa-chart-line"></i></div>
+                        <span class="card-title">أصناف سالبة</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value val-red">3</div>
+                        <div class="card-sub">من تحليل الفرع</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- شريط التنبيهات السفلي -->
+            <section class="bottom-alerts">
+                <div class="alert-pill pill-red" onclick="openPage('الرئيسية', 'تحليل فرعي')">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>3 صنفاً برصيد سالب</span>
+                </div>
+                <div class="alert-pill pill-red" onclick="openPage('الرئيسية', 'تحليل فرعي')">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>1999 صنفاً في حالة حرجة</span>
+                </div>
+                <div class="alert-pill pill-coral" onclick="openPage('الرئيسية', 'التقارير')">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>2604 صنفاً ناقصاً، منها 1852 بلا مصدر في المستودعات</span>
+                </div>
+                <div class="alert-pill pill-gray" onclick="openPage('الرئيسية', 'التقارير الشهرية')">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>1119 صنفاً راكداً بلا مبيعات</span>
+                </div>
+            </section>
+        </div>
+
+        <!-- 2. حاوية الصفحات الداخلية التفاعلية (تفتح عند اختيار أي عنصر من القوائم) -->
+        <div id="subpageView"></div>
+
+    </main>
+
+    <!-- نافذة تفاصيل الإعلان -->
+    <div class="modal-overlay" id="announcementModal" onclick="closeAnnouncementModal(event)">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>📱 تطبيق NMA على جوالك الآن</h3>
+                <button class="close-modal" onclick="closeAnnouncementModal(event, true)">×</button>
+            </div>
+            <p style="line-height: 1.8; color: #333; font-size: 14.5px;">
+                زملاءنا في فروع شاطئ الوصل،<br><br>
+                يسعدنا إطلاق تطبيق <strong>NMA</strong> — نفس النظام الذي تعرفونه على الويندوز الآن في جيبك وبنفس حسابك وصلاحياتك.<br>
+                يمكنكم الآن متابعة المراسلات، المهام، الدفعات، التحويل المتوقع، واستخدام ماسح المنتجات بالكاميرا مباشرة من هواتفكم.
+            </p>
+            <div class="modal-footer">
+                <span>نُشر بواسطة: <strong>علي خالد ويس</strong></span>
+                <span>2026-11-03 · 5:06 م</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- رسالة إشعار سريعة عند الحفظ -->
+    <div class="toast-msg" id="toastMsg">
+        <i class="fa-solid fa-circle-check" style="color: #4ade80;"></i>
+        <span id="toastText">تم حفظ التغييرات بنجاح</span>
+    </div>
+
+    <script>
+        // ================= بيانات التطبيق الافتراضية + الحفظ التلقائي في المتصفح =================
+        const defaultData = {
+            products: [
+                { code: '6281001122', name: 'زيت مساج - 500 مل', category: 'العناية بالجسم', price: '18.00 ر.س', stock: 12, status: 'نشط', location: 'رف A-04' },
+                { code: '6281004455', name: 'كريم مرطب لليدين 100 مل', category: 'العناية بالبشرة', price: '24.50 ر.س', stock: -1, status: 'رصيد سالب', location: 'رف B-12' },
+                { code: '6281007788', name: 'مجموعة مكياج يومي متكاملة', category: 'المكياج', price: '115.00 ر.س', stock: 8, status: 'نشط', location: 'قسم المكياج - 2' },
+                { code: '6281009900', name: 'شامبو للشعر الجاف 400 مل', category: 'العناية بالشعر', price: '32.00 ر.س', stock: -2, status: 'رصيد سالب', location: 'رف C-01' },
+                { code: '6281003311', name: 'عطر شاطئ الوصل الخاص 100 مل', category: 'العطور', price: '145.00 ر.س', stock: 0, status: 'متوقف عن البيع', location: 'خزانة العطور' }
+            ],
+            tasks: [
+                { id: 1, title: 'مراجعة جرد الأصناف السالبة وتحديث الكميات الفعلية في الفرع', sender: 'إدارة العمليات', due: 'اليوم 11:00 م', done: false },
+                { id: 2, title: 'تأكيد استلام شحنة الخميس وترتيب الرفوف', sender: 'المستودع الرئيسي', due: 'منجز', done: true }
+            ],
+            expectedTransfers: [
+                { code: '6281001122', name: 'زيت مساج - 500 مل', suggested: 15, approved: 15, status: 'بانتظار الرد' },
+                { code: '6281007788', name: 'مجموعة مكياج يومي متكاملة', suggested: 6, approved: 6, status: 'بانتظار الرد' },
+                { code: '6281004455', name: 'كريم مرطب لليدين 100 مل', suggested: 20, approved: 20, status: 'بانتظار الرد' }
+            ],
+            messages: [
+                { id: 101, subject: 'تحديث أسعار عروض نهاية الأسبوع لفروع شاطئ الوصل', from: 'إدارة المبيعات', date: '2026-11-13 04:15 م', read: false, body: 'يرجى التأكد من تحديث ملصقات الأسعار على الرفوف قبل بدء دوام الغد.' },
+                { id: 102, subject: 'إشعار بتحويل بضاعة واردة إلى فرع الفرسان', from: 'المستودع المركزي', date: '2026-11-13 01:30 م', read: false, body: 'تم تجهيز شحنة التحويل رقم #4592 لفرعكم وموعد الوصول يوم الاثنين القادم.' },
+                { id: 103, subject: 'تعميم بخصوص تطبيق NMA الجديد على الجوال', from: 'علي خالد ويس', date: '2026-11-03 05:06 م', read: true, body: 'يسعدنا إطلاق تطبيق NMA على الجوال لمتابعة المهام والمراسلات ومسح المنتجات.' }
+            ],
+            orders: [
+                { id: 'ORD-8821', product: 'كريم مرطب لليدين 100 مل', qty: 24, date: '2026-11-12', status: 'بانتظار الرد' },
+                { id: 'ORD-8819', product: 'زيت مساج - 500 مل', qty: 12, date: '2026-11-10', status: 'في الطريق إلى الفرع' }
+            ]
+        };
+
+        let appData = JSON.parse(localStorage.getItem('nma_shati_data')) || defaultData;
+
+        function saveData() {
+            localStorage.setItem('nma_shati_data', JSON.stringify(appData));
+            updateCounters();
+        }
+
+        function updateCounters() {
+            const pendingTasks = appData.tasks.filter(t => !t.done).length;
+            const taskEl = document.getElementById('homeTaskCount');
+            if (taskEl) taskEl.textContent = pendingTasks;
+        }
+
+        function showToast(text) {
+            const toast = document.getElementById('toastMsg');
+            document.getElementById('toastText').textContent = text;
+            toast.style.display = 'flex';
+            setTimeout(() => { toast.style.display = 'none'; }, 2800);
+        }
+
+        // ================= فتح وإغلاق القوائم المنسدلة =================
+        function toggleDropdown(btn) {
+            const currentItem = btn.parentElement;
+            const isOpen = currentItem.classList.contains('open');
+            
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('open');
+            });
+
+            if (!isOpen) {
+                currentItem.classList.add('open');
+            }
+        }
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.nav-item')) {
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.classList.remove('open');
+                });
+            }
+        });
+
+        // ================= التنقل بين الرئيسية والصفحات الداخلية =================
+        function openPage(mainSection, subSection) {
+            document.getElementById('breadMain').textContent = mainSection;
+            document.getElementById('breadSub').textContent = subSection;
+
+            document.querySelectorAll('.nav-link-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.querySelector('span').textContent === mainSection) {
+                    btn.classList.add('active');
+                }
+            });
+
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('open');
+            });
+
+            const homeView = document.getElementById('homeDashboardView');
+            const subView = document.getElementById('subpageView');
+            const backBtn = document.getElementById('backHomeBtn');
+
+            if (mainSection === 'الرئيسية' && subSection === 'الرئيسية') {
+                homeView.style.display = 'block';
+                subView.style.display = 'none';
+                backBtn.style.display = 'none';
+                return;
+            }
+
+            homeView.style.display = 'none';
+            subView.style.display = 'block';
+            backBtn.style.display = 'inline-flex';
+            renderSubpage(mainSection, subSection);
+        }
+
+        function renderSubpage(mainSection, subSection) {
+            const subView = document.getElementById('subpageView');
+
+            // 1. مهامي
+            if (subSection === 'مهامي') {
+                subView.innerHTML = `
+                    <div class="subpage-card">
+                        <div class="subpage-header">
+                            <div class="subpage-title">
+                                <div class="icon-box"><i class="fa-solid fa-list-check"></i></div>
+                                <div>
+                                    <h2>مهامي (فرع الفرسان)</h2>
+                                    <p>متابعة المهام الإدارية والتشغيلية المطلوبة من الفرع</p>
+                                </div>
+                            </div>
+                            <button class="btn-primary" onclick="addNewTask()"><i class="fa-solid fa-plus"></i> إضافة مهمة</button>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>المهمة</th>
+                                    <th>الجهة المرسلة</th>
+                                    <th>الموعد النهائي</th>
+                                    <th>الحالة</th>
+                                    <th>إجراء</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${appData.tasks.map(t => `
+                                    <tr>
+                                        <td style="font-weight:700;">${t.title}</td>
+                                        <td>${t.sender}</td>
+                                        <td>${t.due}</td>
+                                        <td><span class="status-tag ${t.done ? 'status-active' : 'status-warning'}">${t.done ? 'مُنجزة' : 'قيد التنفيذ'}</span></td>
+                                        <td>
+                                            <button class="btn-outline" onclick="toggleTask(${t.id})">
+                                                ${t.done ? 'إعادة فتح' : 'تحديد كمُنجزة'}
+                                            </button>
+                                        </td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+            }
+            // 2. أين أجد المنتج؟ / منتجات الفرع
+            else if (subSection === 'أين أجد المنتج؟' || subSection === 'منتجات الفرع') {
+                subView.innerHTML = `
+                    <div class="subpage-card">
+                        <div class="subpage-header">
+                            <div class="subpage-title">
+                                <div class="icon-box"><i class="fa-solid fa-barcode"></i></div>
+                                <div>
+                                    <h2>${subSection}</h2>
+                                    <p>البحث بالاسم أو الباركود ومعرفة الرصيد والموقع داخل الفرع</p>
+                                </div>
+                            </div>
+                            <div class="toolbar-actions">
+                                <input type="text" class="search-input" id="productSearchInput" placeholder="ابحث باسم المنتج أو الباركود..." onkeyup="filterProductsTable()">
+                                <button class="btn-outline" onclick="window.print()"><i class="fa-solid fa-print"></i> طباعة</button>
+                            </div>
+                        </div>
+                        <table class="data-table" id="productsTable">
+                            <thead>
+                                <tr>
+                                    <th>الباركود</th>
+                                    <th>اسم المنتج</th>
+                                    <th>القسم</th>
+                                    <th>السعر</th>
+                                    <th>الرصيد</th>
+                                    <th>الموقع في الفرع</th>
+                                    <th>الحالة</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${appData.products.map(p => `
+                                    <tr>
+                                        <td><code>${p.code}</code></td>
+                                        <td style="font-weight:700;">${p.name}</td>
+                                        <td>${p.category}</td>
+                                        <td style="font-weight:700; color:var(--primary-burgundy);">${p.price}</td>
+                                        <td style="font-weight:800; color:${p.stock < 0 ? '#d93025' : '#0f766e'};">${p.stock}</td>
+                                        <td>${p.location}</td>
+                                        <td><span class="status-tag ${p.stock < 0 ? 'status-danger' : (p.stock === 0 ? 'status-warning' : 'status-active')}">${p.status}</span></td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+            }
+            // 3. التحويل المتوقع
+            else if (subSection === 'التحويل المتوقع') {
+                subView.innerHTML = `
+                    <div class="subpage-card">
+                        <div class="subpage-header">
+                            <div class="subpage-title">
+                                <div class="icon-box"><i class="fa-solid fa-clipboard-list"></i></div>
+                                <div>
+                                    <h2>التحويل المتوقع (بانتظار ردك قبل 11:00 م)</h2>
+                                    <p>مراجعة وتعديل الكميات المقترح تحويلها لفرع الفرسان</p>
+                                </div>
+                            </div>
+                            <button class="btn-primary" onclick="approveAllTransfers()"><i class="fa-solid fa-check-double"></i> اعتماد وحفظ الرد</button>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>الباركود</th>
+                                    <th>اسم المنتج</th>
+                                    <th>الكمية المقترحة</th>
+                                    <th>الكمية المعتمدة من الفرع</th>
+                                    <th>الحالة</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${appData.expectedTransfers.map((item, idx) => `
+                                    <tr>
+                                        <td><code>${item.code}</code></td>
+                                        <td style="font-weight:700;">${item.name}</td>
+                                        <td>${item.suggested} وحدة</td>
+                                        <td><input type="number" class="qty-input" value="${item.approved}" onchange="updateTransferQty(${idx}, this.value)"></td>
+                                        <td><span class="status-tag ${item.status === 'تم الاعتماد' ? 'status-active' : 'status-warning'}">${item.status}</span></td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+            }
+            // 4. استلام شحنة / الوارد إلى فرعي
+            else if (subSection === 'استلام شحنة' || subSection === 'الوارد إلى فرعي') {
+                subView.innerHTML = `
+                    <div class="subpage-card">
+                        <div class="subpage-header">
+                            <div class="subpage-title">
+                                <div class="icon-box"><i class="fa-solid fa-truck-ramp-box"></i></div>
+                                <div>
+                                    <h2>${subSection}</h2>
+                                    <p>مواعيد الشحنات المجدولة: الاثنين + الخميس (الموعد القادم: الاثنين)</p>
+                                </div>
+                            </div>
+                            <button class="btn-primary" onclick="showToast('تم تأكيد جاهزية الفرع لاستلام شحنة الاثنين')"><i class="fa-solid fa-check"></i> تأكيد الاستلام</button>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>رقم الشحنة</th>
+                                    <th>المصدر</th>
+                                    <th>عدد الأصناف</th>
+                                    <th>موعد الوصول</th>
+                                    <th>الحالة</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>#SHP-2026-412</strong></td>
+                                    <td>المستودع الرئيسي - الدمام</td>
+                                    <td>1 منتج (1 وحدة)</td>
+                                    <td>الاثنين القادم</td>
+                                    <td><span class="status-tag status-info">في الطريق إليك</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+            }
+            // 5. الطلبات (طلبات المنتج / طلبات المنتجات / طلباتي / بانتظار الرد فقط)
+            else if (mainSection === 'الطلبات') {
+                subView.innerHTML = `
+                    <div class="subpage-card">
+                        <div class="subpage-header">
+                            <div class="subpage-title">
+                                <div class="icon-box"><i class="fa-solid fa-boxes-packing"></i></div>
+                                <div>
+                                    <h2>${subSection}</h2>
+                                    <p>إدارة ومتابعة طلبات المنتجات الخاصة بفرع الفرسان</p>
+                                </div>
+                            </div>
+                            <button class="btn-primary" onclick="createNewOrder()"><i class="fa-solid fa-plus"></i> إنشاء طلب منتج جديد</button>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>رقم الطلب</th>
+                                    <th>اسم المنتج</th>
+                                    <th>الكمية المطلوبة</th>
+                                    <th>تاريخ الطلب</th>
+                                    <th>الحالة</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${appData.orders
+                                    .filter(o => subSection !== 'بانتظار الرد فقط' || o.status === 'بانتظار الرد')
+                                    .map(o => `
+                                    <tr>
+                                        <td><strong>${o.id}</strong></td>
+                                        <td>${o.product}</td>
+                                        <td>${o.qty} وحدة</td>
+                                        <td>${o.date}</td>
+                                        <td><span class="status-tag ${o.status === 'بانتظار الرد' ? 'status-warning' : 'status-info'}">${o.status}</span></td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+            }
+            // 6. المراسلات
+            else if (mainSection === 'المراسلات') {
+                subView.innerHTML = `
+                    <div class="subpage-card">
+                        <div class="subpage-header">
+                            <div class="subpage-title">
+                                <div class="icon-box"><i class="fa-regular fa-envelope"></i></div>
+                                <div>
+                                    <h2>${subSection}</h2>
+                                    <p>صندوق المراسلات والتعاميم الخاصة بفرع الفرسان</p>
+                                </div>
+                            </div>
+                            <button class="btn-primary" onclick="newMessagePrompt()"><i class="fa-solid fa-pen-to-square"></i> مراسلة جديدة</button>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>الموضوع</th>
+                                    <th>المرسل</th>
+                                    <th>التاريخ</th>
+                                    <th>الحالة</th>
+                                    <th>عرض</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${appData.messages.map(m => `
+                                    <tr>
+                                        <td style="font-weight:${m.read ? '500' : '800'};">${m.subject}</td>
+                                        <td>${m.from}</td>
+                                        <td>${m.date}</td>
+                                        <td><span class="status-tag ${m.read ? 'status-active' : 'status-danger'}">${m.read ? 'مقروءة' : 'غير مقروءة'}</span></td>
+                                        <td><button class="btn-outline" onclick="readMessage(${m.id})">فتح الرسالة</button></td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+            }
+            // 7. التحليل والتقارير
+            else if (subSection === 'تحليل فرعي' || subSection === 'التقارير' || subSection === 'التقارير الشهرية') {
+                subView.innerHTML = `
+                    <div class="subpage-card">
+                        <div class="subpage-header">
+                            <div class="subpage-title">
+                                <div class="icon-box"><i class="fa-solid fa-chart-line"></i></div>
+                                <div>
+                                    <h2>${subSection} - فرع الفرسان</h2>
+                                    <p>مؤشرات الأداء والمخزون والأصناف السالبة والراكدة</p>
+                                </div>
+                            </div>
+                            <button class="btn-outline" onclick="window.print()"><i class="fa-solid fa-print"></i> طباعة التقرير</button>
+                        </div>
+                        <div class="cards-grid" style="margin-bottom:0;">
+                            <div class="stat-card">
+                                <div class="card-top"><div class="card-icon icon-red"><i class="fa-solid fa-arrow-trend-down"></i></div><span class="card-title">أصناف برصيد سالب</span></div>
+                                <div class="card-body"><div class="card-value val-red">3 صنف</div><div class="card-sub">تتطلب تسوية فورية</div></div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="card-top"><div class="card-icon icon-red"><i class="fa-solid fa-triangle-exclamation"></i></div><span class="card-title">أصناف في حالة حرجة</span></div>
+                                <div class="card-body"><div class="card-value val-red">1,999 صنف</div><div class="card-sub">أقل من الحد الأدنى</div></div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="card-top"><div class="card-icon icon-coral"><i class="fa-solid fa-box-open"></i></div><span class="card-title">أصناف ناقصة</span></div>
+                                <div class="card-body"><div class="card-value val-coral">2,604 صنف</div><div class="card-sub">1852 بلا مصدر في المستودعات</div></div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="card-top"><div class="card-icon icon-burgundy"><i class="fa-solid fa-pause"></i></div><span class="card-title">أصناف راكدة</span></div>
+                                <div class="card-body"><div class="card-value val-burgundy">1,119 صنف</div><div class="card-sub">بلا مبيعات خلال الشهر</div></div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            // 8. المرجع وحسابي
+            else {
+                subView.innerHTML = `
+                    <div class="subpage-card">
+                        <div class="subpage-header">
+                            <div class="subpage-title">
+                                <div class="icon-box"><i class="fa-solid fa-folder-open"></i></div>
+                                <div>
+                                    <h2>${subSection}</h2>
+                                    <p>نظام NMA v2.63.78 · فرع الفرسان</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="line-height:1.9; color:#374151; font-size:14.5px;">
+                            ${subSection === 'حسابي والبريد' ? `
+                                <p><strong>الاسم الكامل:</strong> علي خالد ويس</p>
+                                <p><strong>الفرع التابع:</strong> فرع الفرسان (فروع شاطئ الوصل)</p>
+                                <p><strong>البريد الإلكتروني المسجل:</strong> ali.khaled2026@outlook.sa</p>
+                                <p><strong>حالة الصلاحيات:</strong> مدير فرع — نشط</p>
+                            ` : subSection === 'التحكم في التطبيق والتطوير' ? `
+                                <p><strong>إصدار النظام الحالي:</strong> NMA v2.63.78</p>
+                                <p><strong>حالة المزامنة السحابية:</strong> متصلة ومفعّلة</p>
+                                <br>
+                                <button class="btn-outline" onclick="localStorage.removeItem('nma_shati_data'); location.reload();">
+                                    <i class="fa-solid fa-rotate-left"></i> استعادة البيانات الافتراضية للتطبيق
+                                </button>
+                            ` : `
+                                <p>مرحباً بك في قسم <strong>${subSection}</strong> الخاص بفرع الفرسان.</p>
+                                <p>جميع التعليمات والسياسات المعتمدة لإدارة المخزون واستلام الشحنات والتعامل مع الأصناف السالبة محدثة وفق إصدار النظام v2.63.78.</p>
+                            `}
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // ================= دوال التفاعل وحفظ البيانات =================
+        function filterProductsTable() {
+            const input = document.getElementById('productSearchInput').value.toLowerCase();
+            const rows = document.querySelectorAll('#productsTable tbody tr');
+            rows.forEach(row => {
+                row.style.display = row.textContent.toLowerCase().includes(input) ? '' : 'none';
+            });
+        }
+
+        function toggleTask(id) {
+            const task = appData.tasks.find(t => t.id === id);
+            if (task) {
+                task.done = !task.done;
+                saveData();
+                renderSubpage('الرئيسية', 'مهامي');
+                showToast('تم تحديث حالة المهمة وحفظها');
+            }
+        }
+
+        function addNewTask() {
+            const title = prompt('اكتب عنوان المهمة الجديدة:');
+            if (title && title.trim()) {
+                appData.tasks.unshift({
+                    id: Date.now(),
+                    title: title.trim(),
+                    sender: 'علي خالد ويس',
+                    due: 'اليوم',
+                    done: false
+                });
+                saveData();
+                renderSubpage('الرئيسية', 'مهامي');
+                showToast('تمت إضافة المهمة بنجاح');
+            }
+        }
+
+        function updateTransferQty(idx, val) {
+            appData.expectedTransfers[idx].approved = parseInt(val) || 0;
+            saveData();
+        }
+
+        function approveAllTransfers() {
+            appData.expectedTransfers.forEach(item => item.status = 'تم الاعتماد');
+            saveData();
+            renderSubpage('الرئيسية', 'التحويل المتوقع');
+            showToast('تم اعتماد كميات التحويل المتوقع وإرسالها للإدارة');
+        }
+
+        function createNewOrder() {
+            const prod = prompt('اكتب اسم المنتج المطلوب للفرع:');
+            if (!prod || !prod.trim()) return;
+            const qty = prompt('اكتب الكمية المطلوبة:', '10');
+            appData.orders.unshift({
+                id: 'ORD-' + Math.floor(1000 + Math.random() * 9000),
+                product: prod.trim(),
+                qty: parseInt(qty) || 1,
+                date: '2026-11-13',
+                status: 'بانتظار الرد'
+            });
+            saveData();
+            renderSubpage('الطلبات', 'طلبات المنتج');
+            showToast('تم إرسال طلب المنتج بنجاح');
+        }
+
+        function readMessage(id) {
+            const msg = appData.messages.find(m => m.id === id);
+            if (msg) {
+                msg.read = true;
+                saveData();
+                renderSubpage('المراسلات', 'المراسلات الرسمية');
+                alert(`الموضوع: ${msg.subject}\nالمرسل: ${msg.from}\n\n${msg.body}`);
+            }
+        }
+
+        function newMessagePrompt() {
+            const sub = prompt('موضوع المراسلة:');
+            if (!sub || !sub.trim()) return;
+            const body = prompt('نص الرسالة:');
+            appData.messages.unshift({
+                id: Date.now(),
+                subject: sub.trim(),
+                from: 'علي خالد ويس (فرع الفرسان)',
+                date: '2026-11-13 · الآن',
+                read: true,
+                body: body || ''
+            });
+            saveData();
+            renderSubpage('المراسلات', 'المراسلات الرسمية');
+            showToast('تم إرسال المراسلة وحفظها');
+        }
+
+        function markAllRead() {
+            document.getElementById('notifCountBadge').textContent = '0';
+            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('open'));
+            showToast('تم تحديد جميع الإشعارات كمقروءة');
+        }
+
+        function openAnnouncementModal() {
+            document.getElementById('announcementModal').style.display = 'flex';
+        }
+
+        function closeAnnouncementModal(e, force = false) {
+            if (force || e.target.id === 'announcementModal') {
+                document.getElementById('announcementModal').style.display = 'none';
+            }
+        }
+
+        function refreshDashboard() {
+            const btn = document.querySelector('.refresh-btn i');
+            btn.style.transition = 'transform 0.5s ease';
+            btn.style.transform = 'rotate(360deg)';
+            setTimeout(() => {
+                btn.style.transform = 'rotate(0deg)';
+                showToast('تم تحديث بيانات فرع الفرسان');
+            }, 500);
+        }
+
+        updateCounters();
+    </script>
+</body>
+</html>
