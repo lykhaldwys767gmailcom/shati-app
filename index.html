@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NMA v2.63.78 - الرئيسية</title>
-    <!-- خط تجوال العربي ليتطابق مع تصميم الواجهة -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <!-- مكتبة أيقونات FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
@@ -20,12 +18,6 @@
             --text-dark: #2c2c2c;
             --text-muted: #7a7a7a;
             --border-color: #ececec;
-            --accent-red: #d93025;
-            --accent-orange: #e67e22;
-            --accent-coral: #e06c53;
-            --accent-teal: #118a7e;
-            --accent-purple: #8e24aa;
-            --accent-blue: #2962ff;
         }
 
         * {
@@ -41,7 +33,6 @@
             direction: rtl;
         }
 
-        /* ================= الشريط العلوي (Navbar) ================= */
         .navbar {
             background-color: var(--primary-burgundy);
             color: #fff;
@@ -105,962 +96,111 @@
             list-style: none;
         }
 
-        .nav-links li a {
-            color: rgba(255,255,255,0.9);
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link-btn {
+            color: rgba(255,255,255,0.92);
             text-decoration: none;
             padding: 7px 14px;
-            border-radius: 6px;
+            border-radius: 8px;
             font-size: 14px;
             font-weight: 500;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 7px;
             transition: 0.2s;
-        }
-
-        .nav-links li a:hover {
-            background-color: rgba(255,255,255,0.12);
-        }
-
-        .nav-links li a.active {
-            background-color: rgba(255,255,255,0.2);
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .nav-links li a i {
-            font-size: 11px;
-        }
-
-        .nav-left {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .notification-btn {
-            position: relative;
             cursor: pointer;
-            font-size: 18px;
-            color: #fff;
-            padding: 6px;
-        }
-
-        .notification-badge {
-            position: absolute;
-            top: 0;
-            right: -4px;
-            background-color: #e53935;
-            color: #fff;
-            font-size: 10px;
-            font-weight: 700;
-            padding: 1px 5px;
-            border-radius: 10px;
-            border: 1.5px solid var(--primary-burgundy);
-        }
-
-        .user-profile {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            padding: 4px 10px;
-            border-radius: 8px;
-            transition: 0.2s;
-        }
-
-        .user-profile:hover {
-            background: rgba(255,255,255,0.1);
-        }
-
-        .user-avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-
-        .user-info {
-            display: flex;
-            flex-direction: column;
-            text-align: right;
-            line-height: 1.2;
-        }
-
-        .user-info strong {
-            font-size: 13px;
-            font-weight: 700;
-        }
-
-        .user-info span {
-            font-size: 11px;
-            opacity: 0.8;
-        }
-
-        /* ================= مسار الصفحة (Breadcrumb) ================= */
-        .breadcrumb-bar {
-            background-color: #fff;
-            padding: 10px 24px;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 13px;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .breadcrumb-bar span.current {
-            color: var(--primary-burgundy);
-            font-weight: 700;
-        }
-
-        /* ================= الحاوية الرئيسية ================= */
-        .container {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 18px 24px 40px;
-        }
-
-        /* ================= شريط الترحيب العلوي ================= */
-        .welcome-card {
-            background: linear-gradient(90deg, #f3f5fc 0%, #f8f9fc 60%, #ffffff 100%);
-            border: 1px solid #e6e9f4;
-            border-radius: 12px;
-            padding: 16px 22px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 18px;
-        }
-
-        .welcome-right {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .moon-icon-box {
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            background-color: #e4e9fb;
-            color: #4a6cf7;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
-
-        .welcome-text h2 {
-            font-size: 18px;
-            font-weight: 800;
-            color: #1e293b;
-            margin-bottom: 3px;
-        }
-
-        .welcome-text p {
-            font-size: 13.5px;
-            color: #475569;
-        }
-
-        .welcome-left {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .date-box {
-            text-align: left;
-            line-height: 1.3;
-        }
-
-        .date-box .greeting {
-            color: #3b82f6;
-            font-weight: 700;
-            font-size: 13.5px;
-            display: block;
-        }
-
-        .date-box .date-str {
-            color: #64748b;
-            font-size: 12px;
-        }
-
-        .refresh-btn {
+            border: 1.5px solid transparent;
             background: transparent;
-            border: none;
-            color: #475569;
-            font-size: 16px;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 50%;
-            transition: 0.3s;
         }
 
-        .refresh-btn:hover {
-            background-color: #e2e8f0;
+        .nav-link-btn:hover,
+        .nav-item.open .nav-link-btn {
+            background-color: rgba(255,255,255,0.15);
+            color: #fff;
+        }
+
+        .nav-link-btn.active {
+            background-color: rgba(255,255,255,0.22);
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .nav-link-btn i.arrow {
+            font-size: 11px;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-item.open .nav-link-btn i.arrow {
             transform: rotate(180deg);
         }
 
-        /* ================= بانر الإعلانات والتحديثات ================= */
-        .announcement-banner {
-            background: linear-gradient(105deg, #630c28 0%, #861439 55%, #751030 100%);
-            border-radius: 14px;
-            padding: 20px 28px;
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(130, 20, 55, 0.18);
-        }
-
-        .banner-right {
-            flex: 1;
-            z-index: 2;
-        }
-
-        .banner-badges {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-            font-size: 13px;
-        }
-
-        .banner-category {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-weight: 700;
-            opacity: 0.95;
-        }
-
-        .badge-pill {
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 11.5px;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .badge-important {
-            background-color: rgba(255, 255, 255, 0.18);
-            border: 1px solid rgba(255, 255, 255, 0.35);
-            color: #fff;
-        }
-
-        .badge-pinned {
-            background-color: rgba(234, 179, 8, 0.25);
-            border: 1px solid rgba(250, 204, 21, 0.5);
-            color: #fef08a;
-        }
-
-        .banner-title {
-            font-size: 21px;
-            font-weight: 800;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .banner-desc {
-            font-size: 14px;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 650px;
-            margin-bottom: 16px;
-        }
-
-        .banner-meta {
-            font-size: 12.5px;
-            color: rgba(255, 255, 255, 0.85);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        /* الجزء الأيسر من البانر (موك اب الجوال والأزرار) */
-        .banner-left {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            z-index: 2;
-        }
-
-        .banner-promo-info {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .promo-sub-tag {
-            font-size: 11px;
-            background: rgba(255,255,255,0.12);
-            padding: 3px 10px;
-            border-radius: 6px;
-        }
-
-        .promo-heading {
-            font-size: 18px;
-            font-weight: 800;
-            color: rgba(255,255,255,0.85);
-        }
-
-        .promo-features {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .promo-chip {
-            background: rgba(0,0,0,0.22);
-            border: 1px solid rgba(255,255,255,0.15);
-            padding: 4px 9px;
-            border-radius: 6px;
-            font-size: 11px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .android-badge {
-            background: rgba(16, 185, 129, 0.2);
-            border: 1px solid rgba(52, 211, 153, 0.4);
-            color: #a7f3d0;
-            padding: 5px 14px;
-            border-radius: 8px;
-            font-size: 11.5px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .banner-actions {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            justify-content: space-between;
-            height: 150px;
-        }
-
-        .all-announcements-link {
-            color: #fff;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-            opacity: 0.9;
-        }
-
-        .all-announcements-link:hover {
-            text-decoration: underline;
-        }
-
-        .read-more-btn {
-            background-color: #fff;
-            color: var(--primary-burgundy);
-            border: none;
-            padding: 9px 18px;
-            border-radius: 8px;
-            font-size: 13.5px;
-            font-weight: 700;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-            transition: 0.2s;
-        }
-
-        .read-more-btn:hover {
-            background-color: #f8f9fa;
-            transform: translateY(-1px);
-        }
-
-        /* محاكاة شاشة الهاتف داخل البانر */
-        .phone-mockup {
-            width: 115px;
-            height: 195px;
-            background: #1e1e1e;
-            border-radius: 18px;
-            padding: 5px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-            border: 2px solid #444;
-            flex-shrink: 0;
-        }
-
-        .phone-screen {
-            background: #fff;
-            width: 100%;
-            height: 100%;
-            border-radius: 13px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            color: #333;
-        }
-
-        .phone-header {
-            background: var(--primary-burgundy);
-            color: #fff;
-            font-size: 8px;
-            text-align: center;
-            padding: 4px;
-            font-weight: 700;
-        }
-
-        .phone-scanner {
-            background: #2b2b2b;
-            height: 45px;
-            margin: 6px;
-            border-radius: 6px;
-            border: 1px solid #666;
-        }
-
-        .phone-product {
-            padding: 4px 6px;
-            text-align: center;
-            font-size: 8px;
-        }
-
-        .phone-price {
-            color: #d93025;
-            font-weight: 800;
-            font-size: 12px;
-            margin: 3px 0;
-        }
-
-        .phone-stock {
-            background: #e8f5e9;
-            color: #2e7d32;
-            font-size: 8px;
-            padding: 2px 6px;
-            border-radius: 4px;
-            display: inline-block;
-            margin-top: 4px;
-            font-weight: 700;
-        }
-
-        /* ================= عناوين الأقسام ================= */
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 14px;
-            margin-top: 8px;
-        }
-
-        .section-title {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 16px;
-            font-weight: 800;
-            color: #1f2937;
-        }
-
-        .section-title i {
-            color: var(--primary-burgundy);
-            font-size: 16px;
-        }
-
-        .section-link {
-            color: var(--primary-burgundy);
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 700;
-        }
-
-        .section-link:hover {
-            text-decoration: underline;
-        }
-
-        /* ================= شبكة البطاقات (5 أعمدة) ================= */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 16px;
-            margin-bottom: 26px;
-        }
-
-        .stat-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 16px 18px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
-            transition: transform 0.2s, box-shadow 0.2s;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 118px;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.06);
-            border-color: #dcdcdc;
-        }
-
-        .card-top {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .card-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            flex-shrink: 0;
-        }
-
-        .card-title {
-            font-size: 13.5px;
-            font-weight: 700;
-            color: #374151;
-        }
-
-        .card-body {
-            text-align: left;
-        }
-
-        .card-value {
-            font-size: 21px;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 4px;
-        }
-
-        .card-sub {
-            font-size: 11.5px;
-            color: var(--text-muted);
-            line-height: 1.4;
-        }
-
-        /* ألوان البطاقات المخصصة */
-        .icon-red { background: #fde8e8; color: #d93025; }
-        .val-red { color: #d93025; }
-
-        .icon-orange { background: #fef3c7; color: #d97706; }
-        .val-orange { color: #d97706; }
-
-        .icon-coral { background: #ffedd5; color: #e06c53; }
-        .val-coral { color: #e06c53; }
-
-        .icon-teal { background: #ccfbf1; color: #0f766e; }
-        .val-teal { color: #0f766e; }
-
-        .icon-burgundy { background: #fce7f3; color: #821437; }
-        .val-burgundy { color: #821437; }
-
-        .icon-pink { background: #fae8ff; color: #a21caf; }
-        .val-pink { color: #a21caf; }
-
-        .icon-purple { background: #f3e8ff; color: #7e22ce; }
-        .val-purple { color: #7e22ce; }
-
-        /* ================= شريط التنبيهات السفلي (Pills) ================= */
-        .bottom-alerts {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .alert-pill {
-            background-color: #fff;
-            border: 1px solid #f1d5d5;
-            border-radius: 8px;
-            padding: 7px 14px;
-            font-size: 12.5px;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .alert-pill:hover {
-            background-color: #fff8f8;
-        }
-
-        .pill-red { color: #d93025; border-color: #fad2cf; }
-        .pill-coral { color: #e06c53; border-color: #f9d8ce; }
-        .pill-gray { color: #6b7280; border-color: #e5e7eb; }
-
-        /* ================= نافذة منبثقة للإعلان (Modal) ================= */
-        .modal-overlay {
+        .dropdown-menu {
             display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            min-width: 240px;
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.14);
+            padding: 8px;
+            z-index: 1500;
+            animation: dropdownFade 0.18s ease;
+            max-height: 85vh;
+            overflow-y: auto;
         }
 
-        .modal-box {
-            background: #fff;
-            border-radius: 14px;
-            width: 90%;
-            max-width: 500px;
-            padding: 24px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            animation: fadeIn 0.2s ease;
+        .nav-item.open .dropdown-menu {
+            display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
+        @media (min-width: 769px) {
+            .nav-item:hover .dropdown-menu {
+                display: block;
+            }
+            .nav-item:hover .nav-link-btn i.arrow {
+                transform: rotate(180deg);
+            }
         }
 
-        .modal-header {
+        @keyframes dropdownFade {
+            from { opacity: 0; transform: translateY(-6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .dropdown-section-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #9ca3af;
+            padding: 6px 12px 4px;
+            margin-top: 2px;
+        }
+
+        .dropdown-item {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 12px;
-            margin-bottom: 14px;
+            justify-content: space-between;
+            padding: 9px 12px;
+            color: #374151;
+            text-decoration: none;
+            font-size: 13.5px;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: 0.15s;
         }
 
-        .modal-header h3 {
+        .dropdown-item-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dropdown-item i {
+            width: 18px;
+            text-align: center;
             color: var(--primary-burgundy);
-            font-size: 18px;
-        }
-
-        .close-modal {
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            color: #666;
-        }
-
-        .modal-footer {
-            margin-top: 18px;
-            padding-top: 12px;
-            border-top: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 12.5px;
-            color: #666;
-        }
-
-        /* ================= التجاوب مع الشاشات المتوسطة والصغيرة ================= */
-        @media (max-width: 1200px) {
-            .cards-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .banner-promo-info {
-                display: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .cards-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .nav-links {
-                display: none;
-            }
-            .announcement-banner {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 16px;
-            }
-            .banner-left {
-                width: 100%;
-                justify-content: space-between;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- ================= الشريط العلوي ================= -->
-    <header class="navbar">
-        <div class="nav-right">
-            <a href="#" class="brand">
-                <div class="brand-logo">
-                    <i class="fa-solid fa-store"></i>
-                </div>
-                <div class="brand-text">
-                    <strong>NMA</strong>
-                    <span>v2.63.78</span>
-                </div>
-            </a>
-
-            <ul class="nav-links">
-                <li><a href="#" class="active">الرئيسية <i class="fa-solid fa-chevron-down"></i></a></li>
-                <li><a href="#">الطلبات <i class="fa-solid fa-chevron-down"></i></a></li>
-                <li><a href="#">المراسلات <i class="fa-solid fa-chevron-down"></i></a></li>
-                <li><a href="#">المرجع <i class="fa-solid fa-chevron-down"></i></a></li>
-                <li><a href="#">حسابي <i class="fa-solid fa-chevron-down"></i></a></li>
-            </ul>
-        </div>
-
-        <div class="nav-left">
-            <div class="notification-btn" title="الإشعارات">
-                <i class="fa-solid fa-bell"></i>
-                <span class="notification-badge">13</span>
-            </div>
-
-            <div class="user-profile">
-                <div class="user-avatar">
-                    <i class="fa-solid fa-user"></i>
-                </div>
-                <div class="user-info">
-                    <strong>فرع الفرسان</strong>
-                    <span>فرع الفرسان</span>
-                </div>
-                <i class="fa-solid fa-chevron-down" style="font-size: 11px; opacity: 0.8;"></i>
-            </div>
-        </div>
-    </header>
-
-    <!-- ================= مسار التنقل ================= -->
-    <div class="breadcrumb-bar">
-        <span>الرئيسية</span>
-        <i class="fa-solid fa-chevron-left" style="font-size: 10px;"></i>
-        <span class="current">الرئيسية</span>
-    </div>
-
-    <!-- ================= المحتوى الرئيسي ================= -->
-    <main class="container">
-
-        <!-- بطاقة الترحيب -->
-        <section class="welcome-card">
-            <div class="welcome-right">
-                <div class="moon-icon-box">
-                    <i class="fa-solid fa-moon"></i>
-                </div>
-                <div class="welcome-text">
-                    <h2>مرحبا، فرع الفرسان</h2>
-                    <p>لديك اليوم 291 منتجات متوقفة عن البيع و3 منتجاً بالسالب و1 منتج في الطريق إليك.</p>
-                </div>
-            </div>
-
-            <div class="welcome-left">
-                <div class="date-box">
-                    <span class="greeting">مساء الخير</span>
-                    <span class="date-str" id="currentDate">الجمعة 13 نوفمبر 2026</span>
-                </div>
-                <button class="refresh-btn" onclick="refreshDashboard()" title="تحديث البيانات">
-                    <i class="fa-solid fa-arrows-rotate"></i>
-                </button>
-            </div>
-        </section>
-
-        <!-- بانر الإعلانات والتحديثات -->
-        <section class="announcement-banner">
-            <div class="banner-right">
-                <div class="banner-badges">
-                    <span class="banner-category"><i class="fa-solid fa-bullhorn"></i> الإعلانات والتحديثات</span>
-                    <span class="badge-pill badge-important"><i class="fa-solid fa-circle-exclamation"></i> مهم</span>
-                    <span class="badge-pill badge-pinned"><i class="fa-solid fa-thumbtack"></i> مثبت</span>
-                </div>
-
-                <h1 class="banner-title">
-                    <span>📱 تطبيق NMA على جوالك الآن</span>
-                </h1>
-
-                <p class="banner-desc">
-                    زملاءنا في فروع شاطئ الوصل،<br>
-                    يسعدنا إطلاق تطبيق NMA — نفس النظام الذي تعرفونه على الويندوز الآن في جيبك وبنفس حسابك وصلاحياتك.
-                </p>
-
-                <!-- تم تغيير الاسم إلى علي خالد ويس حسب طلبك -->
-                <div class="banner-meta">
-                    <i class="fa-regular fa-clock"></i>
-                    <span>2026-11-03 · 5:06 م · <strong>علي خالد ويس</strong></span>
-                </div>
-            </div>
-
-            <div class="banner-left">
-                <div class="banner-promo-info">
-                    <span class="promo-sub-tag">NMA شاطئ الوصل</span>
-                    <div class="promo-heading">تطبيق NMA على جوالك الآن</div>
-                    <div class="promo-features">
-                        <span class="promo-chip"><i class="fa-solid fa-barcode"></i> ماسح المنتجات</span>
-                        <span class="promo-chip"><i class="fa-regular fa-envelope"></i> المراسلات</span>
-                        <span class="promo-chip"><i class="fa-solid fa-list-check"></i> المهام</span>
-                        <span class="promo-chip"><i class="fa-solid fa-money-bill-wave"></i> الدفعات</span>
-                        <span class="promo-chip"><i class="fa-solid fa-truck-fast"></i> التحويل المتوقع</span>
-                    </div>
-                    <div class="android-badge">
-                        <i class="fa-brands fa-android"></i>
-                        <span>متوفر الآن لأجهزة Android — حمله من رابط التنزيل في الإعلان</span>
-                    </div>
-                </div>
-
-                <div class="banner-actions">
-                    <a href="#" class="all-announcements-link">كل الإعلانات (1)</a>
-                    <button class="read-more-btn" onclick="openAnnouncementModal()">
-                        <i class="fa-solid fa-arrow-left"></i>
-                        <span>اقرأ المزيد</span>
-                    </button>
-                </div>
-
-                <!-- مجسم الجوال -->
-                <div class="phone-mockup">
-                    <div class="phone-screen">
-                        <div class="phone-header">ماسح المنتجات</div>
-                        <div class="phone-scanner"></div>
-                        <div class="phone-product">
-                            <div style="font-weight:700;">زيت مساج - 500 مل</div>
-                            <div class="phone-price">18.00 ر.س</div>
-                            <div style="font-size:7px; color:#888;">بدلاً من 20.00 ر.س</div>
-                            <div class="phone-stock">نشط • 12</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= قسم ملخص الفرع ================= -->
-        <div class="section-header">
-            <div class="section-title">
-                <i class="fa-solid fa-table-cells-large"></i>
-                <span>ملخص الفرع</span>
-            </div>
-            <a href="#" class="section-link">كل التقارير</a>
-        </div>
-
-        <section class="cards-grid">
-            <!-- 1. المنتجات السالبة -->
-            <div class="stat-card">
-                <div class="card-top">
-                    <div class="card-icon icon-red"><i class="fa-solid fa-arrow-trend-down"></i></div>
-                    <span class="card-title">المنتجات السالبة</span>
-                </div>
-                <div class="card-body">
-                    <div class="card-value val-red">3 منتج</div>
-                    <div class="card-sub">3 وحدة بالسالب</div>
-                </div>
-            </div>
-
-            <!-- 2. العروض المفعلة -->
-            <div class="stat-card">
-                <div class="card-top">
-                    <div class="card-icon icon-orange"><i class="fa-solid fa-tag"></i></div>
-                    <span class="card-title">العروض المفعّلة</span>
-                </div>
-                <div class="card-body">
-                    <div class="card-value val-orange">0 منتج</div>
-                    <div class="card-sub">0 وحدة في رصيد الفرع</div>
-                </div>
-            </div>
-
-            <!-- 3. المتوقف عن البيع -->
-            <div class="stat-card">
-                <div class="card-top">
-                    <div class="card-icon icon-coral"><i class="fa-solid fa-pause"></i></div>
-                    <span class="card-title">المتوقف عن البيع</span>
-                </div>
-                <div class="card-body">
-                    <div class="card-value val-coral">291 منتج</div>
-                    <div class="card-sub">3,098 وحدة<br>آخر أسبوع: 10 · آخر 15 يوم: 143 · خلال شهر: 77</div>
-                </div>
-            </div>
-
-            <!-- 4. التحاويل الواردة إلى الفرع -->
-            <div class="stat-card">
-                <div class="card-top">
-                    <div class="card-icon icon-teal"><i class="fa-solid fa-arrow-down-to-bracket"></i><i class="fa-solid fa-box-open"></i></div>
-                    <span class="card-title">التحاويل الواردة إلى الفرع</span>
-                </div>
-                <div class="card-body">
-                    <div class="card-value val-teal">1 منتج</div>
-                    <div class="card-sub">1 وحدة</div>
-                </div>
-            </div>
-
-            <!-- 5. التحاويل الصادرة من الفرع -->
-            <div class="stat-card">
-                <div class="card-top">
-                    <div class="card-icon icon-burgundy"><i class="fa-solid fa-arrow-up-from-bracket"></i></div>
-                    <span class="card-title">التحاويل الصادرة من الفرع</span>
-                </div>
-                <div class="card-body">
-                    <div class="card-value val-burgundy">56 منتج</div>
-                    <div class="card-sub">235 وحدة</div>
-                </div>
-            </div>
-
-            <!-- 6. مواعيد الشحنات -->
-            <div class="stat-card">
-                <div class="card-top">
-                    <div class="card-icon icon-teal"><i class="fa-solid fa-truck"></i></div>
-                    <span class="card-title">مواعيد الشحنات</span>
-                </div>
-                <div class="card-body">
-                    <div class="card-value val-teal" style="font-size: 19px;">الاثنين + الخميس</div>
-                    <div class="card-sub">الموعد القادم: الاثنين</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= قسم المتابعة اليومية ================= -->
-        <div class="section-header">
-            <div class="section-title">
-                <i class="fa-regular fa-calendar-check"></i>
-                <span>المتابعة اليومية</span>
-            </div>
-        </div>
-
-        <section class="cards-grid">
-            <!-- 1. التحويل المتوقع -->
-            <div class="stat-card">
-                <div class="card-top">
-                    <div class="card-icon icon-coral"><i class="fa-solid fa-clipboard-list"></i></div>
-                    <span class="card-title">التحويل المتوقع</span>
-                </div>
-                <div class="card-body">
-                    <div class="card-value val-coral">991</div>
-                    <div class="card-sub">991 منتجاً بانتظار ردك قبل 11:00 م</div>
-                </div>
-            </div>
-
-            <!-- 2. مهام مطلوبة مني -->
-            <div class="stat-card">
-                <div class="card-top">
-                    <div class="card-icon icon-pink"><i class="fa-solid fa-list-check"></i></div>
-                    <span class="card-title">مهام مطلوبة مني</span>
-                </div>
-                <div class="card-body">
-                    <div class="card-value val-pink">1</div>
-                    <div class="card-sub">مهمة من الإدارة لم تُنجز</div>
-                </div>
-            </div>
-
-            <!-- 3. بحاجة لردي -->
-            <div class="stat-card">
-                <div class="card-top">
-                    <div class="card-icon icon-coral"><i class="fa
+            font-size:
