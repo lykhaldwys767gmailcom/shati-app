@@ -20,34 +20,11 @@
             --border-color: #ececec;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Tajawal', sans-serif;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Tajawal', sans-serif; }
+        body { background-color: #f8f9fa; color: var(--text-dark); direction: rtl; }
 
-        body {
-            background-color: #f8f9fa;
-            color: var(--text-dark);
-            direction: rtl;
-        }
-
-        /* ================= الشريط العلوي (Navbar) ================= */
-        .navbar {
-            background-color: var(--primary-burgundy);
-            color: #fff;
-            height: 56px;
-            padding: 0 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
+        /* ================= الشريط العلوي (Navbar) والقوائم ================= */
+        .navbar { background-color: var(--primary-burgundy); color: #fff; height: 56px; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         .nav-right { display: flex; align-items: center; gap: 20px; }
         .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
         .brand-logo { background: rgba(255,255,255,0.15); width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
@@ -87,17 +64,15 @@
         .user-info span { font-size: 11px; opacity: 0.8; }
         .left-dropdown { left: 0; right: auto; min-width: 280px; }
 
-        /* ================= مسار الصفحة (Breadcrumb) ================= */
+        /* ================= مسار الصفحة والحاوية ================= */
         .breadcrumb-bar { background-color: #fff; padding: 10px 24px; border-bottom: 1px solid var(--border-color); font-size: 13px; color: var(--text-muted); display: flex; align-items: center; justify-content: space-between; }
         .breadcrumb-links { display: flex; align-items: center; gap: 8px; }
         .breadcrumb-bar span.current { color: var(--primary-burgundy); font-weight: 700; }
         .back-home-btn { display: none; background: var(--light-burgundy-bg); color: var(--primary-burgundy); border: 1px solid #f3d1dc; padding: 4px 12px; border-radius: 6px; font-size: 12.5px; font-weight: 700; cursor: pointer; align-items: center; gap: 6px; }
         .back-home-btn:hover { background: var(--primary-burgundy); color: #fff; }
-
-        /* ================= الحاوية الرئيسية ================= */
         .container { max-width: 1600px; margin: 0 auto; padding: 18px 24px 40px; }
 
-        /* ================= شاشة الرئيسية (كما هي تماماً) ================= */
+        /* ================= الشاشة الرئيسية ================= */
         .welcome-card { background: linear-gradient(90deg, #f3f5fc 0%, #f8f9fc 60%, #ffffff 100%); border: 1px solid #e6e9f4; border-radius: 12px; padding: 16px 22px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
         .welcome-right { display: flex; align-items: center; gap: 16px; }
         .moon-icon-box { width: 46px; height: 46px; border-radius: 50%; background-color: #e4e9fb; color: #4a6cf7; display: flex; align-items: center; justify-content: center; font-size: 20px; }
@@ -129,7 +104,6 @@
         .android-badge { background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(52, 211, 153, 0.4); color: #a7f3d0; padding: 5px 14px; border-radius: 8px; font-size: 11.5px; display: inline-flex; align-items: center; gap: 6px; }
         .banner-actions { display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; height: 150px; }
         .all-announcements-link { color: #fff; text-decoration: none; font-size: 13px; font-weight: 600; opacity: 0.9; }
-        .all-announcements-link:hover { text-decoration: underline; }
         .read-more-btn { background-color: #fff; color: var(--primary-burgundy); border: none; padding: 9px 18px; border-radius: 8px; font-size: 13.5px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); transition: 0.2s; }
         .read-more-btn:hover { background-color: #f8f9fa; transform: translateY(-1px); }
         .phone-mockup { width: 115px; height: 195px; background: #1e1e1e; border-radius: 18px; padding: 5px; box-shadow: 0 8px 20px rgba(0,0,0,0.35); border: 2px solid #444; flex-shrink: 0; }
@@ -144,7 +118,6 @@
         .section-title { display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 800; color: #1f2937; }
         .section-title i { color: var(--primary-burgundy); font-size: 16px; }
         .section-link { color: var(--primary-burgundy); text-decoration: none; font-size: 13px; font-weight: 700; }
-        .section-link:hover { text-decoration: underline; }
 
         .cards-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 26px; }
         .stat-card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.02); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; min-height: 118px; }
@@ -152,7 +125,6 @@
         .card-top { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
         .card-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
         .card-title { font-size: 13.5px; font-weight: 700; color: #374151; }
-        .card-body { text-align: left; }
         .card-value { font-size: 21px; font-weight: 800; line-height: 1.2; margin-bottom: 4px; }
         .card-sub { font-size: 11.5px; color: var(--text-muted); line-height: 1.4; }
 
@@ -165,85 +137,24 @@
         .icon-purple { background: #f3e8ff; color: #7e22ce; } .val-purple { color: #7e22ce; }
 
         .bottom-alerts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
-        .alert-pill { background-color: #fff; border: 1px solid #f1d5d5; border-radius: 8px; padding: 7px 14px; font-size: 12.5px; font-weight: 700; display: inline-flex; align-items: center; gap: 7px; cursor: pointer; transition: 0.2s; }
-        .alert-pill:hover { background-color: #fff8f8; transform: translateY(-1px); }
+        .alert-pill { background-color: #fff; border: 1px solid #f1d5d5; border-radius: 8px; padding: 7px 14px; font-size: 12.5px; font-weight: 700; display: inline-flex; align-items: center; gap: 7px; cursor: pointer; }
         .pill-red { color: #d93025; border-color: #fad2cf; }
         .pill-coral { color: #e06c53; border-color: #f9d8ce; }
         .pill-gray { color: #6b7280; border-color: #e5e7eb; }
 
-        /* ================= تصميم صفحة "مهامي" الجديدة (مطابقة للصورة 100%) ================= */
+        /* ================= الصفحات الفرعية والخيارات ================= */
         #subpageView { display: none; animation: fadeIn 0.2s ease; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        .tasks-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #eee; }
-        .tasks-header h2 { font-size: 24px; font-weight: 800; color: #1e293b; margin-bottom: 4px; }
-        .tasks-header p { font-size: 13px; color: #64748b; }
-        
-        .tasks-search-box { position: relative; width: 300px; }
-        .tasks-search-box input { width: 100%; padding: 10px 35px 10px 14px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 13px; outline: none; background: #fff; }
-        .tasks-search-box i { position: absolute; right: 12px; top: 12px; color: #9ca3af; font-size: 14px; }
-
-        .tasks-filters-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; background: #fff; padding: 12px 20px; border-radius: 12px; border: 1px solid #ececec; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
-        .stats-group { display: flex; align-items: center; gap: 16px; }
-        .circle-stat { width: 44px; height: 44px; border-radius: 50%; border: 3px solid #fce7f3; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; color: #333; background: #fdf6f8; }
-        .stats-text { font-size: 12.5px; color: #64748b; line-height: 1.4; }
-        .stats-text strong { color: #1e293b; display: block; }
-        
-        .filter-chips { display: flex; gap: 10px; margin-right: 20px; border-right: 1px solid #eee; padding-right: 20px; }
-        .chip { padding: 6px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer; border: 1px solid transparent; }
-        .chip-pink { background: #fde8e8; color: #d93025; border-color: #fbd5d5; }
-        .chip-gray { background: #f1f5f9; color: #64748b; border-color: #e2e8f0; }
-        .chip-blue { background: #e0f2fe; color: #0369a1; border-color: #bae6fd; }
-        
-        .tasks-actions { display: flex; align-items: center; gap: 16px; color: #64748b; font-size: 13.5px; }
-
-        .tasks-layout { display: flex; gap: 24px; align-items: flex-start; }
-        
-        /* العمود الأيمن (قائمة المهام) */
-        .tasks-list-col { flex: 1; display: flex; flex-direction: column; gap: 16px; }
-        .tasks-list-header { border-bottom: 2px solid #fca5a5; padding-bottom: 8px; margin-bottom: 4px; }
-        .tasks-list-header span { color: #d93025; font-size: 13.5px; font-weight: 800; display: flex; align-items: center; gap: 6px; }
-        
-        .task-list-item { background: #fff; padding: 16px; border: 1px solid #eee; border-radius: 10px; display: flex; justify-content: space-between; align-items: flex-start; cursor: pointer; border-right: 3px solid transparent; }
-        .task-list-item.selected { border-right-color: var(--primary-burgundy); background: #fdf6f8; border-color: #fbcfe8; }
-        .task-list-item-right { display: flex; gap: 12px; align-items: flex-start; }
-        .task-list-item-info h4 { font-size: 14px; font-weight: 700; color: #374151; margin-bottom: 6px; line-height: 1.4; }
-        .task-list-item-info h4.done { text-decoration: line-through; color: #9ca3af; }
-        .priority-flag { font-size: 11px; color: #d93025; display: flex; align-items: center; gap: 4px; }
-        .task-list-item-left { font-size: 12px; color: #0f766e; font-weight: 500; }
-
-        /* العمود الأيسر (تفاصيل المهمة) */
-        .task-details-col { width: 340px; background: #fff; border: 1px solid #fecdd3; border-radius: 14px; padding: 24px; box-shadow: 0 4px 15px rgba(225, 29, 72, 0.05); flex-shrink: 0; }
-        .details-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-        .status-pill-green { background: #dcfce7; color: #15803d; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 800; }
-        
-        .task-details-col h3 { font-size: 17px; font-weight: 800; color: #1f2937; margin-bottom: 20px; line-height: 1.4; }
-        
-        .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 10px; margin-bottom: 20px; text-align: right; }
-        .details-grid div { display: flex; flex-direction: column; gap: 4px; }
-        .lbl-sm { font-size: 11.5px; color: #9ca3af; }
-        .val-sm { font-size: 13px; font-weight: 700; color: #374151; }
-        
-        .meta-row { margin-bottom: 16px; }
-        
-        .btn-burgundy-full { width: 100%; background: var(--primary-burgundy); color: #fff; border: none; padding: 10px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px; margin: 20px 0; }
-        .btn-burgundy-full:hover { background: var(--dark-burgundy); }
-
-        .desc-box { margin-bottom: 24px; }
-        .desc-box h4 { font-size: 13px; color: #9ca3af; margin-bottom: 8px; }
-        .desc-box p { font-size: 13px; color: #374151; line-height: 1.7; }
-
-        .timeline { position: relative; padding-right: 14px; border-right: 2px solid #e2e8f0; margin-top: 10px; }
-        .timeline-item { position: relative; margin-bottom: 20px; }
-        .timeline-item:last-child { margin-bottom: 0; }
-        .timeline-icon { position: absolute; right: -21.5px; top: 0; width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 2px solid #cbd5e1; display: flex; align-items: center; justify-content: center; font-size: 8px; color: #fff; }
-        .icon-red { background: #d93025; border-color: #d93025; }
-        .icon-green { background: #15803d; border-color: #15803d; }
-        .timeline-content strong { font-size: 13px; color: #1f2937; display: block; margin-bottom: 2px; }
-        .timeline-content span { font-size: 11px; color: #64748b; }
-
-        /* إخفاء باقي القوالب السابقة (تم نقلها للملفات الفرعية لو لزم) */
         .subpage-card { background: #fff; border: 1px solid var(--border-color); border-radius: 14px; padding: 22px 26px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+        .subpage-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f1f5f9; padding-bottom: 16px; margin-bottom: 20px; }
+        .subpage-title { display: flex; align-items: center; gap: 12px; }
+        .subpage-title .icon-box { width: 42px; height: 42px; border-radius: 10px; background: var(--light-burgundy-bg); color: var(--primary-burgundy); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+        .subpage-title h2 { font-size: 19px; font-weight: 800; color: #1f2937; }
+        .subpage-title p { font-size: 13px; color: var(--text-muted); }
+        .toolbar-actions { display: flex; gap: 10px; align-items: center; }
+        .search-input { padding: 8px 14px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 13.5px; min-width: 240px; outline: none; }
+        .btn-primary { background: var(--primary-burgundy); color: #fff; border: none; padding: 8px 16px; border-radius: 8px; font-size: 13.5px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+        .btn-outline { background: #fff; color: #374151; border: 1px solid #d1d5db; padding: 7px 14px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+        
         .data-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
         .data-table th { background: #f8fafc; color: #475569; font-weight: 700; text-align: right; padding: 12px 14px; border-bottom: 1px solid #e2e8f0; }
         .data-table td { padding: 12px 14px; border-bottom: 1px solid #f1f5f9; color: #1e293b; }
@@ -251,12 +162,71 @@
         .status-active { background: #dcfce7; color: #15803d; }
         .status-warning { background: #fef3c7; color: #b45309; }
         .status-danger { background: #fee2e2; color: #b91c1c; }
+        .status-info { background: #e0f2fe; color: #0369a1; }
+        .qty-input { width: 65px; padding: 4px 8px; border: 1px solid #cbd5e1; border-radius: 6px; text-align: center; font-weight: 700; }
+
+        /* ================= صفحة مهامي الجديدة ================= */
+        .tasks-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #eee; }
+        .tasks-header h2 { font-size: 24px; font-weight: 800; color: #1e293b; margin-bottom: 4px; }
+        .tasks-header p { font-size: 13px; color: #64748b; }
+        .tasks-search-box { position: relative; width: 300px; }
+        .tasks-search-box input { width: 100%; padding: 10px 35px 10px 14px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 13px; outline: none; }
+        .tasks-search-box i { position: absolute; right: 12px; top: 12px; color: #9ca3af; font-size: 14px; }
+        .tasks-filters-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; background: #fff; padding: 12px 20px; border-radius: 12px; border: 1px solid #ececec; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
+        .stats-group { display: flex; align-items: center; gap: 16px; }
+        .circle-stat { width: 44px; height: 44px; border-radius: 50%; border: 3px solid #fce7f3; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; color: #333; background: #fdf6f8; }
+        .stats-text { font-size: 12.5px; color: #64748b; line-height: 1.4; }
+        .stats-text strong { color: #1e293b; display: block; }
+        .filter-chips { display: flex; gap: 10px; margin-right: 20px; border-right: 1px solid #eee; padding-right: 20px; }
+        .chip { padding: 6px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer; border: 1px solid transparent; }
+        .chip-pink { background: #fde8e8; color: #d93025; border-color: #fbd5d5; }
+        .chip-gray { background: #f1f5f9; color: #64748b; border-color: #e2e8f0; }
+        .chip-blue { background: #e0f2fe; color: #0369a1; border-color: #bae6fd; }
+        .tasks-actions { display: flex; align-items: center; gap: 16px; color: #64748b; font-size: 13.5px; }
+        .tasks-layout { display: flex; gap: 24px; align-items: flex-start; }
+        .tasks-list-col { flex: 1; display: flex; flex-direction: column; gap: 16px; }
+        .tasks-list-header { border-bottom: 2px solid #fca5a5; padding-bottom: 8px; margin-bottom: 4px; }
+        .tasks-list-header span { color: #d93025; font-size: 13.5px; font-weight: 800; display: flex; align-items: center; gap: 6px; }
+        .task-list-item { background: #fff; padding: 16px; border: 1px solid #eee; border-radius: 10px; display: flex; justify-content: space-between; align-items: flex-start; cursor: pointer; border-right: 3px solid transparent; }
+        .task-list-item.selected { border-right-color: var(--primary-burgundy); background: #fdf6f8; border-color: #fbcfe8; }
+        .task-list-item-right { display: flex; gap: 12px; align-items: flex-start; }
+        .task-list-item-info h4 { font-size: 14px; font-weight: 700; color: #374151; margin-bottom: 6px; line-height: 1.4; }
+        .task-list-item-info h4.done { text-decoration: line-through; color: #9ca3af; }
+        .priority-flag { font-size: 11px; color: #d93025; display: flex; align-items: center; gap: 4px; }
+        .task-list-item-left { font-size: 12px; color: #0f766e; font-weight: 500; }
+        .task-details-col { width: 340px; background: #fff; border: 1px solid #fecdd3; border-radius: 14px; padding: 24px; box-shadow: 0 4px 15px rgba(225, 29, 72, 0.05); flex-shrink: 0; }
+        .details-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+        .status-pill-green { background: #dcfce7; color: #15803d; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 800; }
+        .task-details-col h3 { font-size: 17px; font-weight: 800; color: #1f2937; margin-bottom: 20px; line-height: 1.4; }
+        .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 10px; margin-bottom: 20px; text-align: right; }
+        .details-grid div { display: flex; flex-direction: column; gap: 4px; }
+        .lbl-sm { font-size: 11.5px; color: #9ca3af; }
+        .val-sm { font-size: 13px; font-weight: 700; color: #374151; }
+        .meta-row { margin-bottom: 16px; }
+        .btn-burgundy-full { width: 100%; background: var(--primary-burgundy); color: #fff; border: none; padding: 10px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px; margin: 20px 0; }
+        .desc-box { margin-bottom: 24px; }
+        .desc-box h4 { font-size: 13px; color: #9ca3af; margin-bottom: 8px; }
+        .desc-box p { font-size: 13px; color: #374151; line-height: 1.7; }
+        .timeline { position: relative; padding-right: 14px; border-right: 2px solid #e2e8f0; margin-top: 10px; }
+        .timeline-item { position: relative; margin-bottom: 20px; }
+        .timeline-icon { position: absolute; right: -21.5px; top: 0; width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 2px solid #cbd5e1; display: flex; align-items: center; justify-content: center; font-size: 8px; color: #fff; }
+        .icon-red { background: #d93025; border-color: #d93025; }
+        .icon-green { background: #15803d; border-color: #15803d; }
+        .timeline-content strong { font-size: 13px; color: #1f2937; display: block; margin-bottom: 2px; }
+        .timeline-content span { font-size: 11px; color: #64748b; }
+
+        /* Toast & Modal */
+        .toast-msg { position: fixed; bottom: 24px; left: 24px; background: #1e293b; color: #fff; padding: 12px 20px; border-radius: 10px; font-size: 13.5px; font-weight: 700; box-shadow: 0 8px 20px rgba(0,0,0,0.2); display: none; align-items: center; gap: 10px; z-index: 3000; }
+        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 2000; align-items: center; justify-content: center; }
+        .modal-box { background: #fff; border-radius: 14px; width: 90%; max-width: 500px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 12px; margin-bottom: 14px; }
+        .close-modal { background: none; border: none; font-size: 20px; cursor: pointer; color: #666; }
 
     </style>
 </head>
 <body>
 
-    <!-- ================= الشريط العلوي ================= -->
+    <!-- ================= الشريط العلوي بجميع القوائم ================= -->
     <header class="navbar">
         <div class="nav-right">
             <a href="#" class="brand" onclick="openPage('الرئيسية', 'الرئيسية'); return false;">
@@ -265,18 +235,63 @@
             </a>
 
             <ul class="nav-links">
+                <!-- 1. الرئيسية -->
                 <li class="nav-item">
                     <button class="nav-link-btn active" onclick="toggleDropdown(this)"><span>الرئيسية</span><i class="fa-solid fa-chevron-down arrow"></i></button>
                     <div class="dropdown-menu">
                         <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'الرئيسية'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-house"></i> الرئيسية</span></a>
                         <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'مهامي'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-list-check"></i> مهامي</span></a>
                         <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'أين أجد المنتج؟'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-magnifying-glass-location"></i> أين أجد المنتج؟</span></a>
+                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'منتجات الفرع'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-boxes-stacked"></i> منتجات الفرع</span></a>
+                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'التحويل المتوقع'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-clipboard-list"></i> التحويل المتوقع</span></a>
+                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'استلام شحنة'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-truck-ramp-box"></i> استلام شحنة</span></a>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-section-label">التحليل والتقارير</div>
+                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'تحليل فرعي'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-chart-line"></i> تحليل فرعي</span></a>
+                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'التقارير'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-file-lines"></i> التقارير</span></a>
+                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'التقارير الشهرية'); return false;"><span class="dropdown-item-right"><i class="fa-regular fa-calendar-days"></i> التقارير الشهرية</span></a>
                     </div>
                 </li>
-                <!-- أضفت فقط أهم الخيارات للاختصار وعدم تشتيت الانتباه في الكود، يمكنك إضافة الباقي كما في النسخة السابقة -->
+
+                <!-- 2. الطلبات -->
                 <li class="nav-item">
                     <button class="nav-link-btn" onclick="toggleDropdown(this)"><span>الطلبات</span><i class="fa-solid fa-chevron-down arrow"></i></button>
-                    <div class="dropdown-menu"><a href="#" class="dropdown-item" onclick="openPage('الطلبات', 'الوارد إلى فرعي'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-truck-fast"></i> الوارد إلى فرعي</span></a></div>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" onclick="openPage('الطلبات', 'طلبات المنتج'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-box"></i> طلبات المنتج</span></a>
+                        <a href="#" class="dropdown-item" onclick="openPage('الطلبات', 'طلبات المنتجات'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-boxes-packing"></i> طلبات المنتجات</span></a>
+                        <a href="#" class="dropdown-item" onclick="openPage('الطلبات', 'الوارد إلى فرعي'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-truck-fast"></i> الوارد إلى فرعي</span></a>
+                        <a href="#" class="dropdown-item" onclick="openPage('الطلبات', 'طلباتي'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-clipboard-check"></i> طلباتي</span></a>
+                        <a href="#" class="dropdown-item" onclick="openPage('الطلبات', 'بانتظار الرد فقط'); return false;"><span class="dropdown-item-right"><i class="fa-regular fa-hourglass-half"></i> بانتظار الرد فقط</span></a>
+                    </div>
+                </li>
+
+                <!-- 3. المراسلات -->
+                <li class="nav-item">
+                    <button class="nav-link-btn" onclick="toggleDropdown(this)"><span>المراسلات</span><i class="fa-solid fa-chevron-down arrow"></i></button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" onclick="openPage('المراسلات', 'المراسلات الرسمية'); return false;"><span class="dropdown-item-right"><i class="fa-regular fa-envelope"></i> المراسلات الرسمية</span></a>
+                        <a href="#" class="dropdown-item" onclick="openPage('المراسلات', 'المحادثات الداخلية'); return false;"><span class="dropdown-item-right"><i class="fa-regular fa-comments"></i> المحادثات الداخلية</span></a>
+                        <a href="#" class="dropdown-item" onclick="openPage('المراسلات', 'ملفات الدفعات'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-file-invoice-dollar"></i> ملفات الدفعات</span></a>
+                    </div>
+                </li>
+
+                <!-- 4. المرجع -->
+                <li class="nav-item">
+                    <button class="nav-link-btn" onclick="toggleDropdown(this)"><span>المرجع</span><i class="fa-solid fa-chevron-down arrow"></i></button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" onclick="openPage('المرجع', 'المسؤوليات'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-user-shield"></i> المسؤوليات</span></a>
+                        <a href="#" class="dropdown-item" onclick="openPage('المرجع', 'الآليات والتعليمات'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-book-open"></i> الآليات والتعليمات</span></a>
+                        <a href="#" class="dropdown-item" onclick="openPage('المرجع', 'بطاقات التعريف'); return false;"><span class="dropdown-item-right"><i class="fa-regular fa-id-badge"></i> بطاقات التعريف</span></a>
+                    </div>
+                </li>
+
+                <!-- 5. حسابي -->
+                <li class="nav-item">
+                    <button class="nav-link-btn" onclick="toggleDropdown(this)"><span>حسابي</span><i class="fa-solid fa-chevron-down arrow"></i></button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" onclick="openPage('حسابي', 'حسابي والبريد'); return false;"><span class="dropdown-item-right"><i class="fa-regular fa-user"></i> حسابي والبريد</span></a>
+                        <a href="#" class="dropdown-item" onclick="openPage('حسابي', 'التحكم في التطبيق والتطوير'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-sliders"></i> التحكم في التطبيق والتطوير</span></a>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -308,28 +323,111 @@
     <!-- ================= المحتوى الرئيسي ================= -->
     <main class="container">
 
-        <!-- 1. الشاشة الرئيسية (تختفي عند اختيار "مهامي") -->
+        <!-- الشاشة الرئيسية -->
         <div id="homeDashboardView">
             <section class="welcome-card">
                 <div class="welcome-right"><div class="moon-icon-box"><i class="fa-solid fa-moon"></i></div><div class="welcome-text"><h2>مرحبا، فرع الفرسان</h2><p>لديك اليوم 291 منتجات متوقفة عن البيع و3 منتجاً بالسالب و1 منتج في الطريق إليك.</p></div></div>
                 <div class="welcome-left"><div class="date-box"><span class="greeting">مساء الخير</span><span class="date-str">الاثنين 16 نوفمبر 2026</span></div></div>
             </section>
             
+            <section class="announcement-banner">
+                <div class="banner-right">
+                    <div class="banner-badges">
+                        <span class="banner-category"><i class="fa-solid fa-bullhorn"></i> الإعلانات والتحديثات</span>
+                        <span class="badge-pill badge-important"><i class="fa-solid fa-circle-exclamation"></i> مهم</span>
+                        <span class="badge-pill badge-pinned"><i class="fa-solid fa-thumbtack"></i> مثبت</span>
+                    </div>
+                    <h1 class="banner-title"><span>📱 تطبيق NMA على جوالك الآن</span></h1>
+                    <p class="banner-desc">زملاءنا في فروع شاطئ الوصل،<br>يسعدنا إطلاق تطبيق NMA — نفس النظام الذي تعرفونه على الويندوز الآن في جيبك وبنفس حسابك وصلاحياتك.</p>
+                    <div class="banner-meta"><i class="fa-regular fa-clock"></i><span>2026-11-03 · 5:06 م · <strong>علي خالد ويس</strong></span></div>
+                </div>
+                <div class="banner-left">
+                    <div class="banner-promo-info">
+                        <span class="promo-sub-tag">NMA شاطئ الوصل</span>
+                        <div class="promo-heading">تطبيق NMA على جوالك الآن</div>
+                        <div class="promo-features">
+                            <span class="promo-chip"><i class="fa-solid fa-barcode"></i> ماسح المنتجات</span>
+                            <span class="promo-chip"><i class="fa-regular fa-envelope"></i> المراسلات</span>
+                        </div>
+                    </div>
+                    <div class="banner-actions">
+                        <button class="read-more-btn" onclick="openAnnouncementModal()"><i class="fa-solid fa-arrow-left"></i><span>اقرأ المزيد</span></button>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-header"><div class="section-title"><i class="fa-solid fa-table-cells-large"></i><span>ملخص الفرع</span></div></div>
+            <section class="cards-grid">
+                <div class="stat-card" onclick="openPage('الرئيسية', 'تحليل فرعي')">
+                    <div class="card-top"><div class="card-icon icon-red"><i class="fa-solid fa-arrow-trend-down"></i></div><span class="card-title">المنتجات السالبة</span></div>
+                    <div class="card-body"><div class="card-value val-red">3 منتج</div><div class="card-sub">3 وحدة بالسالب</div></div>
+                </div>
+                <div class="stat-card" onclick="openPage('الرئيسية', 'منتجات الفرع')">
+                    <div class="card-top"><div class="card-icon icon-orange"><i class="fa-solid fa-tag"></i></div><span class="card-title">العروض المفعّلة</span></div>
+                    <div class="card-body"><div class="card-value val-orange">0 منتج</div></div>
+                </div>
+                <div class="stat-card" onclick="openPage('الرئيسية', 'منتجات الفرع')">
+                    <div class="card-top"><div class="card-icon icon-coral"><i class="fa-solid fa-pause"></i></div><span class="card-title">المتوقف عن البيع</span></div>
+                    <div class="card-body"><div class="card-value val-coral">291 منتج</div><div class="card-sub">3,098 وحدة</div></div>
+                </div>
+                <div class="stat-card" onclick="openPage('الطلبات', 'الوارد إلى فرعي')">
+                    <div class="card-top"><div class="card-icon icon-teal"><i class="fa-solid fa-box-open"></i></div><span class="card-title">التحاويل الواردة إلى الفرع</span></div>
+                    <div class="card-body"><div class="card-value val-teal">1 منتج</div><div class="card-sub">1 وحدة</div></div>
+                </div>
+                <div class="stat-card" onclick="openPage('الطلبات', 'طلباتي')">
+                    <div class="card-top"><div class="card-icon icon-burgundy"><i class="fa-solid fa-arrow-up-from-bracket"></i></div><span class="card-title">التحاويل الصادرة من الفرع</span></div>
+                    <div class="card-body"><div class="card-value val-burgundy">56 منتج</div><div class="card-sub">235 وحدة</div></div>
+                </div>
+                <div class="stat-card" onclick="openPage('الرئيسية', 'استلام شحنة')">
+                    <div class="card-top"><div class="card-icon icon-teal"><i class="fa-solid fa-truck"></i></div><span class="card-title">مواعيد الشحنات</span></div>
+                    <div class="card-body"><div class="card-value val-teal" style="font-size:19px;">الاثنين + الخميس</div></div>
+                </div>
+            </section>
+
             <div class="section-header"><div class="section-title"><i class="fa-regular fa-calendar-check"></i><span>المتابعة اليومية</span></div></div>
             <section class="cards-grid">
+                <div class="stat-card" onclick="openPage('الرئيسية', 'التحويل المتوقع')">
+                    <div class="card-top"><div class="card-icon icon-coral"><i class="fa-solid fa-clipboard-list"></i></div><span class="card-title">التحويل المتوقع</span></div>
+                    <div class="card-body"><div class="card-value val-coral">991</div><div class="card-sub">بانتظار ردك قبل 11:00 م</div></div>
+                </div>
                 <div class="stat-card" onclick="openPage('الرئيسية', 'مهامي')">
                     <div class="card-top"><div class="card-icon icon-pink"><i class="fa-solid fa-list-check"></i></div><span class="card-title">مهام مطلوبة مني</span></div>
                     <div class="card-body"><div class="card-value val-pink">1</div><div class="card-sub">مهمة من الإدارة لم تُنجز</div></div>
                 </div>
+                <div class="stat-card" onclick="openPage('الطلبات', 'بانتظار الرد فقط')">
+                    <div class="card-top"><div class="card-icon icon-coral"><i class="fa-solid fa-reply"></i></div><span class="card-title">بحاجة لردي</span></div>
+                    <div class="card-body"><div class="card-value val-coral">1</div></div>
+                </div>
+                <div class="stat-card" onclick="openPage('المراسلات', 'المراسلات الرسمية')">
+                    <div class="card-top"><div class="card-icon icon-burgundy"><i class="fa-regular fa-envelope"></i></div><span class="card-title">رسائل غير مقروءة</span></div>
+                    <div class="card-body"><div class="card-value val-burgundy">21</div></div>
+                </div>
             </section>
         </div>
 
-        <!-- 2. حاوية الصفحات الداخلية (هنا ستظهر صفحة "مهامي" الجديدة) -->
+        <!-- حاوية الصفحات الداخلية -->
         <div id="subpageView"></div>
 
     </main>
 
+    <!-- نافذة المودال والاشعارات -->
+    <div class="toast-msg" id="toastMsg"><i class="fa-solid fa-circle-check" style="color: #4ade80;"></i><span id="toastText">تم حفظ التغييرات</span></div>
+    <div class="modal-overlay" id="announcementModal" onclick="closeAnnouncementModal(event)">
+        <div class="modal-box">
+            <div class="modal-header"><h3>📱 تطبيق NMA على جوالك الآن</h3><button class="close-modal" onclick="closeAnnouncementModal(event, true)">×</button></div>
+            <p style="line-height:1.8; font-size:14.5px;">يسعدنا إطلاق تطبيق NMA — نفس النظام الذي تعرفونه على الويندوز الآن في جيبك وبنفس حسابك وصلاحياتك.</p>
+        </div>
+    </div>
+
     <script>
+        // بيانات وهمية للجدول
+        const appData = {
+            products: [{ code: '6281001122', name: 'زيت مساج - 500 مل', category: 'العناية بالجسم', price: '18.00 ر.س', stock: 12, status: 'نشط', location: 'رف A-04' }],
+            transfers: [{ code: '6281001122', name: 'زيت مساج - 500 مل', suggested: 15, approved: 15, status: 'بانتظار الرد' }],
+            messages: [{ id: 101, subject: 'تحديث أسعار عروض نهاية الأسبوع', from: 'إدارة المبيعات', date: '2026-11-13', read: false, body: 'يرجى التحديث' }],
+            orders: [{ id: 'ORD-8821', product: 'كريم مرطب', qty: 24, date: '2026-11-12', status: 'بانتظار الرد' }]
+        };
+
         function toggleDropdown(btn) {
             const currentItem = btn.parentElement;
             const isOpen = currentItem.classList.contains('open');
@@ -363,28 +461,18 @@
             subView.style.display = 'block';
             backBtn.style.display = 'inline-flex';
             
-            renderSubpage(subSection);
+            renderSubpage(mainSection, subSection);
         }
 
-        function renderSubpage(subSection) {
+        function renderSubpage(mainSection, subSection) {
             const subView = document.getElementById('subpageView');
 
             if (subSection === 'مهامي') {
-                // الكود الدقيق المطابق لصورة صفحة "مهامي" بالكامل
                 subView.innerHTML = `
-                    <!-- ترويسة المهام -->
                     <div class="tasks-header">
-                        <div>
-                            <h2>مهامي</h2>
-                            <p>نفذ العمل ثم علّم «تم». ما تنفذه داخل WASL (مراسلة، إرسال جماعي، دفعة...) يُغلق مهمته تلقائياً.</p>
-                        </div>
-                        <div class="tasks-search-box">
-                            <input type="text" placeholder="بحث في مهامك">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </div>
+                        <div><h2>مهامي</h2><p>نفذ العمل ثم علّم «تم». ما تنفذه داخل WASL يُغلق مهمته تلقائياً.</p></div>
+                        <div class="tasks-search-box"><input type="text" placeholder="بحث في مهامك"><i class="fa-solid fa-magnifying-glass"></i></div>
                     </div>
-
-                    <!-- شريط الفلاتر والإحصائيات -->
                     <div class="tasks-filters-bar">
                         <div class="stats-group">
                             <div class="circle-stat">0/0</div>
@@ -394,98 +482,104 @@
                                 <div class="chip chip-gray"><i class="fa-solid fa-stopwatch"></i> 0 متأخر</div>
                                 <div class="chip chip-blue"><i class="fa-solid fa-circle-check"></i> 0 أنجز اليوم</div>
                             </div>
-                            <i class="fa-solid fa-arrows-rotate" style="cursor:pointer; color:#9ca3af; font-size:16px;"></i>
                         </div>
-                        <div class="tasks-actions">
-                            <span>1 مهمة <i class="fa-solid fa-chevron-down" style="font-size:11px; margin-right:4px;"></i></span>
-                        </div>
+                        <div class="tasks-actions"><span>1 مهمة <i class="fa-solid fa-chevron-down"></i></span></div>
                     </div>
-
-                    <!-- التخطيط الرئيسي: عمودين -->
                     <div class="tasks-layout">
-                        
-                        <!-- العمود الأيمن: قائمة المهام -->
                         <div class="tasks-list-col">
-                            <div class="tasks-list-header">
-                                <span><i class="fa-regular fa-clock"></i> 1 متأخر</span>
-                            </div>
-                            
-                            <!-- بطاقة المهمة في القائمة -->
+                            <div class="tasks-list-header"><span><i class="fa-regular fa-clock"></i> 1 متأخر</span></div>
                             <div class="task-list-item selected">
-                                <div class="task-list-item-right">
-                                    <i class="fa-solid fa-circle-check" style="color:#118a7e; font-size:20px; margin-top:2px;"></i>
-                                    <div class="task-list-item-info">
-                                        <h4 class="done">تسجيل أسباب التحويل ALFOR/INT/00927</h4>
-                                        <span class="priority-flag"><i class="fa-solid fa-flag"></i> أولوية عالية</span>
-                                    </div>
+                                <div class="task-list-item-right"><i class="fa-solid fa-circle-check" style="color:#118a7e; font-size:20px;"></i>
+                                    <div class="task-list-item-info"><h4 class="done">تسجيل أسباب التحويل ALFOR/INT/00927</h4><span class="priority-flag"><i class="fa-solid fa-flag"></i> أولوية عالية</span></div>
                                 </div>
-                                <div class="task-list-item-left">
-                                    أنجزت 2026-11-16 2:07 م
-                                </div>
+                                <div class="task-list-item-left">أنجزت 2026-11-16 2:07 م</div>
                             </div>
                         </div>
-
-                        <!-- العمود الأيسر: تفاصيل المهمة المحددة -->
                         <div class="task-details-col">
-                            <div class="details-top">
-                                <span class="status-pill-green">مكتمل</span>
-                                <i class="fa-solid fa-circle-check" style="color:#118a7e; font-size:22px;"></i>
-                            </div>
-                            
+                            <div class="details-top"><span class="status-pill-green">مكتمل</span><i class="fa-solid fa-circle-check" style="color:#118a7e; font-size:22px;"></i></div>
                             <h3 dir="ltr" style="text-align:right;">تسجيل أسباب التحويل ALFOR/INT/00927</h3>
-                            
                             <div class="details-grid">
                                 <div><span class="lbl-sm">الاستحقاق</span><span class="val-sm">2026-11-15</span></div>
-                                <div><span class="lbl-sm">التكرار</span><span class="val-sm">مرة واحدة</span></div>
                                 <div><span class="lbl-sm">طريقة الإنجاز</span><span class="val-sm">تسجيل أسباب التحويل</span></div>
-                                <div><span class="lbl-sm">تقرير</span><span class="val-sm">لا</span></div>
                             </div>
-                            
-                            <div class="meta-row">
-                                <span class="lbl-sm">أسندها</span><br>
-                                <span class="val-sm">النظام · 2026-11-15 9:27 ص</span>
-                            </div>
-                            <div class="meta-row">
-                                <span class="lbl-sm">وقت الإنجاز</span><br>
-                                <span class="val-sm">فرع الفرسان · 2026-11-16 2:07 م</span>
-                            </div>
-
-                            <button class="btn-burgundy-full">
-                                <i class="fa-solid fa-square-arrow-up-right"></i> عرض أسباب التحويل
-                            </button>
-
-                            <div class="desc-box">
-                                <h4>الوصف</h4>
-                                <p>حوّل فرع «الفرسان/فرع الفرسان» تحويلاً إلى الرئيسي/هايبر تالف (ALFOR/INT/00927) فيه 142 أسطر. سجّل سبب الإتلاف لكل سطر من «فتح أسباب التحويل» — تُغلق المهمة وحدها حين يحمل كل سطر سبباً.</p>
-                            </div>
-
-                            <div class="desc-box">
-                                <h4>التحديثات</h4>
-                                <div class="timeline">
-                                    <div class="timeline-item">
-                                        <div class="timeline-icon icon-red"><i class="fa-solid fa-plus"></i></div>
-                                        <div class="timeline-content">
-                                            <strong>أنشئت المهمة</strong>
-                                            <span>النظام · 2026-11-15 9:27 ص</span>
-                                        </div>
-                                    </div>
-                                    <div class="timeline-item">
-                                        <div class="timeline-icon icon-green"><i class="fa-solid fa-check"></i></div>
-                                        <div class="timeline-content">
-                                            <strong>تم — سُجل الإنجاز</strong>
-                                            <span>فرع الفرسان · 2026-11-16 2:07 م</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <div class="meta-row"><span class="lbl-sm">أسندها</span><br><span class="val-sm">النظام · 2026-11-15 9:27 ص</span></div>
+                            <button class="btn-burgundy-full"><i class="fa-solid fa-square-arrow-up-right"></i> عرض أسباب التحويل</button>
+                            <div class="desc-box"><h4>الوصف</h4><p>حوّل فرع «الفرسان/فرع الفرسان» تحويلاً إلى الرئيسي/هايبر تالف. سجّل سبب الإتلاف لكل سطر.</p></div>
+                        </div>
+                    </div>
+                `;
+            } else if (subSection === 'أين أجد المنتج؟' || subSection === 'منتجات الفرع') {
+                subView.innerHTML = `
+                    <div class="subpage-card">
+                        <div class="subpage-header">
+                            <div class="subpage-title"><div class="icon-box"><i class="fa-solid fa-barcode"></i></div><div><h2>${subSection}</h2><p>البحث بالاسم أو الباركود</p></div></div>
+                            <div class="toolbar-actions"><input type="text" class="search-input" placeholder="ابحث باسم المنتج أو الباركود..."></div>
+                        </div>
+                        <table class="data-table">
+                            <thead><tr><th>الباركود</th><th>الاسم</th><th>القسم</th><th>السعر</th><th>الرصيد</th></tr></thead>
+                            <tbody>${appData.products.map(p => `<tr><td><code>${p.code}</code></td><td style="font-weight:700;">${p.name}</td><td>${p.category}</td><td style="font-weight:700; color:var(--primary-burgundy);">${p.price}</td><td style="font-weight:800; color:#0f766e;">${p.stock}</td></tr>`).join('')}</tbody>
+                        </table>
+                    </div>
+                `;
+            } else if (subSection === 'التحويل المتوقع') {
+                subView.innerHTML = `
+                    <div class="subpage-card">
+                        <div class="subpage-header">
+                            <div class="subpage-title"><div class="icon-box"><i class="fa-solid fa-clipboard-list"></i></div><div><h2>التحويل المتوقع</h2><p>بانتظار ردك</p></div></div>
+                            <button class="btn-primary" onclick="showToast('تم الحفظ')"><i class="fa-solid fa-check"></i> اعتماد الرد</button>
+                        </div>
+                        <table class="data-table">
+                            <thead><tr><th>الباركود</th><th>اسم المنتج</th><th>الكمية المقترحة</th><th>الاعتماد</th></tr></thead>
+                            <tbody>${appData.transfers.map(t => `<tr><td><code>${t.code}</code></td><td style="font-weight:700;">${t.name}</td><td>${t.suggested}</td><td><input type="number" class="qty-input" value="${t.approved}"></td></tr>`).join('')}</tbody>
+                        </table>
+                    </div>
+                `;
+            } else if (mainSection === 'الطلبات') {
+                subView.innerHTML = `
+                    <div class="subpage-card">
+                        <div class="subpage-header">
+                            <div class="subpage-title"><div class="icon-box"><i class="fa-solid fa-boxes-packing"></i></div><div><h2>${subSection}</h2></div></div>
+                        </div>
+                        <table class="data-table">
+                            <thead><tr><th>رقم الطلب</th><th>المنتج</th><th>الكمية</th><th>الحالة</th></tr></thead>
+                            <tbody>${appData.orders.map(o => `<tr><td><strong>${o.id}</strong></td><td>${o.product}</td><td>${o.qty}</td><td><span class="status-tag status-warning">${o.status}</span></td></tr>`).join('')}</tbody>
+                        </table>
+                    </div>
+                `;
+            } else if (mainSection === 'المراسلات') {
+                subView.innerHTML = `
+                    <div class="subpage-card">
+                        <div class="subpage-header">
+                            <div class="subpage-title"><div class="icon-box"><i class="fa-regular fa-envelope"></i></div><div><h2>${subSection}</h2></div></div>
+                        </div>
+                        <table class="data-table">
+                            <thead><tr><th>الموضوع</th><th>المرسل</th><th>التاريخ</th><th>الحالة</th></tr></thead>
+                            <tbody>${appData.messages.map(m => `<tr><td style="font-weight:800;">${m.subject}</td><td>${m.from}</td><td>${m.date}</td><td><span class="status-tag status-danger">غير مقروءة</span></td></tr>`).join('')}</tbody>
+                        </table>
+                    </div>
+                `;
+            } else if (subSection === 'تحليل فرعي' || subSection === 'التقارير') {
+                subView.innerHTML = `
+                    <div class="subpage-card">
+                        <div class="subpage-header"><div class="subpage-title"><div class="icon-box"><i class="fa-solid fa-chart-line"></i></div><div><h2>${subSection}</h2></div></div></div>
+                        <div class="cards-grid" style="margin-bottom:0;">
+                            <div class="stat-card"><div class="card-top"><div class="card-icon icon-red"><i class="fa-solid fa-arrow-trend-down"></i></div><span class="card-title">أصناف سالبة</span></div><div class="card-body"><div class="card-value val-red">3</div></div></div>
+                            <div class="stat-card"><div class="card-top"><div class="card-icon icon-coral"><i class="fa-solid fa-box-open"></i></div><span class="card-title">أصناف ناقصة</span></div><div class="card-body"><div class="card-value val-coral">2,604</div></div></div>
                         </div>
                     </div>
                 `;
             } else {
-                // شاشة افتراضية لباقي الخيارات
-                subView.innerHTML = `<div style="background:#fff; padding:30px; border-radius:12px; text-align:center;"><h3>${subSection}</h3><p>جاري التطوير...</p></div>`;
+                subView.innerHTML = `<div class="subpage-card"><div class="subpage-header"><div class="subpage-title"><div class="icon-box"><i class="fa-solid fa-folder-open"></i></div><div><h2>${subSection}</h2><p>فرع الفرسان</p></div></div></div><p>محتوى قيد التجهيز...</p></div>`;
             }
         }
+
+        function showToast(txt) {
+            document.getElementById('toastText').textContent = txt;
+            document.getElementById('toastMsg').style.display = 'flex';
+            setTimeout(() => document.getElementById('toastMsg').style.display = 'none', 2500);
+        }
+        function openAnnouncementModal() { document.getElementById('announcementModal').style.display = 'flex'; }
+        function closeAnnouncementModal(e, force = false) { if (force || e.target.id === 'announcementModal') document.getElementById('announcementModal').style.display = 'none'; }
     </script>
 </body>
 </html>
