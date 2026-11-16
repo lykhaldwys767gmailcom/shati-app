@@ -35,7 +35,7 @@
 
         body.dark-mode .navbar { box-shadow: 0 2px 6px rgba(0,0,0,0.5); }
         body.dark-mode .welcome-card { background: linear-gradient(90deg, #1e1e24 0%, #2a2a35 60%, #1e1e1e 100%); }
-        body.dark-mode .welcome-text h2, body.dark-mode .tasks-header h2, body.dark-mode .payments-header-title h2, body.dark-mode .files-section-title { color: #fff; }
+        body.dark-mode .welcome-text h2, body.dark-mode .tasks-header h2 { color: #fff; }
         body.dark-mode .dropdown-menu { background-color: #1e1e1e; border-color: #374151; }
         body.dark-mode .dropdown-item { color: #e5e7eb; }
         body.dark-mode .dropdown-item:hover { background-color: #2d1b22; }
@@ -44,10 +44,10 @@
         body.dark-mode .task-list-item { background: #1e1e1e; border-color: #374151; }
         body.dark-mode .task-list-item.selected { background: #2d1b22; border-color: var(--primary-burgundy); }
         body.dark-mode .task-details-col { background: #1e1e1e; border-color: #374151; }
-        body.dark-mode .tasks-search-box input, body.dark-mode .search-input, body.dark-mode .payments-search input { background: #2c2c2c; color: #fff; border-color: #444; }
-        body.dark-mode .tasks-filters-bar, body.dark-mode .payments-filter-bar { background: #1e1e1e; border-color: #374151; }
+        body.dark-mode .tasks-search-box input, body.dark-mode .search-input { background: #2c2c2c; color: #fff; border-color: #444; }
+        body.dark-mode .tasks-filters-bar { background: #1e1e1e; border-color: #374151; }
         body.dark-mode .circle-stat { background: #2d1b22; border-color: #a11f48; color: #e5e7eb; }
-        body.dark-mode .btn-outline, body.dark-mode .results-count { background: #2c2c2c; color: #e5e7eb; border-color: #444; }
+        body.dark-mode .btn-outline { background: #2c2c2c; color: #e5e7eb; border-color: #444; }
         body.dark-mode .modal-box { background: #1e1e1e; color: #e5e7eb; border: 1px solid #374151; }
         body.dark-mode .modal-header { border-bottom-color: #374151; }
         body.dark-mode .close-modal { color: #e5e7eb; }
@@ -117,7 +117,7 @@
         .refresh-btn { background: transparent; border: none; color: var(--text-muted); font-size: 16px; cursor: pointer; padding: 8px; border-radius: 50%; transition: 0.3s; }
         .refresh-btn:hover { background-color: var(--border-color); transform: rotate(180deg); }
 
-        /* ================= بانر الإعلانات ================= */
+        /* ================= بانر الإعلانات (الأصلي الكامل) ================= */
         .announcement-banner { background: linear-gradient(105deg, #630c28 0%, #861439 55%, #751030 100%); border-radius: 14px; padding: 20px 28px; color: #fff; display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; position: relative; overflow: hidden; box-shadow: 0 4px 15px rgba(130, 20, 55, 0.18); }
         .banner-right { flex: 1; z-index: 2; }
         .banner-badges { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 13px; }
@@ -168,7 +168,7 @@
         .icon-burgundy { background: #fce7f3; color: #821437; } .val-burgundy { color: #821437; }
         .icon-pink { background: #fae8ff; color: #a21caf; } .val-pink { color: #a21caf; }
 
-        /* ================= الصفحات الفرعية والخيارات السابقة ================= */
+        /* ================= الصفحات الفرعية والخيارات ================= */
         #subpageView { display: none; animation: fadeIn 0.2s ease; }
         .subpage-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 22px 26px; transition: 0.3s; }
         .subpage-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 16px; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
@@ -193,26 +193,7 @@
         .status-danger { background: #fee2e2; color: #b91c1c; }
         .qty-input { width: 65px; padding: 4px 8px; border: 1px solid var(--border-color); border-radius: 6px; text-align: center; font-weight: 700; background: var(--card-bg); color: var(--text-dark); }
 
-        /* ================= تصميم صفحة "ملفات الدفعات" الجديدة (مطابقة للصورة) ================= */
-        .payments-header-title { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .payments-header-title h2 { font-size: 24px; font-weight: 800; color: var(--text-dark); margin: 0; }
-        .payments-header-title p { font-size: 13.5px; color: var(--text-muted); margin: 0; }
-        
-        .btn-burgundy-massive { width: 100%; background: var(--primary-burgundy); color: #fff; border: none; padding: 14px; border-radius: 8px; font-size: 15.5px; font-weight: 800; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px; transition: 0.2s; margin-bottom: 24px; box-shadow: 0 4px 10px rgba(130, 20, 55, 0.2); }
-        .btn-burgundy-massive:hover { background: var(--dark-burgundy); }
-        
-        .files-section-title { font-size: 16px; font-weight: 800; color: var(--text-dark); margin-bottom: 14px; }
-        
-        .payments-filter-bar { display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border-color); margin-bottom: 16px; }
-        .results-count { font-size: 13px; font-weight: 700; color: var(--text-muted); display: flex; align-items: center; gap: 8px; border: 1px solid var(--border-color); padding: 6px 14px; border-radius: 6px; background: var(--bg-color); cursor: pointer; }
-        .payments-search { position: relative; width: 450px; }
-        .payments-search input { width: 100%; padding: 10px 40px 10px 14px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 13px; background: var(--bg-color); color: var(--text-dark); outline: none; }
-        .payments-search i { position: absolute; right: 14px; top: 12px; color: var(--text-muted); font-size: 14px; }
-        
-        .status-pill-orange { background-color: #fef3c7; color: #b45309; padding: 5px 14px; border-radius: 20px; font-size: 11.5px; font-weight: 800; display: inline-block; }
-        .status-pill-teal { background-color: #ccfbf1; color: #0f766e; padding: 5px 14px; border-radius: 20px; font-size: 11.5px; font-weight: 800; display: inline-block; }
-
-        /* ================= صفحة مهامي (السابقة) ================= */
+        /* ================= صفحة مهامي الجديدة ================= */
         .tasks-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border-color); }
         .tasks-header h2 { font-size: 24px; font-weight: 800; color: var(--text-dark); margin-bottom: 4px; }
         .tasks-header p { font-size: 13px; color: var(--text-muted); }
@@ -242,8 +223,17 @@
         .task-list-item-left { font-size: 12px; color: #0f766e; font-weight: 500; }
         .task-details-col { width: 340px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 24px; flex-shrink: 0; }
         .details-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+        .status-pill-green { background: #dcfce7; color: #15803d; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 800; }
         .task-details-col h3 { font-size: 17px; font-weight: 800; color: var(--text-dark); margin-bottom: 20px; line-height: 1.4; }
+        .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 10px; margin-bottom: 20px; text-align: right; }
+        .details-grid div { display: flex; flex-direction: column; gap: 4px; }
+        .lbl-sm { font-size: 11.5px; color: var(--text-muted); }
+        .val-sm { font-size: 13px; font-weight: 700; color: var(--text-dark); }
+        .meta-row { margin-bottom: 16px; }
         .btn-burgundy-full { width: 100%; background: var(--primary-burgundy); color: #fff; border: none; padding: 10px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px; margin: 20px 0; }
+        .desc-box { margin-bottom: 24px; }
+        .desc-box h4 { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+        .desc-box p { font-size: 13px; color: var(--text-dark); line-height: 1.7; }
 
         /* Toast & Modal */
         .toast-msg { position: fixed; bottom: 24px; left: 24px; background: var(--primary-burgundy); color: #fff; padding: 12px 20px; border-radius: 10px; font-size: 13.5px; font-weight: 700; box-shadow: 0 8px 20px rgba(0,0,0,0.2); display: none; align-items: center; gap: 10px; z-index: 3000; }
@@ -251,6 +241,7 @@
         .modal-box { background: var(--card-bg); border-radius: 14px; width: 90%; max-width: 500px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; margin-bottom: 14px; }
         .close-modal { background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-muted); }
+
     </style>
 </head>
 <body>
@@ -310,7 +301,7 @@
         </div>
 
         <div class="nav-left">
-            <!-- 🌙 زر الوضع الليلي -->
+            <!-- 🌙 زر الوضع الليلي الجديد -->
             <div class="nav-item">
                 <div class="notification-btn" id="darkModeToggle" onclick="toggleDarkMode()" title="تفعيل/إلغاء الوضع الليلي">
                     <i class="fa-solid fa-moon"></i>
@@ -433,9 +424,9 @@
                     <div class="card-top"><div class="card-icon icon-pink"><i class="fa-solid fa-list-check"></i></div><span class="card-title">مهام مطلوبة مني</span></div>
                     <div class="card-body"><div class="card-value val-pink">1</div><div class="card-sub">مهمة من الإدارة لم تُنجز</div></div>
                 </div>
-                <div class="stat-card" onclick="openPage('المراسلات', 'ملفات الدفعات')">
-                    <div class="card-top"><div class="card-icon icon-burgundy"><i class="fa-solid fa-file-invoice-dollar"></i></div><span class="card-title">ملفات الدفعات</span></div>
-                    <div class="card-body"><div class="card-value val-burgundy">5</div><div class="card-sub">ملفات مرفوعة للتدقيق</div></div>
+                <div class="stat-card" onclick="openPage('المراسلات', 'المراسلات الرسمية')">
+                    <div class="card-top"><div class="card-icon icon-burgundy"><i class="fa-regular fa-envelope"></i></div><span class="card-title">رسائل غير مقروءة</span></div>
+                    <div class="card-body"><div class="card-value val-burgundy">21</div></div>
                 </div>
             </section>
         </div>
@@ -446,7 +437,7 @@
     </main>
 
     <!-- نافذة المودال والاشعارات -->
-    <div class="toast-msg" id="toastMsg"><i class="fa-solid fa-circle-check" style="color: #fff;"></i><span id="toastText">تم الإجراء بنجاح</span></div>
+    <div class="toast-msg" id="toastMsg"><i class="fa-solid fa-circle-check" style="color: #fff;"></i><span id="toastText">تم حفظ التغييرات</span></div>
     
     <div class="modal-overlay" id="announcementModal" onclick="closeAnnouncementModal(event)">
         <div class="modal-box">
@@ -455,7 +446,7 @@
         </div>
     </div>
 
-    <!-- 📷 مودال ماسح الباركود -->
+    <!-- 📷 مودال ماسح الباركود الجديد -->
     <div class="modal-overlay" id="scannerModal" onclick="closeScannerModal(event)">
         <div class="modal-box" style="text-align: center;">
             <div class="modal-header">
@@ -507,12 +498,15 @@
         // ================= تصدير الجداول إلى إكسل (CSV) =================
         function exportTableToExcel(filename) {
             let csv = [];
+            // تحديد الجدول المعروض حالياً في الصفحة
             let rows = document.querySelectorAll(".data-table tr");
             
             for (let i = 0; i < rows.length; i++) {
                 let row = [], cols = rows[i].querySelectorAll("td, th");
                 for (let j = 0; j < cols.length; j++) {
+                    // تنظيف النص وتجهيزه للإكسل
                     let data = cols[j].innerText.replace(/"/g, '""').trim();
+                    // إذا كان الخلية تحتوي على حقل إدخال (مثل التحويل المتوقع)
                     let input = cols[j].querySelector('input');
                     if(input) data = input.value;
                     row.push('"' + data + '"');
@@ -520,6 +514,7 @@
                 csv.push(row.join(","));
             }
             
+            // إضافة BOM لدعم اللغة العربية في إكسل
             let csvFile = new Blob(["\uFEFF" + csv.join("\n")], {type: "text/csv;charset=utf-8;"});
             let downloadLink = document.createElement("a");
             downloadLink.download = filename + '.csv';
@@ -535,6 +530,7 @@
         let videoStream = null;
         function openCameraScanner() {
             document.getElementById('scannerModal').style.display = 'flex';
+            // طلب صلاحية الكاميرا الخلفية للجوال
             navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
             .then(function(stream) {
                 videoStream = stream;
@@ -548,6 +544,7 @@
         function closeScannerModal(e, force = false) {
             if (force || e.target.id === 'scannerModal') {
                 document.getElementById('scannerModal').style.display = 'none';
+                // إغلاق الكاميرا لتوفير البطارية
                 if(videoStream) {
                     videoStream.getTracks().forEach(track => track.stop());
                 }
@@ -558,7 +555,7 @@
             closeScannerModal(null, true);
             let searchInput = document.getElementById('mainSearchInput');
             if(searchInput) {
-                searchInput.value = '6281001122'; 
+                searchInput.value = '6281001122'; // باركود زيت المساج
                 filterTable(searchInput);
                 showToast('📷 تم مسح الباركود بنجاح');
             }
@@ -575,16 +572,8 @@
                 { code: '6281001122', name: 'زيت مساج - 500 مل', suggested: 15, approved: 15, status: 'بانتظار الرد' },
                 { code: '6281007788', name: 'مجموعة مكياج', suggested: 6, approved: 6, status: 'بانتظار الرد' }
             ],
-            orders: [{ id: 'ORD-8821', product: 'كريم مرطب', qty: 24, date: '2026-11-12', status: 'بانتظار الرد' }],
-            
-            // بيانات صفحة "ملفات الدفعات" الجديدة المطابقة للصورة تماماً
-            payments: [
-                { ref: 'REQ-00378', fileName: 'شركة قدها التجاريةp23244...', empName: 'علي خالد ويس', po: 'P23244', supplier: 'شركة قدها التجارية', items: '33', qty: '384', date: '2026-11-14 9:19 م', status: 'تم الاستلام', statusClass: 'status-pill-orange' },
-                { ref: 'REQ-00376', fileName: 'شركة كالوريناp23166.xlsx', empName: 'علي خالد ويس', po: 'P23166', supplier: 'شركة كالورينا', items: '219', qty: '1506', date: '2026-11-14 7:09 م', status: 'تم الاستلام', statusClass: 'status-pill-orange' },
-                { ref: 'REQ-00004', fileName: 'شركة صفوة المحيط للتجارة...', empName: 'سميرة محمد', po: 'P22470', supplier: 'شركة صفوة المحيط للتجارة 1 10 10', items: '32', qty: '192', date: '2026-10-10 12:17 م', status: 'مكتمل', statusClass: 'status-pill-teal' },
-                { ref: 'REQ-00002', fileName: 'ehjvbgfdgbfd-p32545.xlsx', empName: 'jtyh', po: 'P32545', supplier: 'ehjvbgfdgbfd', items: '76', qty: '975', date: '2026-10-10 8:45 ص', status: 'مكتمل', statusClass: 'status-pill-teal' },
-                { ref: 'REQ-00001', fileName: 'p54575.xlsx - ثصالييثايي', empName: 'بدر', po: 'P54575', supplier: 'ثصالييثايي', items: '—', qty: '—', date: '2026-10-08 6:12 م', status: 'مكتمل', statusClass: 'status-pill-teal' }
-            ]
+            messages: [{ id: 101, subject: 'تحديث أسعار عروض نهاية الأسبوع', from: 'إدارة المبيعات', date: '2026-11-13', read: false, body: 'يرجى التحديث' }],
+            orders: [{ id: 'ORD-8821', product: 'كريم مرطب', qty: 24, date: '2026-11-12', status: 'بانتظار الرد' }]
         };
 
         // ================= دوال الواجهة =================
@@ -667,74 +656,15 @@
                         </div>
                     </div>
                 `;
-            } 
-            // ================= تصميم صفحة "ملفات الدفعات" الجديدة (مطابقة للصورة) =================
-            else if (subSection === 'ملفات الدفعات') {
-                subView.innerHTML = `
-                    <div style="margin-bottom: 20px;">
-                        <div class="payments-header-title">
-                            <div style="display:flex; align-items:baseline; gap:14px;">
-                                <h2>الدفعات</h2>
-                                <p>ارفع ملف الدفعات وسيصلك بريد الاستلام فوراً، ثم تتابع حالته هنا.</p>
-                            </div>
-                            <i class="fa-solid fa-rotate-right" style="cursor:pointer; color:var(--text-muted); font-size: 16px;" onclick="showToast('تم التحديث')"></i>
-                        </div>
-                        
-                        <button class="btn-burgundy-massive" onclick="showToast('جاري فتح نافذة رفع الملف...')">
-                            <i class="fa-solid fa-file-arrow-up"></i> + رفع ملف دفعات
-                        </button>
-                        
-                        <div class="files-section-title">ملفاتي المرسلة</div>
-                        
-                        <div class="payments-filter-bar">
-                            <div class="results-count">5 نتيجة <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></div>
-                            <div class="payments-search">
-                                <input type="text" onkeyup="filterTable(this)" placeholder="ابحث بالمرجع أو اسم الملف أو الموظف أو المورد أو رقم الشراء">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </div>
-                        </div>
-
-                        <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.02);">
-                            <table class="data-table" style="text-align: center; border-collapse: collapse; width: 100%;">
-                                <thead>
-                                    <tr>
-                                        <th style="text-align:center; padding: 14px;">المرجع</th>
-                                        <th style="text-align:center;">اسم الملف</th>
-                                        <th style="text-align:center;">اسم الموظف الذي رفع</th>
-                                        <th style="text-align:center;">رقم الشراء</th>
-                                        <th style="text-align:center;">اسم المورد</th>
-                                        <th style="text-align:center;">الأصناف</th>
-                                        <th style="text-align:center;">الكمية</th>
-                                        <th style="text-align:center;">تاريخ الرفع</th>
-                                        <th style="text-align:center;">الحالة</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    ${appData.payments.map(p => `
-                                        <tr>
-                                            <td style="font-weight:800; color: var(--text-dark);">${p.ref}</td>
-                                            <td style="color: var(--text-muted); font-weight:500;">${p.fileName}</td>
-                                            <td style="color: var(--text-muted);">${p.empName}</td>
-                                            <td style="color: var(--text-muted);">${p.po}</td>
-                                            <td style="color: var(--text-muted);">${p.supplier}</td>
-                                            <td style="color: var(--text-muted);">${p.items}</td>
-                                            <td style="color: var(--text-muted);">${p.qty}</td>
-                                            <td dir="ltr" style="text-align:right; color: var(--text-muted); font-size: 12px;">${p.date}</td>
-                                            <td><span class="${p.statusClass}">${p.status}</span></td>
-                                        </tr>
-                                    `).join('')}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                `;
             } else if (subSection === 'أين أجد المنتج؟' || subSection === 'منتجات الفرع') {
                 subView.innerHTML = `
                     <div class="subpage-card">
                         <div class="subpage-header">
                             <div class="subpage-title"><div class="icon-box"><i class="fa-solid fa-barcode"></i></div><div><h2>${subSection}</h2><p>البحث بالاسم أو مسح الباركود</p></div></div>
                             <div class="toolbar-actions">
+                                <!-- 📷 زر الكاميرا الجديد -->
                                 <button class="btn-primary" onclick="openCameraScanner()"><i class="fa-solid fa-camera"></i> مسح باركود</button>
+                                <!-- 📊 زر الإكسل الجديد -->
                                 <button class="btn-outline" onclick="exportTableToExcel('المنتجات')"><i class="fa-solid fa-file-excel"></i> تصدير Excel</button>
                                 <input type="text" id="mainSearchInput" class="search-input" onkeyup="filterTable(this)" placeholder="ابحث باسم المنتج أو الباركود...">
                             </div>
@@ -771,6 +701,18 @@
                         <table class="data-table">
                             <thead><tr><th>رقم الطلب</th><th>المنتج</th><th>الكمية</th><th>الحالة</th></tr></thead>
                             <tbody>${appData.orders.map(o => `<tr><td><strong>${o.id}</strong></td><td>${o.product}</td><td>${o.qty}</td><td><span class="status-tag status-warning">${o.status}</span></td></tr>`).join('')}</tbody>
+                        </table>
+                    </div>
+                `;
+            } else if (mainSection === 'المراسلات') {
+                subView.innerHTML = `
+                    <div class="subpage-card">
+                        <div class="subpage-header">
+                            <div class="subpage-title"><div class="icon-box"><i class="fa-regular fa-envelope"></i></div><div><h2>${subSection}</h2></div></div>
+                        </div>
+                        <table class="data-table">
+                            <thead><tr><th>الموضوع</th><th>المرسل</th><th>التاريخ</th><th>الحالة</th></tr></thead>
+                            <tbody>${appData.messages.map(m => `<tr><td style="font-weight:800;">${m.subject}</td><td>${m.from}</td><td>${m.date}</td><td><span class="status-tag status-danger">غير مقروءة</span></td></tr>`).join('')}</tbody>
                         </table>
                     </div>
                 `;
