@@ -95,7 +95,6 @@
         .user-info { display: flex; flex-direction: column; text-align: right; line-height: 1.2; }
         .user-info strong { font-size: 13px; font-weight: 700; }
         .user-info span { font-size: 11px; opacity: 0.8; }
-        .left-dropdown { left: 0; right: auto; min-width: 280px; }
 
         /* ================= مسار الصفحة والحاوية ================= */
         .breadcrumb-bar { background-color: var(--card-bg); padding: 10px 24px; border-bottom: 1px solid var(--border-color); font-size: 13px; color: var(--text-muted); display: flex; align-items: center; justify-content: space-between; transition: 0.3s; }
@@ -118,6 +117,7 @@
         .refresh-btn { background: transparent; border: none; color: var(--text-muted); font-size: 16px; cursor: pointer; padding: 8px; border-radius: 50%; transition: 0.3s; }
         .refresh-btn:hover { background-color: var(--border-color); transform: rotate(180deg); }
 
+        /* ================= بانر الإعلانات (الأصلي الكامل) ================= */
         .announcement-banner { background: linear-gradient(105deg, #630c28 0%, #861439 55%, #751030 100%); border-radius: 14px; padding: 20px 28px; color: #fff; display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; position: relative; overflow: hidden; box-shadow: 0 4px 15px rgba(130, 20, 55, 0.18); }
         .banner-right { flex: 1; z-index: 2; }
         .banner-badges { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 13px; }
@@ -134,9 +134,20 @@
         .promo-heading { font-size: 18px; font-weight: 800; color: rgba(255,255,255,0.85); }
         .promo-features { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
         .promo-chip { background: rgba(0,0,0,0.22); border: 1px solid rgba(255,255,255,0.15); padding: 4px 9px; border-radius: 6px; font-size: 11px; display: flex; align-items: center; gap: 4px; }
+        .android-badge { background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(52, 211, 153, 0.4); color: #a7f3d0; padding: 5px 14px; border-radius: 8px; font-size: 11.5px; display: inline-flex; align-items: center; gap: 6px; }
         .banner-actions { display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; height: 150px; }
+        .all-announcements-link { color: #fff; text-decoration: none; font-size: 13px; font-weight: 600; opacity: 0.9; }
         .read-more-btn { background-color: #fff; color: var(--primary-burgundy); border: none; padding: 9px 18px; border-radius: 8px; font-size: 13.5px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s; }
-        
+        .read-more-btn:hover { background-color: #f8f9fa; transform: translateY(-1px); }
+        .phone-mockup { width: 115px; height: 195px; background: #1e1e1e; border-radius: 18px; padding: 5px; box-shadow: 0 8px 20px rgba(0,0,0,0.35); border: 2px solid #444; flex-shrink: 0; }
+        .phone-screen { background: #fff; width: 100%; height: 100%; border-radius: 13px; overflow: hidden; display: flex; flex-direction: column; color: #333; }
+        .phone-header { background: var(--primary-burgundy); color: #fff; font-size: 8px; text-align: center; padding: 4px; font-weight: 700; }
+        .phone-scanner { background: #2b2b2b; height: 45px; margin: 6px; border-radius: 6px; border: 1px solid #666; }
+        .phone-product { padding: 4px 6px; text-align: center; font-size: 8px; }
+        .phone-price { color: #d93025; font-weight: 800; font-size: 12px; margin: 3px 0; }
+        .phone-stock { background: #e8f5e9; color: #2e7d32; font-size: 8px; padding: 2px 6px; border-radius: 4px; display: inline-block; margin-top: 4px; font-weight: 700; }
+
+        /* ================= البطاقات والأقسام ================= */
         .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; margin-top: 8px; }
         .section-title { display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 800; color: var(--text-dark); }
         .section-title i { color: var(--primary-burgundy); font-size: 16px; }
@@ -147,132 +158,4 @@
         .card-top { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
         .card-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
         .card-title { font-size: 13.5px; font-weight: 700; color: var(--text-dark); }
-        .card-value { font-size: 21px; font-weight: 800; line-height: 1.2; margin-bottom: 4px; }
-        .card-sub { font-size: 11.5px; color: var(--text-muted); line-height: 1.4; }
-
-        .icon-red { background: #fde8e8; color: #d93025; } .val-red { color: #d93025; }
-        .icon-orange { background: #fef3c7; color: #d97706; } .val-orange { color: #d97706; }
-        .icon-coral { background: #ffedd5; color: #e06c53; } .val-coral { color: #e06c53; }
-        .icon-teal { background: #ccfbf1; color: #0f766e; } .val-teal { color: #0f766e; }
-        .icon-burgundy { background: #fce7f3; color: #821437; } .val-burgundy { color: #821437; }
-        .icon-pink { background: #fae8ff; color: #a21caf; } .val-pink { color: #a21caf; }
-
-        /* ================= الصفحات الفرعية والخيارات ================= */
-        #subpageView { display: none; animation: fadeIn 0.2s ease; }
-        .subpage-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 22px 26px; transition: 0.3s; }
-        .subpage-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 16px; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
-        .subpage-title { display: flex; align-items: center; gap: 12px; }
-        .subpage-title .icon-box { width: 42px; height: 42px; border-radius: 10px; background: var(--light-burgundy-bg); color: var(--primary-burgundy); display: flex; align-items: center; justify-content: center; font-size: 18px; }
-        .subpage-title h2 { font-size: 19px; font-weight: 800; color: var(--text-dark); }
-        .subpage-title p { font-size: 13px; color: var(--text-muted); }
-        
-        .toolbar-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-        .search-input { padding: 8px 14px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 13.5px; min-width: 240px; outline: none; background: var(--card-bg); color: var(--text-dark); }
-        .btn-primary { background: var(--primary-burgundy); color: #fff; border: none; padding: 8px 16px; border-radius: 8px; font-size: 13.5px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: 0.2s; }
-        .btn-primary:hover { background: var(--dark-burgundy); }
-        .btn-outline { background: var(--card-bg); color: var(--text-dark); border: 1px solid var(--border-color); padding: 7px 14px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: 0.2s; }
-        .btn-outline:hover { border-color: var(--primary-burgundy); }
-        
-        .data-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-        .data-table th { background: var(--bg-color); color: var(--text-muted); font-weight: 700; text-align: right; padding: 12px 14px; border-bottom: 1px solid var(--border-color); }
-        .data-table td { padding: 12px 14px; border-bottom: 1px solid var(--border-color); color: var(--text-dark); }
-        .status-tag { padding: 3px 10px; border-radius: 20px; font-size: 11.5px; font-weight: 700; display: inline-block; }
-        .status-active { background: #dcfce7; color: #15803d; }
-        .status-warning { background: #fef3c7; color: #b45309; }
-        .status-danger { background: #fee2e2; color: #b91c1c; }
-        .qty-input { width: 65px; padding: 4px 8px; border: 1px solid var(--border-color); border-radius: 6px; text-align: center; font-weight: 700; background: var(--card-bg); color: var(--text-dark); }
-
-        /* ================= صفحة مهامي الجديدة ================= */
-        .tasks-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border-color); }
-        .tasks-header h2 { font-size: 24px; font-weight: 800; color: var(--text-dark); margin-bottom: 4px; }
-        .tasks-header p { font-size: 13px; color: var(--text-muted); }
-        .tasks-search-box { position: relative; width: 300px; }
-        .tasks-search-box input { width: 100%; padding: 10px 35px 10px 14px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 13px; outline: none; background: var(--card-bg); color: var(--text-dark); }
-        .tasks-search-box i { position: absolute; right: 12px; top: 12px; color: var(--text-muted); font-size: 14px; }
-        .tasks-filters-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; background: var(--card-bg); padding: 12px 20px; border-radius: 12px; border: 1px solid var(--border-color); }
-        .stats-group { display: flex; align-items: center; gap: 16px; }
-        .circle-stat { width: 44px; height: 44px; border-radius: 50%; border: 3px solid #fce7f3; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; color: var(--text-dark); background: var(--light-burgundy-bg); }
-        .stats-text { font-size: 12.5px; color: var(--text-muted); line-height: 1.4; }
-        .stats-text strong { color: var(--text-dark); display: block; }
-        .filter-chips { display: flex; gap: 10px; margin-right: 20px; border-right: 1px solid var(--border-color); padding-right: 20px; }
-        .chip { padding: 6px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer; border: 1px solid transparent; }
-        .chip-pink { background: #fde8e8; color: #d93025; }
-        .chip-gray { background: var(--bg-color); color: var(--text-muted); border-color: var(--border-color); }
-        .tasks-actions { display: flex; align-items: center; gap: 16px; color: var(--text-muted); font-size: 13.5px; }
-        .tasks-layout { display: flex; gap: 24px; align-items: flex-start; }
-        .tasks-list-col { flex: 1; display: flex; flex-direction: column; gap: 16px; }
-        .tasks-list-header { border-bottom: 2px solid #fca5a5; padding-bottom: 8px; margin-bottom: 4px; }
-        .tasks-list-header span { color: #d93025; font-size: 13.5px; font-weight: 800; display: flex; align-items: center; gap: 6px; }
-        .task-list-item { background: var(--card-bg); padding: 16px; border: 1px solid var(--border-color); border-radius: 10px; display: flex; justify-content: space-between; align-items: flex-start; cursor: pointer; border-right: 3px solid transparent; }
-        .task-list-item.selected { border-right-color: var(--primary-burgundy); background: var(--light-burgundy-bg); border-color: var(--primary-burgundy); }
-        .task-list-item-right { display: flex; gap: 12px; align-items: flex-start; }
-        .task-list-item-info h4 { font-size: 14px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; line-height: 1.4; }
-        .task-list-item-info h4.done { text-decoration: line-through; color: var(--text-muted); }
-        .priority-flag { font-size: 11px; color: #d93025; display: flex; align-items: center; gap: 4px; }
-        .task-list-item-left { font-size: 12px; color: #0f766e; font-weight: 500; }
-        .task-details-col { width: 340px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 24px; flex-shrink: 0; }
-        .details-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-        .status-pill-green { background: #dcfce7; color: #15803d; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 800; }
-        .task-details-col h3 { font-size: 17px; font-weight: 800; color: var(--text-dark); margin-bottom: 20px; line-height: 1.4; }
-        .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 10px; margin-bottom: 20px; text-align: right; }
-        .details-grid div { display: flex; flex-direction: column; gap: 4px; }
-        .lbl-sm { font-size: 11.5px; color: var(--text-muted); }
-        .val-sm { font-size: 13px; font-weight: 700; color: var(--text-dark); }
-        .meta-row { margin-bottom: 16px; }
-        .btn-burgundy-full { width: 100%; background: var(--primary-burgundy); color: #fff; border: none; padding: 10px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px; margin: 20px 0; }
-        .desc-box { margin-bottom: 24px; }
-        .desc-box h4 { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
-        .desc-box p { font-size: 13px; color: var(--text-dark); line-height: 1.7; }
-
-        /* Toast & Modal */
-        .toast-msg { position: fixed; bottom: 24px; left: 24px; background: var(--primary-burgundy); color: #fff; padding: 12px 20px; border-radius: 10px; font-size: 13.5px; font-weight: 700; box-shadow: 0 8px 20px rgba(0,0,0,0.2); display: none; align-items: center; gap: 10px; z-index: 3000; }
-        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 2000; align-items: center; justify-content: center; }
-        .modal-box { background: var(--card-bg); border-radius: 14px; width: 90%; max-width: 500px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; margin-bottom: 14px; }
-        .close-modal { background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-muted); }
-
-    </style>
-</head>
-<body>
-
-    <!-- ================= الشريط العلوي بجميع القوائم ================= -->
-    <header class="navbar">
-        <div class="nav-right">
-            <a href="#" class="brand" onclick="openPage('الرئيسية', 'الرئيسية'); return false;">
-                <div class="brand-logo"><i class="fa-solid fa-store"></i></div>
-                <div class="brand-text"><strong>NMA</strong><span>v2.63.78</span></div>
-            </a>
-
-            <ul class="nav-links">
-                <li class="nav-item">
-                    <button class="nav-link-btn active" onclick="toggleDropdown(this)"><span>الرئيسية</span><i class="fa-solid fa-chevron-down arrow"></i></button>
-                    <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'الرئيسية'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-house"></i> الرئيسية</span></a>
-                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'مهامي'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-list-check"></i> مهامي</span></a>
-                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'أين أجد المنتج؟'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-magnifying-glass-location"></i> أين أجد المنتج؟</span></a>
-                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'منتجات الفرع'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-boxes-stacked"></i> منتجات الفرع</span></a>
-                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'التحويل المتوقع'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-clipboard-list"></i> التحويل المتوقع</span></a>
-                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'استلام شحنة'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-truck-ramp-box"></i> استلام شحنة</span></a>
-                        <div class="dropdown-divider"></div>
-                        <div class="dropdown-section-label">التحليل والتقارير</div>
-                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'تحليل فرعي'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-chart-line"></i> تحليل فرعي</span></a>
-                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'التقارير'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-file-lines"></i> التقارير</span></a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <button class="nav-link-btn" onclick="toggleDropdown(this)"><span>الطلبات</span><i class="fa-solid fa-chevron-down arrow"></i></button>
-                    <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item" onclick="openPage('الطلبات', 'طلبات المنتج'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-box"></i> طلبات المنتج</span></a>
-                        <a href="#" class="dropdown-item" onclick="openPage('الطلبات', 'الوارد إلى فرعي'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-truck-fast"></i> الوارد إلى فرعي</span></a>
-                        <a href="#" class="dropdown-item" onclick="openPage('الطلبات', 'طلباتي'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-clipboard-check"></i> طلباتي</span></a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <button class="nav-link-btn" onclick="toggleDropdown(this)"><span>المراسلات</span><i class="fa-solid fa-chevron-down arrow"></i></button>
-                    <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item" onclick="openPage('المراسلات', 'المراسلات الرسمية'); return false;"><span class="dropdown-item-right"><i class="fa-regular fa-envelope"></i> المراسلات الرسمية</span></a>
-                        <a href="#" class="dropdown-item" onclick="openPage('المراسلات', 'ملفات الدفعات'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-file-invoice-dollar"></i> ملفات الدفعات</span></a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <button class="
+        .card-value { font-size: 21px
