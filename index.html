@@ -72,17 +72,25 @@
         .nav-link-btn i.arrow { font-size: 11px; transition: transform 0.2s ease; }
         .nav-item.open .nav-link-btn i.arrow { transform: rotate(180deg); }
 
-        .dropdown-menu { display: none; position: absolute; top: calc(100% + 8px); right: 0; min-width: 240px; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.14); padding: 8px; z-index: 1500; animation: dropdownFade 0.18s ease; max-height: 85vh; overflow-y: auto; }
+        .dropdown-menu { display: none; position: absolute; top: calc(100% + 7px); right: 0; width: 220px; min-width: 220px; background: #fff; color: #29232a; border: 1px solid #f0e5e9; border-radius: 15px; box-shadow: 0 12px 32px rgba(53, 14, 30, .16); padding: 7px; z-index: 1500; animation: dropdownFade .18s ease; max-height: 82vh; overflow-y: auto; }
         .nav-item.open .dropdown-menu { display: block; }
         @media (min-width: 769px) { .nav-item:hover .dropdown-menu { display: block; } .nav-item:hover .nav-link-btn i.arrow { transform: rotate(180deg); } }
         @keyframes dropdownFade { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
 
-        .dropdown-section-label { font-size: 11px; font-weight: 700; color: var(--text-muted); padding: 6px 12px 4px; margin-top: 2px; }
-        .dropdown-item { display: flex; align-items: center; justify-content: space-between; padding: 9px 12px; color: var(--text-dark); text-decoration: none; font-size: 13.5px; font-weight: 500; border-radius: 8px; transition: 0.15s; }
-        .dropdown-item-right { display: flex; align-items: center; gap: 10px; }
-        .dropdown-item i { width: 18px; text-align: center; color: var(--primary-burgundy); font-size: 13.5px; }
-        .dropdown-item:hover { background-color: var(--light-burgundy-bg); color: var(--primary-burgundy); font-weight: 700; }
-        .dropdown-divider { height: 1px; background-color: var(--border-color); margin: 6px 0; }
+        .dropdown-menu-heading { color: #9a8790; font-size: 11px; font-weight: 700; padding: 6px 11px 5px; }
+        .dropdown-section-label { font-size: 11px; font-weight: 800; color: #a18c95; padding: 7px 11px 5px; margin-top: 1px; }
+        .dropdown-item { display: flex; align-items: center; justify-content: space-between; min-height: 34px; padding: 7px 11px; color: #342a30; text-decoration: none; font-size: 12.5px; font-weight: 600; border-radius: 9px; transition: background .16s ease, color .16s ease; }
+        .dropdown-item-right { display: flex; align-items: center; gap: 9px; }
+        .dropdown-item i { width: 16px; text-align: center; color: #765263; font-size: 12px; }
+        .dropdown-item:hover, .dropdown-item.active { background: #faedf2; color: #a20f4c; font-weight: 800; }
+        .dropdown-item:hover i, .dropdown-item.active i { color: #a20f4c; }
+        .dropdown-divider { height: 1px; background-color: #f0e7eb; margin: 5px 4px; }
+        body.dark-mode .dropdown-menu { background: #211a1e; border-color: #44313a; }
+        body.dark-mode .dropdown-menu-heading, body.dark-mode .dropdown-section-label { color: #bba6b0; }
+        body.dark-mode .dropdown-item { color: #eee4e9; }
+        body.dark-mode .dropdown-item i { color: #d6a8bb; }
+        body.dark-mode .dropdown-item:hover, body.dark-mode .dropdown-item.active { background: #3a202c; color: #ffdce9; }
+        body.dark-mode .dropdown-divider { background: #44313a; }
 
         .nav-left { display: flex; align-items: center; gap: 18px; }
         .notification-wrapper, .profile-wrapper { position: relative; }
@@ -245,6 +253,45 @@
         .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; margin-bottom: 14px; }
         .close-modal { background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-muted); }
     </style>
+
+<style>
+/* تحسينات الاستجابة وإمكانية الاستخدام - دون تغيير القوائم */
+.stat-card:focus-visible, .nav-link-btn:focus-visible, .dropdown-item:focus-visible,
+button:focus-visible, input:focus-visible { outline: 2px solid #d7a4b4; outline-offset: 2px; }
+.subpage-card { box-shadow: 0 6px 24px rgba(30, 20, 25, .045); }
+.subpage-header { align-items: center; }
+.data-table tbody tr:hover { background: var(--light-burgundy-bg); }
+@media (max-width: 1100px) {
+  .cards-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .announcement-banner { gap: 20px; }
+  .banner-left { gap: 14px; }
+}
+@media (max-width: 768px) {
+  .navbar { height: auto; min-height: 56px; padding: 10px 12px; flex-wrap: wrap; gap: 8px; }
+  .nav-right { width: 100%; flex-wrap: wrap; gap: 8px; }
+  .nav-links { flex-wrap: wrap; gap: 3px; }
+  .nav-link-btn { padding: 7px 9px; font-size: 12px; }
+  .nav-left { position: absolute; left: 12px; top: 12px; gap: 8px; }
+  .container { padding: 12px; }
+  .cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .announcement-banner { flex-direction: column; align-items: stretch; padding: 18px; }
+  .banner-left { flex-wrap: wrap; justify-content: center; }
+  .banner-actions { height: auto; align-items: center; gap: 12px; }
+  .phone-mockup { display: none; }
+  .welcome-card { gap: 12px; align-items: flex-start; }
+  .welcome-text p { line-height: 1.7; }
+  .toolbar-actions { width: 100%; }
+  .search-input { min-width: 0; flex: 1; }
+  .subpage-card { padding: 16px; }
+}
+@media (max-width: 480px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .welcome-card { flex-direction: column; }
+  .welcome-left { width: 100%; }
+  .dropdown-menu { position: fixed; top: auto; right: 8px; left: 8px; min-width: 0; }
+}
+</style>
+
 </head>
 <body>
 
@@ -260,8 +307,11 @@
                 <li class="nav-item">
                     <button class="nav-link-btn active" onclick="toggleDropdown(this)"><span>الرئيسية</span><i class="fa-solid fa-chevron-down arrow"></i></button>
                     <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'الرئيسية'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-house"></i> الرئيسية</span></a>
+                        <div class="dropdown-menu-heading">اليوم</div>
+                        <a href="#" class="dropdown-item active" onclick="openPage('الرئيسية', 'الرئيسية'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-house"></i> الرئيسية</span></a>
                         <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'مهامي'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-list-check"></i> مهامي</span></a>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-section-label">المنتجات والتحويلات</div>
                         <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'أين أجد المنتج؟'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-magnifying-glass-location"></i> أين أجد المنتج؟</span></a>
                         <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'منتجات الفرع'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-boxes-stacked"></i> منتجات الفرع</span></a>
                         <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'التحويل المتوقع'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-clipboard-list"></i> التحويل المتوقع</span></a>
@@ -270,11 +320,13 @@
                         <div class="dropdown-section-label">التحليل والتقارير</div>
                         <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'تحليل فرعي'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-chart-line"></i> تحليل فرعي</span></a>
                         <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'التقارير'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-file-lines"></i> التقارير</span></a>
+                        <a href="#" class="dropdown-item" onclick="openPage('الرئيسية', 'التقارير الشهرية'); return false;"><span class="dropdown-item-right"><i class="fa-regular fa-calendar-days"></i> التقارير الشهرية</span></a>
                     </div>
                 </li>
                 <li class="nav-item">
                     <button class="nav-link-btn" onclick="toggleDropdown(this)"><span>الطلبات</span><i class="fa-solid fa-chevron-down arrow"></i></button>
                     <div class="dropdown-menu">
+                        <div class="dropdown-menu-heading">الطلبات</div>
                         <a href="#" class="dropdown-item" onclick="openPage('الطلبات', 'طلبات المنتج'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-box"></i> طلبات المنتج</span></a>
                         <a href="#" class="dropdown-item" onclick="openPage('الطلبات', 'الوارد إلى فرعي'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-truck-fast"></i> الوارد إلى فرعي</span></a>
                         <a href="#" class="dropdown-item" onclick="openPage('الطلبات', 'طلباتي'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-clipboard-check"></i> طلباتي</span></a>
@@ -283,6 +335,7 @@
                 <li class="nav-item">
                     <button class="nav-link-btn" onclick="toggleDropdown(this)"><span>المراسلات</span><i class="fa-solid fa-chevron-down arrow"></i></button>
                     <div class="dropdown-menu">
+                        <div class="dropdown-menu-heading">المراسلات</div>
                         <a href="#" class="dropdown-item" onclick="openPage('المراسلات', 'المراسلات الرسمية'); return false;"><span class="dropdown-item-right"><i class="fa-regular fa-envelope"></i> المراسلات الرسمية</span></a>
                         <a href="#" class="dropdown-item" onclick="openPage('المراسلات', 'ملفات الدفعات'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-file-invoice-dollar"></i> ملفات الدفعات</span></a>
                     </div>
@@ -290,12 +343,14 @@
                 <li class="nav-item">
                     <button class="nav-link-btn" onclick="toggleDropdown(this)"><span>المرجع</span><i class="fa-solid fa-chevron-down arrow"></i></button>
                     <div class="dropdown-menu">
+                        <div class="dropdown-menu-heading">المرجع</div>
                         <a href="#" class="dropdown-item" onclick="openPage('المرجع', 'الآليات والتعليمات'); return false;"><span class="dropdown-item-right"><i class="fa-solid fa-book-open"></i> الآليات والتعليمات</span></a>
                     </div>
                 </li>
                 <li class="nav-item">
                     <button class="nav-link-btn" onclick="toggleDropdown(this)"><span>حسابي</span><i class="fa-solid fa-chevron-down arrow"></i></button>
                     <div class="dropdown-menu">
+                        <div class="dropdown-menu-heading">حسابي</div>
                         <a href="#" class="dropdown-item" onclick="openPage('حسابي', 'حسابي والبريد'); return false;"><span class="dropdown-item-right"><i class="fa-regular fa-user"></i> حسابي والبريد</span></a>
                     </div>
                 </li>
@@ -468,68 +523,260 @@
     <input type="file" id="fileUploader" style="display: none;" onchange="handleFileUpload(this)">
 
     <script>
-        // ================= تفعيل الوضع الليلي (Dark Mode) =================
-        function initDarkMode() {
-            const isDark = localStorage.getItem('nma_dark_mode') === 'true';
-            const body = document.body;
-            const icon = document.querySelector('#darkModeToggle i');
-            
-            if (isDark) {
-                body.classList.add('dark-mode');
-                icon.className = 'fa-solid fa-sun';
-            } else {
-                body.classList.remove('dark-mode');
-                icon.className = 'fa-solid fa-moon';
-            }
-        }
-        
-        function toggleDarkMode() {
-            const body = document.body;
-            const icon = document.querySelector('#darkModeToggle i');
-            body.classList.toggle('dark-mode');
-            
-            const isDark = body.classList.contains('dark-mode');
-            localStorage.setItem('nma_dark_mode', isDark);
-            
-            if(isDark) {
-                icon.className = 'fa-solid fa-sun';
-                showToast('تم تفعيل الوضع الليلي');
-            } else {
-                icon.className = 'fa-solid fa-moon';
-                showToast('تم تفعيل الوضع النهاري');
-            }
-        }
-
-        // ================= تصدير الجداول إلى إكسل (CSV) =================
-        function exportTableToExcel(filename) {
-            let csv = [];
-            let rows = document.querySelectorAll(".data-table tr");
-            
-            for (let i = 0; i < rows.length; i++) {
-                let row = [], cols = rows[i].querySelectorAll("td, th");
-                for (let j = 0; j < cols.length; j++) {
-                    let data = cols[j].innerText.replace(/"/g, '""').trim();
-                    let input = cols[j].querySelector('input');
-                    if(input) data = input.value;
-                    row.push('"' + data + '"');
-                }
-                csv.push(row.join(","));
-            }
-            
-            let csvFile = new Blob(["\uFEFF" + csv.join("\n")], {type: "text/csv;charset=utf-8;"});
-            let downloadLink = document.createElement("a");
-            downloadLink.download = filename + '.csv';
-            downloadLink.href = window.URL.createObjectURL(csvFile);
-            downloadLink.style.display = "none";
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-            document.body.removeChild(downloadLink);
-            showToast('📊 تم تصدير الجدول بنجاح');
-        }
-
-        // ================= ماسح الباركود بالكاميرا =================
+        /* ================= أدوات عامة ================= */
         let videoStream = null;
-        function openCameraScanner() {
-            document.getElementById('scannerModal').style.display = 'flex';
-            navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
-            .then(function(stream)
+        let toastTimer = null;
+
+        const pageCatalog = {
+            "الرئيسية": ["الرئيسية", "مهامي", "أين أجد المنتج؟", "منتجات الفرع", "التحويل المتوقع", "استلام شحنة", "تحليل فرعي", "التقارير"],
+            "الطلبات": ["طلبات المنتج", "الوارد إلى فرعي", "طلباتي"],
+            "المراسلات": ["المراسلات الرسمية", "ملفات الدفعات"],
+            "المرجع": ["الآليات والتعليمات"],
+            "حسابي": ["حسابي والبريد"]
+        };
+
+        function showToast(message) {
+            const toast = document.getElementById("toastMsg");
+            const text = document.getElementById("toastText");
+            if (!toast || !text) return;
+            text.textContent = message;
+            toast.style.display = "flex";
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => toast.style.display = "none", 2800);
+        }
+
+        function toggleDropdown(button) {
+            const current = button.closest(".nav-item");
+            document.querySelectorAll(".nav-item.open").forEach(item => {
+                if (item !== current) item.classList.remove("open");
+            });
+            current.classList.toggle("open");
+        }
+
+        document.addEventListener("click", event => {
+            if (!event.target.closest(".nav-item")) {
+                document.querySelectorAll(".nav-item.open").forEach(item => item.classList.remove("open"));
+            }
+        });
+
+        /* ================= الوضع الليلي ================= */
+        function initDarkMode() {
+            const isDark = localStorage.getItem("nma_dark_mode") === "true";
+            document.body.classList.toggle("dark-mode", isDark);
+            const icon = document.querySelector("#darkModeToggle i");
+            if (icon) icon.className = isDark ? "fa-solid fa-sun" : "fa-solid fa-moon";
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+            const isDark = document.body.classList.contains("dark-mode");
+            localStorage.setItem("nma_dark_mode", String(isDark));
+            const icon = document.querySelector("#darkModeToggle i");
+            if (icon) icon.className = isDark ? "fa-solid fa-sun" : "fa-solid fa-moon";
+            showToast(isDark ? "تم تفعيل الوضع الليلي" : "تم تفعيل الوضع النهاري");
+        }
+
+        /* ================= صفحات التطبيق ================= */
+        function openPage(main, sub) {
+            const home = document.getElementById("homeDashboardView");
+            const subpage = document.getElementById("subpageView");
+            const breadMain = document.getElementById("breadMain");
+            const breadSub = document.getElementById("breadSub");
+            const back = document.getElementById("backHomeBtn");
+
+            document.querySelectorAll(".nav-item.open").forEach(item => item.classList.remove("open"));
+            document.querySelectorAll(".dropdown-item").forEach(item => item.classList.remove("active"));
+            document.querySelectorAll(".dropdown-item").forEach(item => {
+                if (item.textContent.trim() === sub) item.classList.add("active");
+            });
+            if (sub === "الرئيسية") {
+                home.style.display = "block";
+                subpage.style.display = "none";
+                subpage.innerHTML = "";
+                breadMain.textContent = "الرئيسية";
+                breadSub.textContent = "الرئيسية";
+                back.style.display = "none";
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                return;
+            }
+
+            home.style.display = "none";
+            subpage.style.display = "block";
+            breadMain.textContent = main;
+            breadSub.textContent = sub;
+            back.style.display = "inline-flex";
+            subpage.innerHTML = buildPage(sub, main);
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            bindPageControls(sub);
+        }
+
+        function buildPage(title, category) {
+            const config = {
+                "مهامي": { icon: "fa-list-check", desc: "متابعة المهام المطلوبة من الإدارة", headers: ["المهمة", "الأولوية", "تاريخ الاستحقاق", "الحالة"], rows: [["مراجعة المنتجات المتوقفة", "عالية", "اليوم", "قيد التنفيذ"], ["تحديث بيانات المخزون", "متوسطة", "غداً", "جديدة"]] },
+                "أين أجد المنتج؟": { icon: "fa-magnifying-glass-location", desc: "ابحث عن المنتج واعرف موقعه داخل الفرع", headers: ["الباركود", "اسم المنتج", "القسم", "الموقع", "الكمية"], rows: [["628100000001", "منتج تجريبي", "العناية الشخصية", "رف A-01", "12"]] },
+                "منتجات الفرع": { icon: "fa-boxes-stacked", desc: "عرض ومراجعة منتجات الفرع وحالات البيع", headers: ["كود المنتج", "اسم المنتج", "الكمية", "الحالة", "السعر"], rows: [["10001", "منتج تجريبي 1", "12", "نشط", "25.00"], ["10002", "منتج تجريبي 2", "0", "متوقف", "18.00"]] },
+                "التحويل المتوقع": { icon: "fa-clipboard-list", desc: "مراجعة التحويلات المتوقعة والرد عليها", headers: ["رقم التحويل", "المنتج", "الكمية", "موعد الوصول", "الإجراء"], rows: [["TR-001", "منتج تجريبي", "5", "اليوم", "بانتظار الرد"]] },
+                "استلام شحنة": { icon: "fa-truck-ramp-box", desc: "تسجيل ومراجعة الشحنات الواردة للفرع", headers: ["رقم الشحنة", "المصدر", "عدد المنتجات", "التاريخ", "الحالة"], rows: [["SH-001", "المستودع الرئيسي", "12", "اليوم", "قيد الاستلام"]] },
+                "تحليل فرعي": { icon: "fa-chart-line", desc: "مؤشرات أداء ومراجعة حالة مخزون الفرع", headers: ["المؤشر", "القيمة", "التفاصيل"], rows: [["المنتجات السالبة", "3", "تحتاج إلى مراجعة"], ["المتوقف عن البيع", "291", "3,098 وحدة"]] },
+                "التقارير": { icon: "fa-file-lines", desc: "تقارير الفرع وإمكانية تصدير البيانات", headers: ["اسم التقرير", "الفترة", "الحالة"], rows: [["تقرير المخزون", "الشهر الحالي", "جاهز"], ["تقرير التحويلات", "الشهر الحالي", "جاهز"]] },
+                "التقارير الشهرية": { icon: "fa-calendar-days", desc: "استعراض ملخصات وتقارير الفرع الشهرية", headers: ["الشهر", "اسم التقرير", "الحالة"], rows: [["نوفمبر 2026", "تقرير أداء الفرع", "جاهز"], ["أكتوبر 2026", "تقرير المخزون", "جاهز"]] },
+                "طلبات المنتج": { icon: "fa-box", desc: "إنشاء ومتابعة طلبات المنتجات", headers: ["رقم الطلب", "المنتج", "الكمية", "التاريخ", "الحالة"], rows: [["OR-001", "منتج تجريبي", "10", "اليوم", "قيد المراجعة"]] },
+                "الوارد إلى فرعي": { icon: "fa-truck-fast", desc: "التحويلات الواردة إلى الفرع", headers: ["رقم التحويل", "الفرع المرسل", "المنتجات", "الكمية", "الحالة"], rows: [["IN-001", "الفرع الرئيسي", "منتج تجريبي", "1", "بالطريق"]] },
+                "طلباتي": { icon: "fa-clipboard-check", desc: "متابعة الطلبات والتحويلات الصادرة من الفرع", headers: ["رقم الطلب", "الجهة", "عدد المنتجات", "التاريخ", "الحالة"], rows: [["MY-001", "فرع آخر", "4", "اليوم", "تم الإرسال"]] },
+                "المراسلات الرسمية": { icon: "fa-envelope", desc: "عرض المراسلات الرسمية وإرسال رسالة جديدة", headers: ["الموضوع", "المرسل", "التاريخ", "الحالة"], rows: [["تحديث إجراءات العمل", "الإدارة", "اليوم", "جديدة"]] },
+                "ملفات الدفعات": { icon: "fa-file-invoice-dollar", desc: "إدارة ملفات الدفعات المرفوعة للتدقيق", headers: ["اسم الملف", "تاريخ الرفع", "المرفق", "الحالة"], rows: [["ملف دفعة تجريبي", "اليوم", "مرفق", "قيد التدقيق"]] },
+                "الآليات والتعليمات": { icon: "fa-book-open", desc: "الرجوع إلى إجراءات وآليات العمل المعتمدة", headers: ["عنوان التعليمات", "القسم", "آخر تحديث"], rows: [["آلية استلام الشحنات", "المخزون", "2026"], ["إجراءات التحويل", "الطلبات", "2026"]] },
+                "حسابي والبريد": { icon: "fa-user", desc: "بيانات الحساب وإعدادات التواصل", headers: ["البيان", "القيمة"], rows: [["اسم الفرع", "فرع الفرسان"], ["النظام", "NMA v2.63.78"]] }
+            };
+
+            const data = config[title] || { icon: "fa-window-maximize", desc: "واجهة القسم", headers: ["البيان", "التفاصيل"], rows: [["الحالة", "واجهة تجريبية"]] };
+            const rows = data.rows.map(row => `<tr>${row.map(cell => `<td>${escapeHTML(cell)}</td>`).join("")}<td><button class="btn-outline row-action" type="button">عرض</button></td></tr>`).join("");
+            const headers = data.headers.map(h => `<th>${escapeHTML(h)}</th>`).join("");
+            return `
+                <section class="subpage-card">
+                    <div class="subpage-header">
+                        <div class="subpage-title">
+                            <div class="icon-box"><i class="fa-solid ${data.icon}"></i></div>
+                            <div><h2>${escapeHTML(title)}</h2><p>${escapeHTML(data.desc)}</p></div>
+                        </div>
+                        <div class="toolbar-actions">
+                            <input class="search-input page-search" type="search" placeholder="ابحث داخل ${escapeHTML(title)}..." aria-label="بحث">
+                            <button class="btn-outline" type="button" onclick="exportTableToExcel('${safeFilename(title)}')"><i class="fa-solid fa-file-excel"></i> تصدير Excel</button>
+                            <button class="btn-primary add-record" type="button"><i class="fa-solid fa-plus"></i> إضافة جديد</button>
+                        </div>
+                    </div>
+                    <div class="payments-filter-bar">
+                        <span class="results-count"><i class="fa-solid fa-table-list"></i> عدد السجلات: <b class="row-count">${data.rows.length}</b></span>
+                        <span class="status-tag status-active">واجهة تفاعلية</span>
+                    </div>
+                    <div style="overflow-x:auto">
+                        <table class="data-table">
+                            <thead><tr>${headers}<th>الإجراء</th></tr></thead>
+                            <tbody class="page-table-body">${rows}</tbody>
+                        </table>
+                    </div>
+                    <p style="margin-top:16px;color:var(--text-muted);font-size:12px">تنبيه: البيانات الظاهرة هنا تجريبية للواجهة، ولا تتصل حالياً بقاعدة بيانات النظام.</p>
+                </section>`;
+        }
+
+        function escapeHTML(value) {
+            return String(value).replace(/[&<>"']/g, ch => ({ "&":"&", "<":"<", ">":">", '"':""", "'":"'" }[ch]));
+        }
+        function safeFilename(value) { return String(value).replace(/[^\u0600-\u06FF\w-]/g, "_"); }
+
+        function bindPageControls(title) {
+            const search = document.querySelector(".page-search");
+            const body = document.querySelector(".page-table-body");
+            const count = document.querySelector(".row-count");
+            if (search && body) search.addEventListener("input", () => {
+                let visible = 0;
+                [...body.rows].forEach(row => {
+                    const show = row.innerText.toLowerCase().includes(search.value.toLowerCase());
+                    row.style.display = show ? "" : "none";
+                    if (show) visible++;
+                });
+                count.textContent = visible;
+            });
+            document.querySelectorAll(".row-action").forEach(btn => btn.addEventListener("click", () => showToast("تم فتح سجل تجريبي")));
+            const add = document.querySelector(".add-record");
+            if (add) add.addEventListener("click", () => openSimpleForm(title));
+        }
+
+        function openSimpleForm(title) {
+            const overlay = document.createElement("div");
+            overlay.className = "modal-overlay";
+            overlay.style.display = "flex";
+            overlay.innerHTML = `<div class="modal-box"><div class="modal-header"><h3>إضافة إلى ${escapeHTML(title)}</h3><button class="close-modal" type="button" aria-label="إغلاق">×</button></div><form id="quickAddForm"><label style="display:block;margin:10px 0 6px">العنوان أو البيان</label><input class="search-input" name="name" required style="width:100%;margin-bottom:14px"><label style="display:block;margin:10px 0 6px">ملاحظات</label><textarea name="notes" class="search-input" style="width:100%;min-height:90px"></textarea><button class="btn-primary" style="margin-top:14px" type="submit">حفظ</button></form></div>`;
+            document.body.appendChild(overlay);
+            overlay.querySelector(".close-modal").onclick = () => overlay.remove();
+            overlay.addEventListener("click", e => { if (e.target === overlay) overlay.remove(); });
+            overlay.querySelector("form").onsubmit = e => {
+                e.preventDefault();
+                overlay.remove();
+                showToast("تم حفظ البيانات في هذه الجلسة التجريبية");
+            };
+        }
+
+        /* ================= تصدير الجدول ================= */
+        function exportTableToExcel(filename) {
+            const table = document.querySelector(".data-table");
+            if (!table) return showToast("لا يوجد جدول لتصديره");
+            const csv = [...table.querySelectorAll("tr")].map(row =>
+                [...row.querySelectorAll("th,td")].map(cell => `"${cell.innerText.replace(/"/g, '""').trim()}"`).join(",")
+            ).join("\n");
+            const blob = new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8;" });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.href = url; link.download = filename + ".csv";
+            document.body.appendChild(link); link.click(); link.remove();
+            URL.revokeObjectURL(url);
+            showToast("تم تصدير الجدول بنجاح بصيغة CSV المتوافقة مع Excel");
+        }
+
+        /* ================= ماسح الباركود ================= */
+        async function openCameraScanner() {
+            const modal = document.getElementById("scannerModal");
+            const video = document.getElementById("cameraStream");
+            modal.style.display = "flex";
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                showToast("الكاميرا تحتاج إلى اتصال آمن HTTPS أو متصفح يدعمها");
+                return;
+            }
+            try {
+                videoStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+                video.srcObject = videoStream;
+            } catch (error) {
+                showToast("تعذر تشغيل الكاميرا. تحقق من الصلاحيات");
+            }
+        }
+
+        function stopCamera() {
+            if (videoStream) {
+                videoStream.getTracks().forEach(track => track.stop());
+                videoStream = null;
+            }
+            const video = document.getElementById("cameraStream");
+            if (video) video.srcObject = null;
+        }
+        function closeScannerModal(event, force) {
+            if (force || event.target.id === "scannerModal") {
+                document.getElementById("scannerModal").style.display = "none";
+                stopCamera();
+            }
+        }
+        function simulateBarcodeScan() {
+            stopCamera();
+            document.getElementById("scannerModal").style.display = "none";
+            showToast("تمت محاكاة قراءة باركود منتج تجريبي");
+        }
+
+        /* ================= الإعلانات والملفات ================= */
+        function openAnnouncementModal() { document.getElementById("announcementModal").style.display = "flex"; }
+        function closeAnnouncementModal(event, force) {
+            if (force || event.target.id === "announcementModal") document.getElementById("announcementModal").style.display = "none";
+        }
+        function handleFileUpload(input) {
+            if (input.files && input.files.length) showToast("تم اختيار الملف: " + input.files[0].name);
+        }
+
+        /* ================= تفاعلات إضافية ================= */
+        document.addEventListener("DOMContentLoaded", () => {
+            initDarkMode();
+
+            const notification = document.querySelector(".notification-wrapper .notification-btn");
+            if (notification) notification.addEventListener("click", () => showToast("لديك 12 إشعاراً — اربط الإشعارات بمصدر البيانات لعرض التفاصيل"));
+
+            const profile = document.querySelector(".profile-wrapper .user-profile");
+            if (profile) profile.addEventListener("click", () => openPage("حسابي", "حسابي والبريد"));
+
+            document.querySelectorAll(".stat-card").forEach(card => {
+                card.setAttribute("tabindex", "0");
+                card.setAttribute("role", "button");
+                card.addEventListener("keydown", event => {
+                    if (event.key === "Enter" || event.key === " ") { event.preventDefault(); card.click(); }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
