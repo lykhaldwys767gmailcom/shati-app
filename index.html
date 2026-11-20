@@ -18,7 +18,7 @@
             --text-dark: #2c2c2c;
             --text-muted: #7a7a7a;
             --border-color: #ececec;
-            --bg-color: #eaf2f8; /* الخلفية الزرقاء الفاتحة */
+            --bg-color: #e0ebf5; /* خلفية زرقاء فاتحة ومريحة */
         }
 
         /* ================= ألوان الوضع الليلي (Dark Mode) ================= */
@@ -30,7 +30,7 @@
             --text-dark: #e5e7eb;
             --text-muted: #9ca3af;
             --border-color: #374151;
-            --bg-color: #0b192c; /* الخلفية الزرقاء الداكنة */
+            --bg-color: #0b192c; /* خلفية زرقاء داكنة للوضع الليلي */
         }
 
         body.dark-mode .navbar { box-shadow: 0 2px 6px rgba(0,0,0,0.5); }
@@ -70,11 +70,12 @@
         .nav-link-btn:hover, .nav-item.open .nav-link-btn { background-color: rgba(255,255,255,0.15); color: #fff; }
         .nav-link-btn.active { background-color: rgba(255,255,255,0.22); font-weight: 700; color: #fff; }
         .nav-link-btn i.arrow { font-size: 11px; transition: transform 0.2s ease; }
+        
+        /* تأثيرات النقر للقوائم - تم حذف الـ Hover لضمان الاستقرار */
         .nav-item.open .nav-link-btn i.arrow { transform: rotate(180deg); }
-
         .dropdown-menu { display: none; position: absolute; top: calc(100% + 7px); right: 0; width: 220px; min-width: 220px; background: #fff; color: #29232a; border: 1px solid #f0e5e9; border-radius: 15px; box-shadow: 0 12px 32px rgba(53, 14, 30, .16); padding: 7px; z-index: 1500; animation: dropdownFade .18s ease; max-height: 82vh; overflow-y: auto; }
-        .nav-item.open .dropdown-menu { display: block !important; visibility: visible; opacity: 1; }
-        @media (min-width: 769px) { .nav-item:hover .dropdown-menu { display: block !important; } .nav-item:hover .nav-link-btn i.arrow { transform: rotate(180deg); } }
+        .nav-item.open .dropdown-menu { display: block !important; }
+        
         @keyframes dropdownFade { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
 
         .dropdown-menu-heading { color: #9a8790; font-size: 11px; font-weight: 700; padding: 6px 11px 5px; }
@@ -542,16 +543,12 @@ button:focus-visible, input:focus-visible { outline: 2px solid #d7a4b4; outline-
             toastTimer = setTimeout(() => toast.style.display = "none", 2800);
         }
 
-        /* ================= القوائم المنسدلة (الحل الجذري) ================= */
-        // دالة موثوقة لفتح وإغلاق القوائم
+        /* ================= القوائم المنسدلة - تفتح بالنقر فقط ================= */
         window.toggleDropdown = function(event, button) {
-            // 1. إيقاف انتشار الحدث حتى لا يقرأه المستند (Document) ويغلق القائمة فوراً
             if (event) {
                 event.preventDefault();
                 event.stopPropagation();
             }
-            
-            // احتياط: لو لم يتم تمرير الزر بشكل صحيح
             if (!button && event && event.target) {
                 button = event.target.closest('.nav-link-btn');
             }
@@ -560,26 +557,24 @@ button:focus-visible, input:focus-visible { outline: 2px solid #d7a4b4; outline-
             const currentItem = button.closest(".nav-item");
             if (!currentItem) return;
 
-            // هل القائمة التي ضغطنا عليها مفتوحة حالياً؟
             const isCurrentlyOpen = currentItem.classList.contains("open");
 
-            // 2. إغلاق جميع القوائم الأخرى أولاً
+            // إغلاق جميع القوائم الأخرى
             document.querySelectorAll(".nav-item.open").forEach(item => {
                 item.classList.remove("open");
             });
 
-            // 3. إذا لم تكن مفتوحة، افتحها الآن
+            // فتح أو إغلاق القائمة الحالية
             if (!isCurrentlyOpen) {
                 currentItem.classList.add("open");
             }
         };
 
-        // عند النقر في أي مكان فارغ بالشاشة، يتم إغلاق القوائم المفتوحة
+        // إغلاق القوائم عند النقر في أي مكان آخر بالشاشة
         document.addEventListener("click", function(event) {
             const clickedInsideMenu = event.target.closest(".dropdown-menu");
             const clickedOnButton = event.target.closest(".nav-link-btn");
             
-            // إذا ضغطنا خارج القائمة وخارج الأزرار، نغلق الجميع
             if (!clickedInsideMenu && !clickedOnButton) {
                 document.querySelectorAll(".nav-item.open").forEach(item => {
                     item.classList.remove("open");
@@ -587,7 +582,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid #d7a4b4; outline-
             }
         });
 
-        /* ================= الوضع الليلي بضمان عدم توقف السكربت ================= */
+        /* ================= الوضع الليلي ================= */
         function initDarkMode() {
             try {
                 const isDark = localStorage.getItem("nma_dark_mode") === "true";
@@ -620,7 +615,9 @@ button:focus-visible, input:focus-visible { outline: 2px solid #d7a4b4; outline-
             const breadSub = document.getElementById("breadSub");
             const back = document.getElementById("backHomeBtn");
 
+            // إغلاق القائمة بمجرد اختيار صفحة
             document.querySelectorAll(".nav-item.open").forEach(item => item.classList.remove("open"));
+            
             document.querySelectorAll(".dropdown-item").forEach(item => item.classList.remove("active"));
             document.querySelectorAll(".dropdown-item").forEach(item => {
                 if (item.textContent.trim() === sub) item.classList.add("active");
