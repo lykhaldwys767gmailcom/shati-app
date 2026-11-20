@@ -18,7 +18,7 @@
             --text-dark: #2c2c2c;
             --text-muted: #7a7a7a;
             --border-color: #ececec;
-            --bg-color: #eaf2f8; /* تم تغيير الخلفية إلى أزرق فاتح */
+            --bg-color: #eaf2f8; /* الخلفية الزرقاء الفاتحة */
         }
 
         /* ================= ألوان الوضع الليلي (Dark Mode) ================= */
@@ -30,7 +30,7 @@
             --text-dark: #e5e7eb;
             --text-muted: #9ca3af;
             --border-color: #374151;
-            --bg-color: #0b192c; /* خلفية زرقاء داكنة للوضع الليلي */
+            --bg-color: #0b192c; /* الخلفية الزرقاء الداكنة */
         }
 
         body.dark-mode .navbar { box-shadow: 0 2px 6px rgba(0,0,0,0.5); }
@@ -73,8 +73,8 @@
         .nav-item.open .nav-link-btn i.arrow { transform: rotate(180deg); }
 
         .dropdown-menu { display: none; position: absolute; top: calc(100% + 7px); right: 0; width: 220px; min-width: 220px; background: #fff; color: #29232a; border: 1px solid #f0e5e9; border-radius: 15px; box-shadow: 0 12px 32px rgba(53, 14, 30, .16); padding: 7px; z-index: 1500; animation: dropdownFade .18s ease; max-height: 82vh; overflow-y: auto; }
-        .nav-item.open .dropdown-menu { display: block; }
-        @media (min-width: 769px) { .nav-item:hover .dropdown-menu { display: block; } .nav-item:hover .nav-link-btn i.arrow { transform: rotate(180deg); } }
+        .nav-item.open .dropdown-menu { display: block !important; visibility: visible; opacity: 1; }
+        @media (min-width: 769px) { .nav-item:hover .dropdown-menu { display: block !important; } .nav-item:hover .nav-link-btn i.arrow { transform: rotate(180deg); } }
         @keyframes dropdownFade { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
 
         .dropdown-menu-heading { color: #9a8790; font-size: 11px; font-weight: 700; padding: 6px 11px 5px; }
@@ -256,7 +256,7 @@
     </style>
 
 <style>
-/* تحسينات الاستجابة وإمكانية الاستخدام - دون تغيير القوائم */
+/* تحسينات الاستجابة وإمكانية الاستخدام */
 .stat-card:focus-visible, .nav-link-btn:focus-visible, .dropdown-item:focus-visible,
 button:focus-visible, input:focus-visible { outline: 2px solid #d7a4b4; outline-offset: 2px; }
 .subpage-card { box-shadow: 0 6px 24px rgba(30, 20, 25, .045); }
@@ -286,8 +286,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid #d7a4b4; outline-
   .subpage-card { padding: 16px; }
 }
 @media (max-width: 480px) {
-  /* تعديل موضع القائمة لتظهر بشكل صحيح في الشاشات الصغيرة بدلاً من الاختفاء */
-  .dropdown-menu { position: fixed; top: 60px; right: 10px; left: 10px; min-width: 0; max-height: calc(100vh - 80px); overflow-y: auto; }
+  .dropdown-menu { position: absolute; top: 100%; right: 0; left: 0; min-width: 0; max-height: calc(100vh - 80px); overflow-y: auto; }
 }
 </style>
 
@@ -304,7 +303,6 @@ button:focus-visible, input:focus-visible { outline: 2px solid #d7a4b4; outline-
 
             <ul class="nav-links">
                 <li class="nav-item">
-                    <!-- تمت إضافة type="button" لمنع تحديث الصفحة عند النقر وتمرير حدث النقر -->
                     <button type="button" class="nav-link-btn active" onclick="toggleDropdown(event, this)"><span>الرئيسية</span><i class="fa-solid fa-chevron-down arrow"></i></button>
                     <div class="dropdown-menu">
                         <div class="dropdown-menu-heading">اليوم</div>
@@ -414,7 +412,6 @@ button:focus-visible, input:focus-visible { outline: 2px solid #d7a4b4; outline-
                         <span class="promo-sub-tag">NMA شاطئ الوصل</span>
                         <div class="promo-heading">تطبيق NMA على جوالك الآن</div>
                         <div class="promo-features">
-                            <!-- تم ربط هذا الزر ليفتح نافذة الكاميرا مباشرة للتجربة -->
                             <span class="promo-chip" onclick="openCameraScanner()"><i class="fa-solid fa-barcode"></i> ماسح المنتجات</span>
                             <span class="promo-chip"><i class="fa-regular fa-envelope"></i> المراسلات</span>
                             <span class="promo-chip"><i class="fa-solid fa-list-check"></i> المهام</span>
@@ -545,22 +542,48 @@ button:focus-visible, input:focus-visible { outline: 2px solid #d7a4b4; outline-
             toastTimer = setTimeout(() => toast.style.display = "none", 2800);
         }
 
-        // تم إضافة event لمنع إغلاق القائمة فور فتحها
-        function toggleDropdown(event, button) {
+        /* ================= القوائم المنسدلة (الحل الجذري) ================= */
+        // دالة موثوقة لفتح وإغلاق القوائم
+        window.toggleDropdown = function(event, button) {
+            // 1. إيقاف انتشار الحدث حتى لا يقرأه المستند (Document) ويغلق القائمة فوراً
             if (event) {
                 event.preventDefault();
                 event.stopPropagation();
             }
-            const current = button.closest(".nav-item");
-            document.querySelectorAll(".nav-item.open").forEach(item => {
-                if (item !== current) item.classList.remove("open");
-            });
-            current.classList.toggle("open");
-        }
+            
+            // احتياط: لو لم يتم تمرير الزر بشكل صحيح
+            if (!button && event && event.target) {
+                button = event.target.closest('.nav-link-btn');
+            }
+            if (!button) return;
 
-        document.addEventListener("click", event => {
-            if (!event.target.closest(".nav-item")) {
-                document.querySelectorAll(".nav-item.open").forEach(item => item.classList.remove("open"));
+            const currentItem = button.closest(".nav-item");
+            if (!currentItem) return;
+
+            // هل القائمة التي ضغطنا عليها مفتوحة حالياً؟
+            const isCurrentlyOpen = currentItem.classList.contains("open");
+
+            // 2. إغلاق جميع القوائم الأخرى أولاً
+            document.querySelectorAll(".nav-item.open").forEach(item => {
+                item.classList.remove("open");
+            });
+
+            // 3. إذا لم تكن مفتوحة، افتحها الآن
+            if (!isCurrentlyOpen) {
+                currentItem.classList.add("open");
+            }
+        };
+
+        // عند النقر في أي مكان فارغ بالشاشة، يتم إغلاق القوائم المفتوحة
+        document.addEventListener("click", function(event) {
+            const clickedInsideMenu = event.target.closest(".dropdown-menu");
+            const clickedOnButton = event.target.closest(".nav-link-btn");
+            
+            // إذا ضغطنا خارج القائمة وخارج الأزرار، نغلق الجميع
+            if (!clickedInsideMenu && !clickedOnButton) {
+                document.querySelectorAll(".nav-item.open").forEach(item => {
+                    item.classList.remove("open");
+                });
             }
         });
 
@@ -572,7 +595,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid #d7a4b4; outline-
                 const icon = document.querySelector("#darkModeToggle i");
                 if (icon) icon.className = isDark ? "fa-solid fa-sun" : "fa-solid fa-moon";
             } catch (e) {
-                console.warn("تعذر الوصول لـ LocalStorage. الوضع الليلي لن يُحفظ.");
+                console.warn("تعذر الوصول لـ LocalStorage.");
             }
         }
 
